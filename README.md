@@ -1,1 +1,4 @@
-A cross platform (iOS, Mac OSX & PC) OpenGLES2.0 renderer
+electric sheep
+==============
+
+a crossplatform (ios, macos & win) opengles2.0 renderer in c++
