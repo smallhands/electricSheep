@@ -21,6 +21,30 @@
 
 @implementation OpenGLView
 
+- (void)setupLayer {
+    _eaglLayer=(CAEAGLLayer *)self.layer;
+    _eaglLayer.opaque=YES;
+}
+
+- (void)setupContext {
+    EAGLRenderingAPI api=kEAGLRenderingAPIOpenGLES2;
+    _eaglContext=[[EAGLContext alloc] initWithAPI:api];
+    [EAGLContext setCurrentContext:_eaglContext];
+}
+
+- (void)setupRenderBuffer {
+    glGenRenderbuffers(1, &_colorRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+    [_eaglContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
+}
+
+- (void)setupFrameBuffer {
+    GLuint frameBuffer;
+    glGenFramebuffers(1, &frameBuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
+}
+
 - (void)setup {
     [self setupLayer];
     [self setupContext];
