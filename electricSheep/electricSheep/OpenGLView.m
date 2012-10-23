@@ -15,6 +15,7 @@
 - (void)setupContext;
 - (void)setupRenderBuffer;
 - (void)setupFrameBuffer;
+- (void)clear;
 - (void)render;
 
 @end
@@ -50,6 +51,16 @@
     [self setupContext];
     [self setupRenderBuffer];
     [self setupFrameBuffer];
+}
+
+- (void)clear {
+    glClearColor(0, 0, 1, 1);
+    glClear(GL_COLOR_BUFFER_BIT);
+}
+
+- (void)render {
+    [self clear];
+    [_eaglContext presentRenderbuffer:_colorRenderBuffer];
 }
 
 - (void)awakeFromNib {
