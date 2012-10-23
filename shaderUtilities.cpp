@@ -58,14 +58,14 @@ GLuint createShader(const char *filename, GLenum shaderType) {
     GLuint shaderID=glCreateShader(shaderType);
     const GLchar *shaderSources[]={
         // Define GLSL version
-#if defined(EMSCRIPTEN) || defined (GL_ES_VERSION_2_0)
+#ifdef GL_ES_VERSION_2_0
         "#version 100\n"
 #else
         "#version 120\n"
 #endif
         ,
         // GLES2 precision specifiers
-#if defined(EMSCRIPTEN) || defined (GL_ES_VERSION_2_0)
+#ifdef GL_ES_VERSION_2_0
         // Define default float precision for fragment shaders:
         (shaderType == GL_FRAGMENT_SHADER) ?
         "#ifdef GL_FRAGMENT_PRECISION_HIGH\n"
