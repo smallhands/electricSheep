@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "shaderUtilities.h"
+#import "electricSheep.h"
 
 @interface OpenGLView : UIView {
     CAEAGLLayer *_eaglLayer;

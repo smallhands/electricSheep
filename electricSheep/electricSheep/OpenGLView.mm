@@ -15,12 +15,31 @@
 - (void)setupContext;
 - (void)setupRenderBuffer;
 - (void)setupFrameBuffer;
-- (void)clear;
+- (void)setupShaders;
 - (void)render;
 
 @end
 
 @implementation OpenGLView
+
+- (void)setupShaders {
+    NSString *vertexShaderPath=[[NSBundle mainBundle] pathForResource:@"vertex" ofType:@"glsl"];
+    NSError *error;
+    NSString *vertexShaderSource=[NSString stringWithContentsOfFile:vertexShaderPath encoding:NSUTF8StringEncoding error:&error];
+    if (!vertexShaderSource) {
+        NSLog(@"Error loading shader: %@", error.localizedDescription);
+        exit(1);
+    }
+    
+    NSString *fragmentShaderPath=[[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"glsl"];
+    NSString *fragmentShaderSource=[NSString stringWithContentsOfFile:fragmentShaderPath encoding:NSUTF8StringEncoding error:&error];
+    if (!fragmentShaderSource) {
+        NSLog(@"Error loading shader: %@", error.localizedDescription);
+        exit(1);
+    }
+    
+    ElectricSheepEngine::getInstance().initShaders([vertexShaderSource UTF8String], [fragmentShaderSource UTF8String]);
+}
 
 - (void)setupLayer {
     _eaglLayer=(CAEAGLLayer *)self.layer;
@@ -51,16 +70,12 @@
     [self setupContext];
     [self setupRenderBuffer];
     [self setupFrameBuffer];
+    [self setupShaders];
     [self render];
 }
 
-- (void)clear {
-    glClearColor(0, 0, 1, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
-}
-
 - (void)render {
-    [self clear];
+    ElectricSheepEngine::getInstance().render();
     [_eaglContext presentRenderbuffer:_colorRenderBuffer];
 }
 
