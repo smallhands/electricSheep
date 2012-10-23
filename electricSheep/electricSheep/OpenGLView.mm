@@ -15,12 +15,44 @@
 - (void)setupContext;
 - (void)setupRenderBuffer;
 - (void)setupFrameBuffer;
+- (void)setupShaders;
 - (void)clear;
 - (void)render;
 
 @end
 
 @implementation OpenGLView
+
+- (void)setupShaders {
+#pragma message("TODO: should be an engine call with loaded shader sources")
+    NSString *vertexShaderPath=[[NSBundle mainBundle] pathForResource:@"ios-vertex" ofType:@"glsl"];
+    NSError *error;
+    NSString *vertexShaderSource=[NSString stringWithContentsOfFile:vertexShaderPath encoding:NSUTF8StringEncoding error:&error];
+    if (!vertexShaderSource) {
+        NSLog(@"Error loading shader: %@", error.localizedDescription);
+        exit(1);
+    }
+    GLuint vertexShaderHandle=createShader([vertexShaderSource UTF8String], GL_VERTEX_SHADER);
+    
+    NSString *fragmentShaderPath=[[NSBundle mainBundle] pathForResource:@"ios-fragment" ofType:@"glsl"];
+    NSString *fragmentShaderSource=[NSString stringWithContentsOfFile:fragmentShaderPath encoding:NSUTF8StringEncoding error:&error];
+    if (!fragmentShaderSource) {
+        NSLog(@"Error loading shader: %@", error.localizedDescription);
+        exit(1);
+    }
+    GLuint fragmentShaderHandle=createShader([fragmentShaderSource UTF8String], GL_FRAGMENT_SHADER);
+    
+    GLuint shaderProgram=glCreateProgram();
+    glAttachShader(shaderProgram, vertexShaderHandle);
+    glAttachShader(shaderProgram, fragmentShaderHandle);
+    glLinkProgram(shaderProgram);
+    GLint linkSuccess=GL_FALSE;
+    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &linkSuccess);
+    if(linkSuccess==GL_FALSE){
+        NSLog(@"Failed to link program");
+        exit(1);
+    }
+}
 
 - (void)setupLayer {
     _eaglLayer=(CAEAGLLayer *)self.layer;
@@ -51,6 +83,7 @@
     [self setupContext];
     [self setupRenderBuffer];
     [self setupFrameBuffer];
+    [self setupShaders];
     [self render];
 }
 
@@ -60,6 +93,7 @@
 }
 
 - (void)render {
+#pragma message("TODO: should be a call to the engine")
     [self clear];
     [_eaglContext presentRenderbuffer:_colorRenderBuffer];
 }
