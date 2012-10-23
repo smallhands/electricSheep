@@ -1,33 +1,5 @@
 #include "shaderUtilities.h"
 
-char* readFile(const char* filename) {
-    FILE *inputFile=fopen(filename, "rb");
-    if(inputFile==NULL) {
-        return NULL;
-    }
-    
-    int resourceBufferSize=BUFSIZ;
-    char *resource=(char *)malloc(resourceBufferSize);
-    int resourceTotalRead=0;
-    
-    while (!feof(inputFile) && !ferror(inputFile)) {
-        if (resourceTotalRead+BUFSIZ > resourceBufferSize) {
-            if(resourceBufferSize > 10*1024*1024) {
-                break;
-            }
-            resourceBufferSize*=2;
-            resource=(char *)realloc(resource, resourceBufferSize);
-        }
-        char *position=resource+resourceTotalRead;
-        resourceTotalRead+=fread(position, 1, BUFSIZ, inputFile);
-    }
-    
-    fclose(inputFile);
-    resource=(char *)realloc(resource, resourceTotalRead+1);
-    resource[resourceTotalRead]='\0';
-    return resource;
-}
-
 void printCompilationLog(GLuint objectID) {
     GLint shaderCompilationInfoLogLength = 0;	
     glGetShaderiv(objectID, GL_INFO_LOG_LENGTH , &shaderCompilationInfoLogLength);
@@ -48,13 +20,7 @@ bool bindShaderUniformAttribute(GLint *shaderAttribute, GLuint shaderProgram, co
     return *shaderAttribute!=-1;
 }
 
-GLuint createShader(const char *filename, GLenum shaderType) {
-    const char *shaderSource=readFile(filename);
-    if(shaderSource==NULL) {
-        fprintf(stderr, "ERROR: Could not open shader source file: %s", filename);
-        return 0;
-    }
-    
+GLuint createShader(const char *shaderSource, GLenum shaderType) {
     GLuint shaderID=glCreateShader(shaderType);
     const GLchar *shaderSources[]={
         // Define GLSL version
@@ -74,8 +40,6 @@ GLuint createShader(const char *filename, GLenum shaderType) {
         "precision mediump float;         \n"
         "#endif                           \n"
         : ""
-        // Note: OpenGL ES automatically defines this:
-        // #define GL_ES
 #else
         // Ignore GLES 2 precision specifiers:
         "#define lowp   \n"

@@ -11,8 +11,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #ifdef __APPLE__
-#include <OpenGL/gl.h>
-#include <Glut/glut.h>
+#import <QuartzCore/QuartzCore.h>
+#import <OpenGLES/ES2/gl.h>
+#import <OpenGLES/ES2/glext.h>
 #else
 #include <GL/gl.h>
 #include <GL/glut.h>
@@ -21,8 +22,7 @@
 #ifndef shader_Utilities_h
 #define shader_Utilities_h
 
-char* readFile(const char* filename);
-GLuint createShader(const char *filename, GLenum shaderType);
+GLuint createShader(const char *shaderSource, GLenum shaderType);
 void printCompilationLog(GLuint object);
 bool bindShaderAttribute(GLint *shaderAttribute, GLuint shaderProgram, const char *shaderAttributeName);
 bool bindShaderUniformAttribute(GLint *shaderAttribute, GLuint shaderProgram, const char *shaderAttributeName);

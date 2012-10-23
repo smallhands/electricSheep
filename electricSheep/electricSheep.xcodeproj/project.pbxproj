@@ -24,6 +24,7 @@
 		57F5BC451636D5C100DF1161 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC441636D5C100DF1161 /* OpenGLES.framework */; };
 		57F5BC471636D5C600DF1161 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC461636D5C600DF1161 /* QuartzCore.framework */; };
 		57F5BC4A1636D60D00DF1161 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC491636D60D00DF1161 /* OpenGLView.m */; };
+		57F5BC531636E4B100DF1161 /* shaderUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC3A1636D4EF00DF1161 /* shaderUtilities.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F5BC531636E4B100DF1161 /* shaderUtilities.cpp in Sources */,
 				57F5BC191636D41700DF1161 /* main.m in Sources */,
 				57F5BC1D1636D41700DF1161 /* AppDelegate.m in Sources */,
 				57F5BC2C1636D41700DF1161 /* ViewController.m in Sources */,
