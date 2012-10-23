@@ -18,17 +18,9 @@
 #include "shaderUtilities.h"
 
 class ElectricSheepEngine {
-    GLuint shaderProgram;
-    GLint shaderAttribute_coord3D;
-    GLint shaderAttribute_vertexColour;
-    GLint shaderAttribute_uniform_mvp;
-    GLint shaderAttribute_uniform_animation;
-    //model vertices
-    GLuint modelDataVBO;
-    GLuint modelElements;
     
 public:
-    static ElectricSheepEngine getInstance();
+    static ElectricSheepEngine& getInstance();
     ~ElectricSheepEngine();
     bool initShaders(const char *vertexShaderSource, const char *fragmentShaderSource);
     void update();
@@ -38,6 +30,17 @@ public:
 private:
     void freeResources();
     ElectricSheepEngine();
+    ElectricSheepEngine(ElectricSheepEngine const&);
+    void operator=(ElectricSheepEngine const&);
+    
+    GLuint shaderProgram;
+    GLint shaderAttribute_coord3D;
+    GLint shaderAttribute_vertexColour;
+    GLint shaderAttribute_uniform_mvp;
+    GLint shaderAttribute_uniform_animation;
+    //model vertices
+    GLuint modelDataVBO;
+    GLuint modelElements;
 };
 
 #endif

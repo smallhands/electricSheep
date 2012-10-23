@@ -4,8 +4,8 @@
 int windowWidth=1136;
 int windowHeight=640;
 
-ElectricSheepEngine ElectricSheepEngine::getInstance() {
-    static ElectricSheepEngine sharedInstance=ElectricSheepEngine();
+ElectricSheepEngine& ElectricSheepEngine::getInstance() {
+    static ElectricSheepEngine sharedInstance;
     return sharedInstance;
 }
 
@@ -14,7 +14,7 @@ ElectricSheepEngine::ElectricSheepEngine() {
 }
 
 ElectricSheepEngine::~ElectricSheepEngine() {
-    this->freeResources();
+    freeResources();
 }
 
 bool ElectricSheepEngine::initShaders(const char *vertexShaderSource, const char *fragmentShaderSource) {
