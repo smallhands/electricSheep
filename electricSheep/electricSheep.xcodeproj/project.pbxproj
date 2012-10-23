@@ -25,6 +25,7 @@
 		57F5BC431636D50E00DF1161 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC411636D50E00DF1161 /* vertex.glsl */; };
 		57F5BC451636D5C100DF1161 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC441636D5C100DF1161 /* OpenGLES.framework */; };
 		57F5BC471636D5C600DF1161 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC461636D5C600DF1161 /* QuartzCore.framework */; };
+		57F5BC4A1636D60D00DF1161 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC491636D60D00DF1161 /* OpenGLView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		57F5BC411636D50E00DF1161 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vertex.glsl; path = ../shaders/vertex.glsl; sourceTree = "<group>"; };
 		57F5BC441636D5C100DF1161 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		57F5BC461636D5C600DF1161 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		57F5BC481636D60D00DF1161 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		57F5BC491636D60D00DF1161 /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				57F5BC271636D41700DF1161 /* MainStoryboard_iPad.storyboard */,
 				57F5BC2A1636D41700DF1161 /* ViewController.h */,
 				57F5BC2B1636D41700DF1161 /* ViewController.m */,
+				57F5BC481636D60D00DF1161 /* OpenGLView.h */,
+				57F5BC491636D60D00DF1161 /* OpenGLView.m */,
 				57F5BC131636D41700DF1161 /* Supporting Files */,
 			);
 			name = electricSheep_iOS;
@@ -223,6 +228,7 @@
 				57F5BC2C1636D41700DF1161 /* ViewController.m in Sources */,
 				57F5BC3C1636D4EF00DF1161 /* electricSheep.cpp in Sources */,
 				57F5BC3D1636D4EF00DF1161 /* shaderUtilities.cpp in Sources */,
+				57F5BC4A1636D60D00DF1161 /* OpenGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
