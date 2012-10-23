@@ -58,7 +58,7 @@
 		57F5BBFD1636D41700DF1161 = {
 			isa = PBXGroup;
 			children = (
-				57F5BC121636D41700DF1161 /* electricSheep */,
+				57F5BC121636D41700DF1161 /* electricSheep_iOS */,
 				57F5BC0B1636D41700DF1161 /* Frameworks */,
 				57F5BC091636D41700DF1161 /* Products */,
 			);
@@ -82,7 +82,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		57F5BC121636D41700DF1161 /* electricSheep */ = {
+		57F5BC121636D41700DF1161 /* electricSheep_iOS */ = {
 			isa = PBXGroup;
 			children = (
 				57F5BC1B1636D41700DF1161 /* AppDelegate.h */,
@@ -93,6 +93,7 @@
 				57F5BC2B1636D41700DF1161 /* ViewController.m */,
 				57F5BC131636D41700DF1161 /* Supporting Files */,
 			);
+			name = electricSheep_iOS;
 			path = electricSheep;
 			sourceTree = "<group>";
 		};
@@ -305,6 +306,7 @@
 				57F5BC311636D41700DF1161 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
