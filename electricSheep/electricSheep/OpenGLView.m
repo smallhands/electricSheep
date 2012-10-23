@@ -51,6 +51,7 @@
     [self setupContext];
     [self setupRenderBuffer];
     [self setupFrameBuffer];
+    [self render];
 }
 
 - (void)clear {
