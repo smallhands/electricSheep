@@ -1,9 +1,7 @@
 #define GL_GLEXT_PROTOTYPES
 #define EGL_EGLEXT_PROTOTYPES
 
-#ifndef EMSCRIPTEN
 #define _GNU_SOURCE
-#endif
 
 #ifdef _WIN32
 #include <Windows.h>
@@ -20,8 +18,8 @@
 #include <GL/glut.h>
 #endif
 
-#ifndef voxels_Header_h
-#define voxels_Header_h
+#ifndef shader_Utilities_h
+#define shader_Utilities_h
 
 char* readFile(const char* filename);
 GLuint createShader(const char *filename, GLenum shaderType);
