@@ -25,6 +25,8 @@
 		57F5BC471636D5C600DF1161 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC461636D5C600DF1161 /* QuartzCore.framework */; };
 		57F5BC4A1636D60D00DF1161 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC491636D60D00DF1161 /* OpenGLView.m */; };
 		57F5BC531636E4B100DF1161 /* shaderUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC3A1636D4EF00DF1161 /* shaderUtilities.cpp */; };
+		57F5BC5E1636E94100DF1161 /* ios-fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC5D1636E94100DF1161 /* ios-fragment.glsl */; };
+		57F5BC611636E94D00DF1161 /* ios-vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC601636E94D00DF1161 /* ios-vertex.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		57F5BC461636D5C600DF1161 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		57F5BC481636D60D00DF1161 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
 		57F5BC491636D60D00DF1161 /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
+		57F5BC5D1636E94100DF1161 /* ios-fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "ios-fragment.glsl"; path = "../shaders/ios-fragment.glsl"; sourceTree = "<group>"; };
+		57F5BC601636E94D00DF1161 /* ios-vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ios-vertex.glsl"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,8 @@
 			children = (
 				57F5BC401636D50E00DF1161 /* fragment.glsl */,
 				57F5BC411636D50E00DF1161 /* vertex.glsl */,
+				57F5BC5D1636E94100DF1161 /* ios-fragment.glsl */,
+				57F5BC601636E94D00DF1161 /* ios-vertex.glsl */,
 			);
 			name = shaders;
 			sourceTree = "<group>";
@@ -212,6 +218,8 @@
 				57F5BC291636D41700DF1161 /* MainStoryboard_iPad.storyboard in Resources */,
 				57F5BC421636D50E00DF1161 /* fragment.glsl in Resources */,
 				57F5BC431636D50E00DF1161 /* vertex.glsl in Resources */,
+				57F5BC5E1636E94100DF1161 /* ios-fragment.glsl in Resources */,
+				57F5BC611636E94D00DF1161 /* ios-vertex.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
