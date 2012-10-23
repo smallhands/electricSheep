@@ -25,8 +25,7 @@
 		57F5BC471636D5C600DF1161 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC461636D5C600DF1161 /* QuartzCore.framework */; };
 		57F5BC4A1636D60D00DF1161 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC491636D60D00DF1161 /* OpenGLView.mm */; };
 		57F5BC531636E4B100DF1161 /* shaderUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC3A1636D4EF00DF1161 /* shaderUtilities.cpp */; };
-		57F5BC5E1636E94100DF1161 /* ios-fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC5D1636E94100DF1161 /* ios-fragment.glsl */; };
-		57F5BC611636E94D00DF1161 /* ios-vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC601636E94D00DF1161 /* ios-vertex.glsl */; };
+		57F5BC651636FD8300DF1161 /* electricSheep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC391636D4EF00DF1161 /* electricSheep.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +55,8 @@
 		57F5BC461636D5C600DF1161 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		57F5BC481636D60D00DF1161 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
 		57F5BC491636D60D00DF1161 /* OpenGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenGLView.mm; sourceTree = "<group>"; };
-		57F5BC5D1636E94100DF1161 /* ios-fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "ios-fragment.glsl"; path = "../shaders/ios-fragment.glsl"; sourceTree = "<group>"; };
-		57F5BC601636E94D00DF1161 /* ios-vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ios-vertex.glsl"; sourceTree = "<group>"; };
+		57F5BC641636FD4E00DF1161 /* electricSheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = electricSheep.h; path = ../electricSheep.h; sourceTree = "<group>"; };
+		57F5BC661636FE1A00DF1161 /* glm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = glm.hpp; path = ../glm/glm.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +78,6 @@
 		57F5BBFD1636D41700DF1161 = {
 			isa = PBXGroup;
 			children = (
-				57F5BC461636D5C600DF1161 /* QuartzCore.framework */,
-				57F5BC441636D5C100DF1161 /* OpenGLES.framework */,
 				57F5BC3F1636D50300DF1161 /* shaders */,
 				57F5BC381636D4DA00DF1161 /* engine */,
 				57F5BC121636D41700DF1161 /* electricSheep_iOS */,
@@ -100,6 +97,8 @@
 		57F5BC0B1636D41700DF1161 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57F5BC461636D5C600DF1161 /* QuartzCore.framework */,
+				57F5BC441636D5C100DF1161 /* OpenGLES.framework */,
 				57F5BC0C1636D41700DF1161 /* UIKit.framework */,
 				57F5BC0E1636D41700DF1161 /* Foundation.framework */,
 				57F5BC101636D41700DF1161 /* CoreGraphics.framework */,
@@ -141,9 +140,11 @@
 		57F5BC381636D4DA00DF1161 /* engine */ = {
 			isa = PBXGroup;
 			children = (
+				57F5BC661636FE1A00DF1161 /* glm.hpp */,
+				57F5BC641636FD4E00DF1161 /* electricSheep.h */,
 				57F5BC391636D4EF00DF1161 /* electricSheep.cpp */,
-				57F5BC3A1636D4EF00DF1161 /* shaderUtilities.cpp */,
 				57F5BC3B1636D4EF00DF1161 /* shaderUtilities.h */,
+				57F5BC3A1636D4EF00DF1161 /* shaderUtilities.cpp */,
 			);
 			name = engine;
 			sourceTree = "<group>";
@@ -153,8 +154,6 @@
 			children = (
 				57F5BC401636D50E00DF1161 /* fragment.glsl */,
 				57F5BC411636D50E00DF1161 /* vertex.glsl */,
-				57F5BC5D1636E94100DF1161 /* ios-fragment.glsl */,
-				57F5BC601636E94D00DF1161 /* ios-vertex.glsl */,
 			);
 			name = shaders;
 			sourceTree = "<group>";
@@ -218,8 +217,6 @@
 				57F5BC291636D41700DF1161 /* MainStoryboard_iPad.storyboard in Resources */,
 				57F5BC421636D50E00DF1161 /* fragment.glsl in Resources */,
 				57F5BC431636D50E00DF1161 /* vertex.glsl in Resources */,
-				57F5BC5E1636E94100DF1161 /* ios-fragment.glsl in Resources */,
-				57F5BC611636E94D00DF1161 /* ios-vertex.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F5BC651636FD8300DF1161 /* electricSheep.cpp in Sources */,
 				57F5BC531636E4B100DF1161 /* shaderUtilities.cpp in Sources */,
 				57F5BC191636D41700DF1161 /* main.m in Sources */,
 				57F5BC1D1636D41700DF1161 /* AppDelegate.m in Sources */,

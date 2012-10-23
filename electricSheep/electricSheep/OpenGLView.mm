@@ -16,7 +16,6 @@
 - (void)setupRenderBuffer;
 - (void)setupFrameBuffer;
 - (void)setupShaders;
-- (void)clear;
 - (void)render;
 
 @end
@@ -24,34 +23,22 @@
 @implementation OpenGLView
 
 - (void)setupShaders {
-#pragma message("TODO: should be an engine call with loaded shader sources")
-    NSString *vertexShaderPath=[[NSBundle mainBundle] pathForResource:@"ios-vertex" ofType:@"glsl"];
+    NSString *vertexShaderPath=[[NSBundle mainBundle] pathForResource:@"vertex" ofType:@"glsl"];
     NSError *error;
     NSString *vertexShaderSource=[NSString stringWithContentsOfFile:vertexShaderPath encoding:NSUTF8StringEncoding error:&error];
     if (!vertexShaderSource) {
         NSLog(@"Error loading shader: %@", error.localizedDescription);
         exit(1);
     }
-    GLuint vertexShaderHandle=createShader([vertexShaderSource UTF8String], GL_VERTEX_SHADER);
     
-    NSString *fragmentShaderPath=[[NSBundle mainBundle] pathForResource:@"ios-fragment" ofType:@"glsl"];
+    NSString *fragmentShaderPath=[[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"glsl"];
     NSString *fragmentShaderSource=[NSString stringWithContentsOfFile:fragmentShaderPath encoding:NSUTF8StringEncoding error:&error];
     if (!fragmentShaderSource) {
         NSLog(@"Error loading shader: %@", error.localizedDescription);
         exit(1);
     }
-    GLuint fragmentShaderHandle=createShader([fragmentShaderSource UTF8String], GL_FRAGMENT_SHADER);
     
-    GLuint shaderProgram=glCreateProgram();
-    glAttachShader(shaderProgram, vertexShaderHandle);
-    glAttachShader(shaderProgram, fragmentShaderHandle);
-    glLinkProgram(shaderProgram);
-    GLint linkSuccess=GL_FALSE;
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &linkSuccess);
-    if(linkSuccess==GL_FALSE){
-        NSLog(@"Failed to link program");
-        exit(1);
-    }
+    ElectricSheepEngine::getInstance().initShaders([vertexShaderSource UTF8String], [fragmentShaderSource UTF8String]);
 }
 
 - (void)setupLayer {
@@ -87,14 +74,8 @@
     [self render];
 }
 
-- (void)clear {
-    glClearColor(0, 0, 1, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
-}
-
 - (void)render {
-#pragma message("TODO: should be a call to the engine")
-    [self clear];
+    ElectricSheepEngine::getInstance().render();
     [_eaglContext presentRenderbuffer:_colorRenderBuffer];
 }
 
