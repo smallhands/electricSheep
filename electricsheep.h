@@ -20,7 +20,7 @@
 class ElectricSheepEngine {
     
 public:
-    static ElectricSheepEngine& getInstance();
+    ElectricSheepEngine();
     ~ElectricSheepEngine();
     bool initShaders(const char *vertexShaderSource, const char *fragmentShaderSource);
     void update();
@@ -28,11 +28,6 @@ public:
     void reshape(int newWindowWidth, int newWindowHeight);
 
 private:
-    void freeResources();
-    ElectricSheepEngine();
-    ElectricSheepEngine(ElectricSheepEngine const&);
-    void operator=(ElectricSheepEngine const&);
-    
     GLuint shaderProgram;
     GLint shaderAttribute_coord3D;
     GLint shaderAttribute_vertexColour;
@@ -41,6 +36,7 @@ private:
     //model vertices
     GLuint modelDataVBO;
     GLuint modelElements;
+    void freeResources();
 };
 
 #endif

@@ -4,11 +4,6 @@
 int windowWidth=1136;
 int windowHeight=640;
 
-ElectricSheepEngine& ElectricSheepEngine::getInstance() {
-    static ElectricSheepEngine sharedInstance;
-    return sharedInstance;
-}
-
 ElectricSheepEngine::ElectricSheepEngine() {
     
 }

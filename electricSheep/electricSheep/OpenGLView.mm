@@ -38,7 +38,7 @@
         exit(1);
     }
     
-    ElectricSheepEngine::getInstance().initShaders([vertexShaderSource UTF8String], [fragmentShaderSource UTF8String]);
+    _electricSheepEngine.initShaders([vertexShaderSource UTF8String], [fragmentShaderSource UTF8String]);
 }
 
 - (void)setupLayer {
@@ -66,6 +66,7 @@
 }
 
 - (void)setup {
+    _electricSheepEngine=ElectricSheepEngine();
     [self setupLayer];
     [self setupContext];
     [self setupRenderBuffer];
@@ -75,7 +76,7 @@
 }
 
 - (void)render {
-    ElectricSheepEngine::getInstance().render();
+    _electricSheepEngine.render();
     [_eaglContext presentRenderbuffer:_colorRenderBuffer];
 }
 
