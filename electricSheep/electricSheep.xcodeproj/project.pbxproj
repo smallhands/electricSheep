@@ -19,6 +19,10 @@
 		57F5BC261636D41700DF1161 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC241636D41700DF1161 /* MainStoryboard_iPhone.storyboard */; };
 		57F5BC291636D41700DF1161 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC271636D41700DF1161 /* MainStoryboard_iPad.storyboard */; };
 		57F5BC2C1636D41700DF1161 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC2B1636D41700DF1161 /* ViewController.m */; };
+		57F5BC3C1636D4EF00DF1161 /* electricSheep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC391636D4EF00DF1161 /* electricSheep.cpp */; };
+		57F5BC3D1636D4EF00DF1161 /* shaderUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC3A1636D4EF00DF1161 /* shaderUtilities.cpp */; };
+		57F5BC421636D50E00DF1161 /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC401636D50E00DF1161 /* fragment.glsl */; };
+		57F5BC431636D50E00DF1161 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC411636D50E00DF1161 /* vertex.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,11 @@
 		57F5BC281636D41700DF1161 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		57F5BC2A1636D41700DF1161 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		57F5BC2B1636D41700DF1161 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		57F5BC391636D4EF00DF1161 /* electricSheep.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = electricSheep.cpp; path = ../electricSheep.cpp; sourceTree = "<group>"; };
+		57F5BC3A1636D4EF00DF1161 /* shaderUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shaderUtilities.cpp; path = ../shaderUtilities.cpp; sourceTree = "<group>"; };
+		57F5BC3B1636D4EF00DF1161 /* shaderUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shaderUtilities.h; path = ../shaderUtilities.h; sourceTree = "<group>"; };
+		57F5BC401636D50E00DF1161 /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fragment.glsl; path = ../shaders/fragment.glsl; sourceTree = "<group>"; };
+		57F5BC411636D50E00DF1161 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vertex.glsl; path = ../shaders/vertex.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,8 @@
 		57F5BBFD1636D41700DF1161 = {
 			isa = PBXGroup;
 			children = (
+				57F5BC3F1636D50300DF1161 /* shaders */,
+				57F5BC381636D4DA00DF1161 /* engine */,
 				57F5BC121636D41700DF1161 /* electricSheep_iOS */,
 				57F5BC0B1636D41700DF1161 /* Frameworks */,
 				57F5BC091636D41700DF1161 /* Products */,
@@ -109,6 +120,25 @@
 				57F5BC221636D41700DF1161 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		57F5BC381636D4DA00DF1161 /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				57F5BC391636D4EF00DF1161 /* electricSheep.cpp */,
+				57F5BC3A1636D4EF00DF1161 /* shaderUtilities.cpp */,
+				57F5BC3B1636D4EF00DF1161 /* shaderUtilities.h */,
+			);
+			name = engine;
+			sourceTree = "<group>";
+		};
+		57F5BC3F1636D50300DF1161 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				57F5BC401636D50E00DF1161 /* fragment.glsl */,
+				57F5BC411636D50E00DF1161 /* vertex.glsl */,
+			);
+			name = shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +198,8 @@
 				57F5BC231636D41700DF1161 /* Default-568h@2x.png in Resources */,
 				57F5BC261636D41700DF1161 /* MainStoryboard_iPhone.storyboard in Resources */,
 				57F5BC291636D41700DF1161 /* MainStoryboard_iPad.storyboard in Resources */,
+				57F5BC421636D50E00DF1161 /* fragment.glsl in Resources */,
+				57F5BC431636D50E00DF1161 /* vertex.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +213,8 @@
 				57F5BC191636D41700DF1161 /* main.m in Sources */,
 				57F5BC1D1636D41700DF1161 /* AppDelegate.m in Sources */,
 				57F5BC2C1636D41700DF1161 /* ViewController.m in Sources */,
+				57F5BC3C1636D4EF00DF1161 /* electricSheep.cpp in Sources */,
+				57F5BC3D1636D4EF00DF1161 /* shaderUtilities.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
