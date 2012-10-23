@@ -23,6 +23,8 @@
 		57F5BC3D1636D4EF00DF1161 /* shaderUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC3A1636D4EF00DF1161 /* shaderUtilities.cpp */; };
 		57F5BC421636D50E00DF1161 /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC401636D50E00DF1161 /* fragment.glsl */; };
 		57F5BC431636D50E00DF1161 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC411636D50E00DF1161 /* vertex.glsl */; };
+		57F5BC451636D5C100DF1161 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC441636D5C100DF1161 /* OpenGLES.framework */; };
+		57F5BC471636D5C600DF1161 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC461636D5C600DF1161 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		57F5BC3B1636D4EF00DF1161 /* shaderUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shaderUtilities.h; path = ../shaderUtilities.h; sourceTree = "<group>"; };
 		57F5BC401636D50E00DF1161 /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fragment.glsl; path = ../shaders/fragment.glsl; sourceTree = "<group>"; };
 		57F5BC411636D50E00DF1161 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vertex.glsl; path = ../shaders/vertex.glsl; sourceTree = "<group>"; };
+		57F5BC441636D5C100DF1161 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		57F5BC461636D5C600DF1161 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F5BC471636D5C600DF1161 /* QuartzCore.framework in Frameworks */,
+				57F5BC451636D5C100DF1161 /* OpenGLES.framework in Frameworks */,
 				57F5BC0D1636D41700DF1161 /* UIKit.framework in Frameworks */,
 				57F5BC0F1636D41700DF1161 /* Foundation.framework in Frameworks */,
 				57F5BC111636D41700DF1161 /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +73,8 @@
 		57F5BBFD1636D41700DF1161 = {
 			isa = PBXGroup;
 			children = (
+				57F5BC461636D5C600DF1161 /* QuartzCore.framework */,
+				57F5BC441636D5C100DF1161 /* OpenGLES.framework */,
 				57F5BC3F1636D50300DF1161 /* shaders */,
 				57F5BC381636D4DA00DF1161 /* engine */,
 				57F5BC121636D41700DF1161 /* electricSheep_iOS */,
