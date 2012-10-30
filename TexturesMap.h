@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TexturesMap_C_Interface.h"
 #import "PVRTexture.h"
 
 @interface TexturesMap : NSObject

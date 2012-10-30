@@ -21,6 +21,7 @@ struct modelData {
 class ObjModel {
     GLuint modelVerticesBufferObject;
     GLuint modelFacesBufferObject;
+    GLuint textureID;
     
 public:
     ObjModel(const char *objFilePath);

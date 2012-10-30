@@ -52,6 +52,9 @@ ObjModel::ObjModel(const char *objFilePath) {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, modelFacesBufferObject);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cubeElements), cubeElements, GL_STATIC_DRAW);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    
+    //loadup textures
+    textureID=textureForName("Brick_4");
 }
 
 GLuint ObjModel::getVerticesBufferObject() {

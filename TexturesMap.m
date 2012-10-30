@@ -7,7 +7,6 @@
 //
 
 #import "TexturesMap.h"
-#import "TexturesMap_C_Interface.h"
 
 GLuint textureForName(const char *name) {
     return [[TexturesMap sharedInstance] textureForName:[NSString stringWithUTF8String:name]];
@@ -41,13 +40,14 @@ GLuint textureForName(const char *name) {
 - (GLuint)textureForName:(NSString *)textureName {
     GLuint textureID=0;
     id textureNameObject=[self.map objectForKey:textureName];
-    if (textureNameObject && [textureNameObject isKindOfClass:[NSNumber class]]) {
-        textureID=((NSNumber *)textureNameObject).unsignedIntValue;
+    if (textureNameObject && [textureNameObject isKindOfClass:[PVRTexture class]]) {
+        textureID=((PVRTexture *)textureNameObject).name;
     } else {
         PVRTexture *texture=[PVRTexture pvrTextureWithContentsOfFile:[[NSBundle mainBundle] pathForResource:textureName ofType:@"pvr"]];
         if (texture) {
             textureID=texture.name;
         }
+        [self.map setObject:texture forKey:textureName];
     }
     return textureID;
 }

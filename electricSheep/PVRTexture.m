@@ -115,19 +115,19 @@ typedef struct _PVRTexHeader
 	if (formatFlags == kPVRTextureFlagTypePVRTC_4 || formatFlags == kPVRTextureFlagTypePVRTC_2)
 	{
 		[_imageData removeAllObjects];
-		
-		if (formatFlags == kPVRTextureFlagTypePVRTC_4)
-			_internalFormat = GL_COMPRESSED_RGBA_PVRTC_4BPPV1_IMG;
-		else if (formatFlags == kPVRTextureFlagTypePVRTC_2)
-			_internalFormat = GL_COMPRESSED_RGBA_PVRTC_2BPPV1_IMG;
-	
-		_width = width = CFSwapInt32LittleToHost(header->width);
-		_height = height = CFSwapInt32LittleToHost(header->height);
-		
-		if (CFSwapInt32LittleToHost(header->bitmaskAlpha))
+        
+        if (CFSwapInt32LittleToHost(header->bitmaskAlpha))
 			_hasAlpha = TRUE;
 		else
 			_hasAlpha = FALSE;
+		
+		if (formatFlags == kPVRTextureFlagTypePVRTC_4)
+			_internalFormat = _hasAlpha? GL_COMPRESSED_RGBA_PVRTC_4BPPV1_IMG : GL_COMPRESSED_RGB_PVRTC_4BPPV1_IMG;
+		else if (formatFlags == kPVRTextureFlagTypePVRTC_2)
+			_internalFormat = _hasAlpha? GL_COMPRESSED_RGBA_PVRTC_2BPPV1_IMG : GL_COMPRESSED_RGB_PVRTC_2BPPV1_IMG;
+	
+		_width = width = CFSwapInt32LittleToHost(header->width);
+		_height = height = CFSwapInt32LittleToHost(header->height);
 		
 		dataLength = CFSwapInt32LittleToHost(header->dataLength);
 		
