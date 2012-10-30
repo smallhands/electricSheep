@@ -31,9 +31,6 @@ private:
     GLint shaderAttribute_vertexColour;
     GLint shaderAttribute_uniform_mvp;
     GLint shaderAttribute_uniform_animation;
-    //model vertices
-    GLuint modelDataVBO;
-    GLuint modelElements;
     void freeResources();
 };
 
