@@ -39,12 +39,6 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
         return false;
     }
     
-    const char *vertexColourAttributeName="vertexColour";
-    if(!bindShaderAttribute(&shaderAttribute_vertexColour, shaderProgram, vertexColourAttributeName)){
-        fprintf(stderr, "Could not bind shader attribute %s\n", vertexColourAttributeName);
-        return false;
-    }
-    
     const char *texCoordInAttributeName="TexCoordIn";
     if(!bindShaderAttribute(&shaderAttribute_TexCoordIn, shaderProgram, texCoordInAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", texCoordInAttributeName);
@@ -80,7 +74,6 @@ void ElectricSheepEngine::initModels() {
 
 void ElectricSheepEngine::freeResources() {
     glDeleteProgram(shaderProgram);
-#pragma message("TODO: delete model data")
     models.clear();
 }
 
@@ -95,7 +88,6 @@ void ElectricSheepEngine::render() {
     
     //enable attributes in program
     glEnableVertexAttribArray(shaderAttribute_coord3D);
-    glEnableVertexAttribArray(shaderAttribute_vertexColour);
     glEnableVertexAttribArray(shaderAttribute_TexCoordIn);
     
     for (std::vector<ObjModel *>::size_type i=0; i!=models.size(); i++) {
@@ -107,14 +99,6 @@ void ElectricSheepEngine::render() {
                               GL_FALSE, // take our values as-is
                               sizeof(struct modelData), // coord every (sizeof) elements
                               0 // offset of first element
-                              );
-        
-        glVertexAttribPointer(shaderAttribute_vertexColour, // attribute
-                              3, // number of elements per vertex, here (r,g,b)
-                              GL_FLOAT, // the type of each element
-                              GL_FALSE, // take our values as-is
-                              sizeof(struct modelData), // coord every (sizeof) elements
-                              (GLvoid *)(offsetof(struct modelData, colour3D)) // skip coords
                               );
         
         glVertexAttribPointer(shaderAttribute_TexCoordIn, // attribute
@@ -138,7 +122,6 @@ void ElectricSheepEngine::render() {
     
     //close up the attribute in program, no more need
     glDisableVertexAttribArray(shaderAttribute_coord3D);
-    glDisableVertexAttribArray(shaderAttribute_vertexColour);
     glDisableVertexAttribArray(shaderAttribute_TexCoordIn);
 }
 
