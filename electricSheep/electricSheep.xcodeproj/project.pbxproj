@@ -10,6 +10,7 @@
 		57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF22163FFB28008B0E7F /* FileUtils.cpp */; };
 		57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF2916400025008B0E7F /* ObjModel.cpp */; };
 		57E6BF3716400256008B0E7F /* sheep.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57E6BF3616400256008B0E7F /* sheep.obj */; };
+		57E6BF4516403EA4008B0E7F /* grass.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 57E6BF4416403EA4008B0E7F /* grass.pvr */; };
 		57F5BC0D1636D41700DF1161 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0C1636D41700DF1161 /* UIKit.framework */; };
 		57F5BC0F1636D41700DF1161 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0E1636D41700DF1161 /* Foundation.framework */; };
 		57F5BC111636D41700DF1161 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC101636D41700DF1161 /* CoreGraphics.framework */; };
@@ -38,6 +39,7 @@
 		57E6BF2A16400025008B0E7F /* ObjModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjModel.h; path = ../ObjModel.h; sourceTree = "<group>"; };
 		57E6BF2C164000B3008B0E7F /* GLIncludes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLIncludes.h; path = ../GLIncludes.h; sourceTree = "<group>"; };
 		57E6BF3616400256008B0E7F /* sheep.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep.obj; path = ../resources/sheep.obj; sourceTree = "<group>"; };
+		57E6BF4416403EA4008B0E7F /* grass.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = grass.pvr; sourceTree = "<group>"; };
 		57F5BC081636D41700DF1161 /* electricSheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = electricSheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F5BC0C1636D41700DF1161 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		57F5BC0E1636D41700DF1161 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				57E6BF3616400256008B0E7F /* sheep.obj */,
+				57E6BF4416403EA4008B0E7F /* grass.pvr */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				57F5BC421636D50E00DF1161 /* fragment.glsl in Resources */,
 				57F5BC431636D50E00DF1161 /* vertex.glsl in Resources */,
 				57E6BF3716400256008B0E7F /* sheep.obj in Resources */,
+				57E6BF4516403EA4008B0E7F /* grass.pvr in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
