@@ -11,21 +11,25 @@
 
 #include <iostream>
 #include "GLIncludes.h"
+#include "TexturesMap_C_Interface.h"
 
 struct modelData {
     GLfloat coord3D[3];
     GLfloat colour3D[3];
+    GLfloat texCoords[2];
 };
 
 class ObjModel {
     GLuint modelVerticesBufferObject;
     GLuint modelFacesBufferObject;
+    GLuint textureID;
     
 public:
     ObjModel(const char *objFilePath);
     ~ObjModel();
     GLuint getVerticesBufferObject();
     GLuint getFacesBufferObject();
+    GLuint getTextureID();
 };
 
 #endif /* defined(__electricSheep__ObjModel__) */
