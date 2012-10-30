@@ -13,7 +13,7 @@
     CAEAGLLayer *_eaglLayer;
     EAGLContext *_eaglContext;
     GLuint _colorRenderBuffer;
-    ElectricSheepEngine _electricSheepEngine;
+    ElectricSheepEngine *_electricSheepEngine;
 }
 
 @end

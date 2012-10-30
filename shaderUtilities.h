@@ -5,6 +5,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "GLIncludes.h"
 
 #ifndef shader_Utilities_h
 #define shader_Utilities_h

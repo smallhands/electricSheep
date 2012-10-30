@@ -26,7 +26,7 @@
     NSString *vertexShaderPath=[[NSBundle mainBundle] pathForResource:@"vertex" ofType:@"glsl"];
     NSString *fragmentShaderPath=[[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"glsl"];
     
-    _electricSheepEngine.initShaders([vertexShaderPath UTF8String], [fragmentShaderPath UTF8String]);
+    _electricSheepEngine->initShaders([vertexShaderPath UTF8String], [fragmentShaderPath UTF8String]);
 }
 
 - (void)setupLayer {
@@ -54,17 +54,18 @@
 }
 
 - (void)setup {
-    _electricSheepEngine=ElectricSheepEngine();
+    _electricSheepEngine=new ElectricSheepEngine();
     [self setupLayer];
     [self setupContext];
     [self setupRenderBuffer];
     [self setupFrameBuffer];
     [self setupShaders];
+    _electricSheepEngine->initModels();
     [self render];
 }
 
 - (void)render {
-    _electricSheepEngine.render();
+    _electricSheepEngine->render();
     [_eaglContext presentRenderbuffer:_colorRenderBuffer];
 }
 
