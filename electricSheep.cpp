@@ -12,15 +12,15 @@ ElectricSheepEngine::~ElectricSheepEngine() {
     freeResources();
 }
 
-bool ElectricSheepEngine::initShaders(const char *vertexShaderSource, const char *fragmentShaderSource) {
+bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *fragmentShaderPath) {
     //load shaders & compile
     GLint linkSuccess=GL_FALSE;
     
     //vertex shader
-    GLuint vertexShaderId=createShader(vertexShaderSource, GL_VERTEX_SHADER);
+    GLuint vertexShaderId=createShader(vertexShaderPath, GL_VERTEX_SHADER);
     
     //fragment shader
-    GLuint fragmentShaderId=createShader(fragmentShaderSource, GL_FRAGMENT_SHADER);
+    GLuint fragmentShaderId=createShader(fragmentShaderPath, GL_FRAGMENT_SHADER);
     
     //program
     shaderProgram=glCreateProgram();
@@ -69,7 +69,7 @@ void ElectricSheepEngine::freeResources() {
 
 void ElectricSheepEngine::render() {
     //clear screen
-    glClearColor(1.0, 1.0, 1.0, 1.0);
+    glClearColor(0.0, 0.0, 1.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     //use the shader

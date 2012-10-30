@@ -24,21 +24,9 @@
 
 - (void)setupShaders {
     NSString *vertexShaderPath=[[NSBundle mainBundle] pathForResource:@"vertex" ofType:@"glsl"];
-    NSError *error;
-    NSString *vertexShaderSource=[NSString stringWithContentsOfFile:vertexShaderPath encoding:NSUTF8StringEncoding error:&error];
-    if (!vertexShaderSource) {
-        NSLog(@"Error loading shader: %@", error.localizedDescription);
-        exit(1);
-    }
-    
     NSString *fragmentShaderPath=[[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"glsl"];
-    NSString *fragmentShaderSource=[NSString stringWithContentsOfFile:fragmentShaderPath encoding:NSUTF8StringEncoding error:&error];
-    if (!fragmentShaderSource) {
-        NSLog(@"Error loading shader: %@", error.localizedDescription);
-        exit(1);
-    }
     
-    _electricSheepEngine.initShaders([vertexShaderSource UTF8String], [fragmentShaderSource UTF8String]);
+    _electricSheepEngine.initShaders([vertexShaderPath UTF8String], [fragmentShaderPath UTF8String]);
 }
 
 - (void)setupLayer {

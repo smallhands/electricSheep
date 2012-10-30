@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF22163FFB28008B0E7F /* FileUtils.cpp */; };
 		57F5BC0D1636D41700DF1161 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0C1636D41700DF1161 /* UIKit.framework */; };
 		57F5BC0F1636D41700DF1161 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0E1636D41700DF1161 /* Foundation.framework */; };
 		57F5BC111636D41700DF1161 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC101636D41700DF1161 /* CoreGraphics.framework */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57E6BF22163FFB28008B0E7F /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileUtils.cpp; path = ../FileUtils.cpp; sourceTree = "<group>"; };
+		57E6BF24163FFCBB008B0E7F /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = ../FileUtils.h; sourceTree = "<group>"; };
 		57F5BC081636D41700DF1161 /* electricSheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = electricSheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F5BC0C1636D41700DF1161 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		57F5BC0E1636D41700DF1161 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 				57F5BC391636D4EF00DF1161 /* electricSheep.cpp */,
 				57F5BC3B1636D4EF00DF1161 /* shaderUtilities.h */,
 				57F5BC3A1636D4EF00DF1161 /* shaderUtilities.cpp */,
+				57E6BF24163FFCBB008B0E7F /* FileUtils.h */,
+				57E6BF22163FFB28008B0E7F /* FileUtils.cpp */,
 			);
 			name = engine;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				57F5BC1D1636D41700DF1161 /* AppDelegate.m in Sources */,
 				57F5BC2C1636D41700DF1161 /* ViewController.mm in Sources */,
 				57F5BC4A1636D60D00DF1161 /* OpenGLView.mm in Sources */,
+				57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

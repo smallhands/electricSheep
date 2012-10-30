@@ -22,7 +22,7 @@
 #ifndef shader_Utilities_h
 #define shader_Utilities_h
 
-GLuint createShader(const char *shaderSource, GLenum shaderType);
+GLuint createShader(const char *shaderSourcePath, GLenum shaderType);
 void printCompilationLog(GLuint object);
 bool bindShaderAttribute(GLint *shaderAttribute, GLuint shaderProgram, const char *shaderAttributeName);
 bool bindShaderUniformAttribute(GLint *shaderAttribute, GLuint shaderProgram, const char *shaderAttributeName);

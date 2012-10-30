@@ -1,4 +1,5 @@
 #include "shaderUtilities.h"
+#include "FileUtils.h"
 
 void printCompilationLog(GLuint objectID) {
     GLint shaderCompilationInfoLogLength = 0;	
@@ -20,7 +21,8 @@ bool bindShaderUniformAttribute(GLint *shaderAttribute, GLuint shaderProgram, co
     return *shaderAttribute!=-1;
 }
 
-GLuint createShader(const char *shaderSource, GLenum shaderType) {
+GLuint createShader(const char *shaderSourcePath, GLenum shaderType) {
+    const char *shaderSource=readFile(shaderSourcePath);
     GLuint shaderID=glCreateShader(shaderType);
     const GLchar *shaderSources[]={
         // Define GLSL version
