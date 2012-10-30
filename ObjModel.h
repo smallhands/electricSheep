@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "GLIncludes.h"
+#include "TexturesMap_C_Interface.h"
 
 struct modelData {
     GLfloat coord3D[3];

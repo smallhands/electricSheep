@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57A23FB916404C6200FB1238 /* TexturesMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A23FB816404C6200FB1238 /* TexturesMap.m */; };
 		57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF22163FFB28008B0E7F /* FileUtils.cpp */; };
 		57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF2916400025008B0E7F /* ObjModel.cpp */; };
 		57E6BF3716400256008B0E7F /* sheep.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57E6BF3616400256008B0E7F /* sheep.obj */; };
@@ -34,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57A23FB716404C6200FB1238 /* TexturesMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TexturesMap.h; path = ../TexturesMap.h; sourceTree = "<group>"; };
+		57A23FB816404C6200FB1238 /* TexturesMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TexturesMap.m; path = ../TexturesMap.m; sourceTree = "<group>"; };
+		57A23FBB16404FF600FB1238 /* TexturesMap_C_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TexturesMap_C_Interface.h; path = ../TexturesMap_C_Interface.h; sourceTree = "<group>"; };
 		57E6BF22163FFB28008B0E7F /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileUtils.cpp; path = ../FileUtils.cpp; sourceTree = "<group>"; };
 		57E6BF24163FFCBB008B0E7F /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = ../FileUtils.h; sourceTree = "<group>"; };
 		57E6BF2916400025008B0E7F /* ObjModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjModel.cpp; path = ../ObjModel.cpp; sourceTree = "<group>"; };
@@ -112,6 +116,9 @@
 			children = (
 				57E6BF4F164042F3008B0E7F /* PVRTexture.h */,
 				57E6BF50164042F3008B0E7F /* PVRTexture.m */,
+				57A23FB716404C6200FB1238 /* TexturesMap.h */,
+				57A23FB816404C6200FB1238 /* TexturesMap.m */,
+				57A23FBB16404FF600FB1238 /* TexturesMap_C_Interface.h */,
 			);
 			name = pvr;
 			sourceTree = "<group>";
@@ -285,6 +292,7 @@
 				57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */,
 				57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */,
 				57E6BF51164042F3008B0E7F /* PVRTexture.m in Sources */,
+				57A23FB916404C6200FB1238 /* TexturesMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
