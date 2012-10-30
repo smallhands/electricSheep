@@ -11,6 +11,7 @@
 		57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF2916400025008B0E7F /* ObjModel.cpp */; };
 		57E6BF3716400256008B0E7F /* sheep.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57E6BF3616400256008B0E7F /* sheep.obj */; };
 		57E6BF4716403FB7008B0E7F /* grass.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 57E6BF4616403FB7008B0E7F /* grass.pvr */; };
+		57E6BF51164042F3008B0E7F /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF50164042F3008B0E7F /* PVRTexture.m */; };
 		57F5BC0D1636D41700DF1161 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0C1636D41700DF1161 /* UIKit.framework */; };
 		57F5BC0F1636D41700DF1161 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0E1636D41700DF1161 /* Foundation.framework */; };
 		57F5BC111636D41700DF1161 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC101636D41700DF1161 /* CoreGraphics.framework */; };
@@ -40,6 +41,8 @@
 		57E6BF2C164000B3008B0E7F /* GLIncludes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLIncludes.h; path = ../GLIncludes.h; sourceTree = "<group>"; };
 		57E6BF3616400256008B0E7F /* sheep.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep.obj; path = ../resources/sheep.obj; sourceTree = "<group>"; };
 		57E6BF4616403FB7008B0E7F /* grass.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; name = grass.pvr; path = ../resources/grass.pvr; sourceTree = "<group>"; };
+		57E6BF4F164042F3008B0E7F /* PVRTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTexture.h; sourceTree = "<group>"; };
+		57E6BF50164042F3008B0E7F /* PVRTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRTexture.m; sourceTree = "<group>"; };
 		57F5BC081636D41700DF1161 /* electricSheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = electricSheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F5BC0C1636D41700DF1161 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		57F5BC0E1636D41700DF1161 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,9 +107,19 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		57E6BF4E164042E5008B0E7F /* pvr */ = {
+			isa = PBXGroup;
+			children = (
+				57E6BF4F164042F3008B0E7F /* PVRTexture.h */,
+				57E6BF50164042F3008B0E7F /* PVRTexture.m */,
+			);
+			name = pvr;
+			sourceTree = "<group>";
+		};
 		57F5BBFD1636D41700DF1161 = {
 			isa = PBXGroup;
 			children = (
+				57E6BF4E164042E5008B0E7F /* pvr */,
 				57F5BC3F1636D50300DF1161 /* shaders */,
 				57F5BC381636D4DA00DF1161 /* engine */,
 				57F5BC121636D41700DF1161 /* electricSheep_iOS */,
@@ -271,6 +284,7 @@
 				57F5BC4A1636D60D00DF1161 /* OpenGLView.mm in Sources */,
 				57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */,
 				57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */,
+				57E6BF51164042F3008B0E7F /* PVRTexture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
