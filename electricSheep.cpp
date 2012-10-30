@@ -96,6 +96,7 @@ void ElectricSheepEngine::render() {
     //enable attributes in program
     glEnableVertexAttribArray(shaderAttribute_coord3D);
     glEnableVertexAttribArray(shaderAttribute_vertexColour);
+    glEnableVertexAttribArray(shaderAttribute_TexCoordIn);
     
     for (std::vector<ObjModel *>::size_type i=0; i!=models.size(); i++) {
         ObjModel *model=models[i];
@@ -104,18 +105,29 @@ void ElectricSheepEngine::render() {
                               3, // number of elements per vertex, here (x,y)
                               GL_FLOAT, // the type of each element
                               GL_FALSE, // take our values as-is
-                              sizeof(struct modelData), // 2d coord every 5 elements
+                              sizeof(struct modelData), // coord every (sizeof) elements
                               0 // offset of first element
                               );
         
-        glBindBuffer(GL_ARRAY_BUFFER, model->getVerticesBufferObject());
         glVertexAttribPointer(shaderAttribute_vertexColour, // attribute
                               3, // number of elements per vertex, here (r,g,b)
                               GL_FLOAT, // the type of each element
                               GL_FALSE, // take our values as-is
-                              sizeof(struct modelData), // colour every 5 elements
-                              (GLvoid *)(offsetof(struct modelData, colour3D)) // skip 2d coords
+                              sizeof(struct modelData), // coord every (sizeof) elements
+                              (GLvoid *)(offsetof(struct modelData, colour3D)) // skip coords
                               );
+        
+        glVertexAttribPointer(shaderAttribute_TexCoordIn, // attribute
+                              2, // number of elements per vertex, here (r,g,b)
+                              GL_FLOAT, // the type of each element
+                              GL_FALSE, // take our values as-is
+                              sizeof(struct modelData), // // coord every (sizeof) elements
+                              (GLvoid *)(offsetof(struct modelData, texCoords)) // skip coords & colour coords
+                              );
+        
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, model->getTextureID());
+        glUniform1i(shaderAttribute_uniform_Texture, 0);
         
         //draw the cube by going through its elements array
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->getFacesBufferObject());
@@ -127,6 +139,7 @@ void ElectricSheepEngine::render() {
     //close up the attribute in program, no more need
     glDisableVertexAttribArray(shaderAttribute_coord3D);
     glDisableVertexAttribArray(shaderAttribute_vertexColour);
+    glDisableVertexAttribArray(shaderAttribute_TexCoordIn);
 }
 
 void ElectricSheepEngine::reshape(int newWindowWidth, int newWindowHeight)

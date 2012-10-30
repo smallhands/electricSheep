@@ -12,15 +12,15 @@ ObjModel::ObjModel(const char *objFilePath) {
 #pragma message("TODO: read in vertices & texture coords")
     struct modelData cube[] = {
         //front face
-        {{-1.0, -1.0, 1.0}, {0.0, 0.0, 1.0}},
-        {{ 1.0, -1.0, 1.0}, {0.0, 1.0, 1.0}},
-        {{ 1.0,  1.0, 1.0}, {0.0, 0.0, 1.0}},
-        {{-1.0,  1.0, 1.0}, {0.0, 1.0, 1.0}},
+        {{-1.0, -1.0,  1.0}, {0.0, 0.0, 1.0}, {1.0, 0.0}},
+        {{ 1.0, -1.0,  1.0}, {0.0, 1.0, 1.0}, {1.0, 1.0}},
+        {{ 1.0,  1.0,  1.0}, {0.0, 0.0, 1.0}, {0.0, 1.0}},
+        {{-1.0,  1.0,  1.0}, {0.0, 1.0, 1.0}, {0.0, 0.0}},
         //back face
-        {{-1.0, -1.0, -1.0}, {0.0, 0.0, 1.0}},
-        {{ 1.0, -1.0, -1.0}, {0.0, 1.0, 1.0}},
-        {{ 1.0,  1.0, -1.0}, {0.0, 0.0, 1.0}},
-        {{-1.0,  1.0, -1.0}, {0.0, 1.0, 1.0}}
+        {{-1.0, -1.0, -1.0}, {0.0, 0.0, 1.0}, {1.0, 0.0}},
+        {{ 1.0, -1.0, -1.0}, {0.0, 1.0, 1.0}, {1.0, 1.0}},
+        {{ 1.0,  1.0, -1.0}, {0.0, 0.0, 1.0}, {0.0, 1.0}},
+        {{-1.0,  1.0, -1.0}, {0.0, 1.0, 1.0}, {0.0, 0.0}},
     };
     glGenBuffers(1, &modelVerticesBufferObject);
     glBindBuffer(GL_ARRAY_BUFFER, modelVerticesBufferObject);
@@ -55,6 +55,10 @@ ObjModel::ObjModel(const char *objFilePath) {
     
     //loadup textures
     textureID=textureForName("Brick_4");
+}
+
+GLuint ObjModel::getTextureID() {
+    return textureID;
 }
 
 GLuint ObjModel::getVerticesBufferObject() {
