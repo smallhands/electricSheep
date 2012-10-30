@@ -5,7 +5,6 @@ int windowWidth=1136;
 int windowHeight=640;
 
 ElectricSheepEngine::ElectricSheepEngine() {
-    models=std::vector<ObjModel>();
 }
 
 ElectricSheepEngine::~ElectricSheepEngine() {
@@ -64,7 +63,7 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
 
 void ElectricSheepEngine::initModels() {
     ObjModel *model=new ObjModel("");
-    models.push_back(*model);
+    models.push_back(model);
 }
 
 void ElectricSheepEngine::freeResources() {
@@ -74,6 +73,8 @@ void ElectricSheepEngine::freeResources() {
 }
 
 void ElectricSheepEngine::render() {
+    glViewport(0, 0, windowWidth, windowHeight);
+    
     //clear screen
     glClearColor(1.0, 1.0, 1.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -86,8 +87,9 @@ void ElectricSheepEngine::render() {
     glEnableVertexAttribArray(shaderAttribute_coord3D);
     glEnableVertexAttribArray(shaderAttribute_vertexColour);
     
-    for (std::vector<ObjModel>::iterator i=models.begin(); i!=models.end(); ++i) {
-        glBindBuffer(GL_ARRAY_BUFFER, i->getVerticesBufferObject());
+    for (std::vector<ObjModel *>::size_type i=0; i!=models.size(); i++) {
+        ObjModel *model=models[i];
+        glBindBuffer(GL_ARRAY_BUFFER, model->getVerticesBufferObject());
         glVertexAttribPointer(shaderAttribute_coord3D, // attribute
                               3, // number of elements per vertex, here (x,y)
                               GL_FLOAT, // the type of each element
@@ -96,7 +98,7 @@ void ElectricSheepEngine::render() {
                               0 // offset of first element
                               );
         
-        glBindBuffer(GL_ARRAY_BUFFER, i->getVerticesBufferObject());
+        glBindBuffer(GL_ARRAY_BUFFER, model->getVerticesBufferObject());
         glVertexAttribPointer(shaderAttribute_vertexColour, // attribute
                               3, // number of elements per vertex, here (r,g,b)
                               GL_FLOAT, // the type of each element
@@ -106,7 +108,7 @@ void ElectricSheepEngine::render() {
                               );
         
         //draw the cube by going through its elements array
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, i->getFacesBufferObject());
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->getFacesBufferObject());
         int bufferSize;
         glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
         glDrawElements(GL_TRIANGLES, bufferSize/sizeof(GLushort), GL_UNSIGNED_SHORT, 0);

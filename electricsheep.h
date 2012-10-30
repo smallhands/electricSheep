@@ -34,7 +34,7 @@ private:
     GLint shaderAttribute_vertexColour;
     GLint shaderAttribute_uniform_mvp;
     GLint shaderAttribute_uniform_animation;
-    std::vector<ObjModel> models;
+    std::vector<ObjModel *> models;
     void freeResources();
 };
 
