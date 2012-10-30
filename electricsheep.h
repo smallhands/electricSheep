@@ -14,6 +14,8 @@
 #include <math.h>
 #include "GLIncludes.h"
 #include "shaderUtilities.h"
+#include "ObjModel.h"
+#include <vector>
 
 class ElectricSheepEngine {
     
@@ -21,6 +23,7 @@ public:
     ElectricSheepEngine();
     ~ElectricSheepEngine();
     bool initShaders(const char *vertexShaderSource, const char *fragmentShaderSource);
+    void initModels();
     void update();
     void render();
     void reshape(int newWindowWidth, int newWindowHeight);
@@ -31,6 +34,7 @@ private:
     GLint shaderAttribute_vertexColour;
     GLint shaderAttribute_uniform_mvp;
     GLint shaderAttribute_uniform_animation;
+    std::vector<ObjModel> models;
     void freeResources();
 };
 

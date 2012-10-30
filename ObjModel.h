@@ -12,13 +12,20 @@
 #include <iostream>
 #include "GLIncludes.h"
 
+struct modelData {
+    GLfloat coord3D[3];
+    GLfloat colour3D[3];
+};
+
 class ObjModel {
-    GLfloat *vertices;
-    GLfloat *faces;
+    GLuint modelVerticesBufferObject;
+    GLuint modelFacesBufferObject;
     
 public:
     ObjModel(const char *objFilePath);
     ~ObjModel();
+    GLuint getVerticesBufferObject();
+    GLuint getFacesBufferObject();
 };
 
 #endif /* defined(__electricSheep__ObjModel__) */

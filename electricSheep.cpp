@@ -5,7 +5,7 @@ int windowWidth=1136;
 int windowHeight=640;
 
 ElectricSheepEngine::ElectricSheepEngine() {
-    
+    models=std::vector<ObjModel>();
 }
 
 ElectricSheepEngine::~ElectricSheepEngine() {
@@ -62,14 +62,20 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
     return true;
 }
 
+void ElectricSheepEngine::initModels() {
+    ObjModel *model=new ObjModel("");
+    models.push_back(*model);
+}
+
 void ElectricSheepEngine::freeResources() {
     glDeleteProgram(shaderProgram);
 #pragma message("TODO: delete model data")
+    models.clear();
 }
 
 void ElectricSheepEngine::render() {
     //clear screen
-    glClearColor(0.0, 0.0, 1.0, 1.0);
+    glClearColor(1.0, 1.0, 1.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     //use the shader
@@ -79,7 +85,31 @@ void ElectricSheepEngine::render() {
     glEnableVertexAttribArray(shaderAttribute_coord3D);
     glEnableVertexAttribArray(shaderAttribute_vertexColour);
     
-#pragma message("TODO: draw calls for every model")
+    for (std::vector<ObjModel>::iterator i=models.begin(); i!=models.end(); ++i) {
+        glBindBuffer(GL_ARRAY_BUFFER, i->getVerticesBufferObject());
+        glVertexAttribPointer(shaderAttribute_coord3D, // attribute
+                              3, // number of elements per vertex, here (x,y)
+                              GL_FLOAT, // the type of each element
+                              GL_FALSE, // take our values as-is
+                              sizeof(struct modelData), // 2d coord every 5 elements
+                              0 // offset of first element
+                              );
+        
+        glBindBuffer(GL_ARRAY_BUFFER, i->getVerticesBufferObject());
+        glVertexAttribPointer(shaderAttribute_vertexColour, // attribute
+                              3, // number of elements per vertex, here (r,g,b)
+                              GL_FLOAT, // the type of each element
+                              GL_FALSE, // take our values as-is
+                              sizeof(struct modelData), // colour every 5 elements
+                              (GLvoid *)(offsetof(struct modelData, colour3D)) // skip 2d coords
+                              );
+        
+        //draw the cube by going through its elements array
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, i->getFacesBufferObject());
+        int bufferSize;
+        glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
+        glDrawElements(GL_TRIANGLES, bufferSize/sizeof(GLushort), GL_UNSIGNED_SHORT, 0);
+    }
     
     //close up the attribute in program, no more need
     glDisableVertexAttribArray(shaderAttribute_coord3D);
