@@ -1,4 +1,4 @@
-varying vec3 fragmentColour;
+varying vec4 fragmentColour;
 
 varying lowp vec2 TexCoordOut;
 uniform sampler2D Texture;

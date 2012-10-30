@@ -45,6 +45,12 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
         return false;
     }
     
+    const char *texCoordInAttributeName="TexCoordIn";
+    if(!bindShaderAttribute(&shaderAttribute_TexCoordIn, shaderProgram, texCoordInAttributeName)){
+        fprintf(stderr, "Could not bind shader attribute %s\n", texCoordInAttributeName);
+        return false;
+    }
+    
     const char *mvpMatrixAttributeName="mvp";
     if(!bindShaderUniformAttribute(&shaderAttribute_uniform_mvp, shaderProgram, mvpMatrixAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", mvpMatrixAttributeName);
@@ -54,6 +60,12 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
     const char *animationMatrixAttributeName="animation";
     if(!bindShaderUniformAttribute(&shaderAttribute_uniform_animation, shaderProgram, animationMatrixAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", animationMatrixAttributeName);
+        return false;
+    }
+    
+    const char *textureAttributeName="Texture";
+    if(!bindShaderUniformAttribute(&shaderAttribute_uniform_Texture, shaderProgram, textureAttributeName)){
+        fprintf(stderr, "Could not bind shader attribute %s\n", textureAttributeName);
         return false;
     }
     
