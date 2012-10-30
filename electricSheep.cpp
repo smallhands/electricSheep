@@ -76,7 +76,7 @@ void ElectricSheepEngine::render() {
     glViewport(0, 0, windowWidth, windowHeight);
     
     //clear screen
-    glClearColor(1.0, 1.0, 1.0, 1.0);
+    glClearColor(0.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
     
@@ -130,7 +130,7 @@ void ElectricSheepEngine::update(GLfloat elapsedTime)
 {
 #pragma message("TODO: update game state")
     //model matrix using model position vector
-    glm::vec3 modelPosition=glm::vec3(0,0,-4);
+    glm::vec3 modelPosition=glm::vec3(0,0,-5);
     glm::mat4 model=glm::translate(glm::mat4(1.0f), modelPosition);
     
     //view matrix using look at
