@@ -14,9 +14,11 @@
 - (void)setupLayer;
 - (void)setupContext;
 - (void)setupRenderBuffer;
+- (void)setupDepthBuffer;
 - (void)setupFrameBuffer;
 - (void)setupShaders;
-- (void)render;
+- (void)setupDisplayLink;
+- (void)render:(CADisplayLink *)displayLink;
 
 @end
 
@@ -46,27 +48,41 @@
     [_eaglContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
 }
 
+- (void)setupDepthBuffer {
+    glGenRenderbuffers(1, &_depthRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBuffer);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.frame.size.width, self.frame.size.height);
+}
+
 - (void)setupFrameBuffer {
     GLuint frameBuffer;
     glGenFramebuffers(1, &frameBuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBuffer);
 }
 
 - (void)setup {
     _electricSheepEngine=new ElectricSheepEngine();
     [self setupLayer];
     [self setupContext];
+    [self setupDepthBuffer];
     [self setupRenderBuffer];
     [self setupFrameBuffer];
     [self setupShaders];
     _electricSheepEngine->initModels();
-    [self render];
+    [self setupDisplayLink];
 }
 
-- (void)render {
+- (void)setupDisplayLink {
+    CADisplayLink* displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render:)];
+    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+}
+
+- (void)render:(CADisplayLink *)displayLink {
+    _electricSheepEngine->update(0.1);
     _electricSheepEngine->render();
-    [_eaglContext presentRenderbuffer:_colorRenderBuffer];
+    [_eaglContext presentRenderbuffer:GL_RENDERBUFFER];
 }
 
 - (void)awakeFromNib {

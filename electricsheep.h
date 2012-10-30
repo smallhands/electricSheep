@@ -24,7 +24,7 @@ public:
     ~ElectricSheepEngine();
     bool initShaders(const char *vertexShaderSource, const char *fragmentShaderSource);
     void initModels();
-    void update();
+    void update(GLfloat elapsedTime);
     void render();
     void reshape(int newWindowWidth, int newWindowHeight);
 
