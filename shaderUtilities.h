@@ -3,21 +3,8 @@
 
 #define _GNU_SOURCE
 
-#ifdef _WIN32
-#include <Windows.h>
-#include <GL/glew.h>
-#endif
-
 #include <stdlib.h>
 #include <stdio.h>
-#ifdef __APPLE__
-#import <QuartzCore/QuartzCore.h>
-#import <OpenGLES/ES2/gl.h>
-#import <OpenGLES/ES2/glext.h>
-#else
-#include <GL/gl.h>
-#include <GL/glut.h>
-#endif
 
 #ifndef shader_Utilities_h
 #define shader_Utilities_h

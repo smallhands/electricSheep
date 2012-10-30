@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF22163FFB28008B0E7F /* FileUtils.cpp */; };
+		57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF2916400025008B0E7F /* ObjModel.cpp */; };
+		57E6BF3716400256008B0E7F /* sheep.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57E6BF3616400256008B0E7F /* sheep.obj */; };
 		57F5BC0D1636D41700DF1161 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0C1636D41700DF1161 /* UIKit.framework */; };
 		57F5BC0F1636D41700DF1161 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0E1636D41700DF1161 /* Foundation.framework */; };
 		57F5BC111636D41700DF1161 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC101636D41700DF1161 /* CoreGraphics.framework */; };
@@ -32,6 +34,10 @@
 /* Begin PBXFileReference section */
 		57E6BF22163FFB28008B0E7F /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileUtils.cpp; path = ../FileUtils.cpp; sourceTree = "<group>"; };
 		57E6BF24163FFCBB008B0E7F /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = ../FileUtils.h; sourceTree = "<group>"; };
+		57E6BF2916400025008B0E7F /* ObjModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjModel.cpp; path = ../ObjModel.cpp; sourceTree = "<group>"; };
+		57E6BF2A16400025008B0E7F /* ObjModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjModel.h; path = ../ObjModel.h; sourceTree = "<group>"; };
+		57E6BF2C164000B3008B0E7F /* GLIncludes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLIncludes.h; path = ../GLIncludes.h; sourceTree = "<group>"; };
+		57E6BF3616400256008B0E7F /* sheep.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep.obj; path = ../resources/sheep.obj; sourceTree = "<group>"; };
 		57F5BC081636D41700DF1161 /* electricSheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = electricSheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F5BC0C1636D41700DF1161 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		57F5BC0E1636D41700DF1161 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -78,6 +84,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57E6BF28163FFFFB008B0E7F /* models */ = {
+			isa = PBXGroup;
+			children = (
+				57E6BF2916400025008B0E7F /* ObjModel.cpp */,
+				57E6BF2A16400025008B0E7F /* ObjModel.h */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		57E6BF2D164001E6008B0E7F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				57E6BF3616400256008B0E7F /* sheep.obj */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		57F5BBFD1636D41700DF1161 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +109,7 @@
 				57F5BC121636D41700DF1161 /* electricSheep_iOS */,
 				57F5BC0B1636D41700DF1161 /* Frameworks */,
 				57F5BC091636D41700DF1161 /* Products */,
+				57E6BF2D164001E6008B0E7F /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +167,7 @@
 		57F5BC381636D4DA00DF1161 /* engine */ = {
 			isa = PBXGroup;
 			children = (
+				57E6BF28163FFFFB008B0E7F /* models */,
 				57F5BC661636FE1A00DF1161 /* glm.hpp */,
 				57F5BC641636FD4E00DF1161 /* electricSheep.h */,
 				57F5BC391636D4EF00DF1161 /* electricSheep.cpp */,
@@ -150,6 +175,7 @@
 				57F5BC3A1636D4EF00DF1161 /* shaderUtilities.cpp */,
 				57E6BF24163FFCBB008B0E7F /* FileUtils.h */,
 				57E6BF22163FFB28008B0E7F /* FileUtils.cpp */,
+				57E6BF2C164000B3008B0E7F /* GLIncludes.h */,
 			);
 			name = engine;
 			sourceTree = "<group>";
@@ -222,6 +248,7 @@
 				57F5BC291636D41700DF1161 /* MainStoryboard_iPad.storyboard in Resources */,
 				57F5BC421636D50E00DF1161 /* fragment.glsl in Resources */,
 				57F5BC431636D50E00DF1161 /* vertex.glsl in Resources */,
+				57E6BF3716400256008B0E7F /* sheep.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +266,7 @@
 				57F5BC2C1636D41700DF1161 /* ViewController.mm in Sources */,
 				57F5BC4A1636D60D00DF1161 /* OpenGLView.mm in Sources */,
 				57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */,
+				57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
