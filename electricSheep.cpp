@@ -1,14 +1,35 @@
 #include "electricSheep.h"
+#include "Path_C_Interface.h"
 
 //windowSize
 int windowWidth=1136;
 int windowHeight=640;
 
-ElectricSheepEngine::ElectricSheepEngine() {
+ElectricSheepEngine::ElectricSheepEngine(float width, float height) {
+    reshape(width, height);
+    
+    initShaders(pathForFile("vertex", "glsl"), pathForFile("fragment", "glsl"));
+    initCamera();
+    initProjection();
 }
 
 ElectricSheepEngine::~ElectricSheepEngine() {
     freeResources();
+}
+
+void ElectricSheepEngine::initCamera() {
+    cameraPosition=glm::vec3(8,-8,6);
+    cameraTarget=glm::vec3(0,0,0);
+    cameraUp=glm::vec3(0,0,1);
+    view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
+}
+
+void ElectricSheepEngine::initProjection() {
+    lensAngle=45.0f;
+    aspectRatio=1.0*(windowWidth/windowHeight);
+    nearClippingPlane=0.1f;
+    farClippingPlane=100.0f;
+    projection=glm::perspective(lensAngle, aspectRatio, nearClippingPlane, farClippingPlane);
 }
 
 bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *fragmentShaderPath) {
@@ -63,7 +84,7 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
 
 #define numberOfSheep   4
 
-void ElectricSheepEngine::initSheep() {
+void ElectricSheepEngine::initWorld() {
     for (int s=0; s<numberOfSheep; s++) {
         herd.push_back(new Sheep());
     }
@@ -74,19 +95,6 @@ void ElectricSheepEngine::freeResources() {
     glDeleteProgram(shaderProgram);
     herd.clear();
 }
-
-//view matrix using look at
-glm::vec3 cameraPosition=glm::vec3(8,-8,6);
-glm::vec3 cameraTarget=glm::vec3(0,0,0);
-glm::vec3 cameraUp=glm::vec3(0,0,1);
-glm::mat4 view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
-
-//projection matrix
-GLfloat lensAngle=45.0f;
-GLfloat aspectRatio=1.0*(windowWidth/windowHeight);
-GLfloat nearClippingPlane=0.1f;
-GLfloat farClippingPlane=100.0f;
-glm::mat4 projection=glm::perspective(lensAngle, aspectRatio, nearClippingPlane, farClippingPlane);
 
 void ElectricSheepEngine::render() {
     //clear screen

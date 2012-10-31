@@ -16,20 +16,12 @@
 - (void)setupRenderBuffer;
 - (void)setupDepthBuffer;
 - (void)setupFrameBuffer;
-- (void)setupShaders;
 - (void)setupDisplayLink;
 - (void)render:(CADisplayLink *)displayLink;
 
 @end
 
 @implementation OpenGLView
-
-- (void)setupShaders {
-    NSString *vertexShaderPath=[[NSBundle mainBundle] pathForResource:@"vertex" ofType:@"glsl"];
-    NSString *fragmentShaderPath=[[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"glsl"];
-    
-    _electricSheepEngine->initShaders([vertexShaderPath UTF8String], [fragmentShaderPath UTF8String]);
-}
 
 - (void)setupLayer {
     _eaglLayer=(CAEAGLLayer *)self.layer;
@@ -63,17 +55,15 @@
 }
 
 - (void)setup {
-    _electricSheepEngine=new ElectricSheepEngine();
     [self setupLayer];
     [self setupContext];
     [self setupDepthBuffer];
     [self setupRenderBuffer];
     [self setupFrameBuffer];
-    [self setupShaders];
     
     //init the engine
-    _electricSheepEngine->reshape(self.frame.size.width, self.frame.size.height);
-    _electricSheepEngine->initSheep();
+    _electricSheepEngine=new ElectricSheepEngine(self.frame.size.width, self.frame.size.height);
+    _electricSheepEngine->initWorld();
     
     //setup the main loop
     [self setupDisplayLink];
