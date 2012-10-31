@@ -10,25 +10,64 @@
 
 @interface OpenGLView ()
 
+@property (strong, nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
+@property (strong, nonatomic) UIPinchGestureRecognizer *pinchGestureRecognizer;
+
 - (void)setup;
 - (void)setupLayer;
 - (void)setupContext;
 - (void)setupRenderBuffer;
 - (void)setupDepthBuffer;
 - (void)setupFrameBuffer;
-- (void)setupShaders;
 - (void)setupDisplayLink;
 - (void)render:(CADisplayLink *)displayLink;
+- (void)viewPanned:(UIPanGestureRecognizer *)panGesture;
+- (void)viewPinched:(UIPinchGestureRecognizer *)pinchGesture;
 
 @end
 
 @implementation OpenGLView
 
-- (void)setupShaders {
-    NSString *vertexShaderPath=[[NSBundle mainBundle] pathForResource:@"vertex" ofType:@"glsl"];
-    NSString *fragmentShaderPath=[[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"glsl"];
-    
-    _electricSheepEngine->initShaders([vertexShaderPath UTF8String], [fragmentShaderPath UTF8String]);
+@synthesize panGestureRecognizer=_panGestureRecognizer;
+@synthesize pinchGestureRecognizer=_pinchGestureRecognizer;
+
+- (UIPanGestureRecognizer *)panGestureRecognizer {
+    if (_panGestureRecognizer==nil) {
+        _panGestureRecognizer=[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(viewPanned:)];
+    }
+    return _panGestureRecognizer;
+}
+
+- (UIPinchGestureRecognizer *)pinchGestureRecognizer {
+    if (_pinchGestureRecognizer==nil) {
+        _pinchGestureRecognizer=[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(viewPinched:)];
+    }
+    return _pinchGestureRecognizer;
+}
+
+- (void)viewPanned:(UIPanGestureRecognizer *)panGesture {
+    static CGPoint previousTranslation=CGPointMake(0, 0);
+    if(panGesture.state==UIGestureRecognizerStateEnded) {
+        previousTranslation=CGPointMake(0, 0);
+    } else {
+        CGPoint newTranslation=[panGesture translationInView:self];
+        if (_electricSheepEngine) {
+            _electricSheepEngine->panCamera(newTranslation.x-previousTranslation.x, newTranslation.y-previousTranslation.y);
+        }
+        previousTranslation=newTranslation;
+    }
+}
+
+- (void)viewPinched:(UIPinchGestureRecognizer *)pinchGesture {
+    static CGFloat previousScale=1.0;
+    if (pinchGesture.state==UIGestureRecognizerStateEnded) {
+        previousScale=1.0;
+    } else {
+        if (_electricSheepEngine) {
+            _electricSheepEngine->zoomCamera(previousScale/pinchGesture.scale);
+        }
+        previousScale=pinchGesture.scale;
+    }
 }
 
 - (void)setupLayer {
@@ -63,17 +102,17 @@
 }
 
 - (void)setup {
-    _electricSheepEngine=new ElectricSheepEngine();
     [self setupLayer];
     [self setupContext];
     [self setupDepthBuffer];
     [self setupRenderBuffer];
     [self setupFrameBuffer];
-    [self setupShaders];
+    [self addGestureRecognizer:self.panGestureRecognizer];
+    [self addGestureRecognizer:self.pinchGestureRecognizer];
     
     //init the engine
-    _electricSheepEngine->reshape(self.frame.size.width, self.frame.size.height);
-    _electricSheepEngine->initSheep();
+    _electricSheepEngine=new ElectricSheepEngine(self.frame.size.width, self.frame.size.height);
+    _electricSheepEngine->initWorld();
     
     //setup the main loop
     [self setupDisplayLink];
@@ -111,6 +150,7 @@
 - (void)dealloc {
     _eaglContext=nil;
     _eaglLayer=nil;
+    [self removeGestureRecognizer:self.panGestureRecognizer];
 }
 
 @end

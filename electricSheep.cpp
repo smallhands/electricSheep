@@ -1,14 +1,42 @@
 #include "electricSheep.h"
+#include "Path_C_Interface.h"
 
 //windowSize
 int windowWidth=1136;
 int windowHeight=640;
 
-ElectricSheepEngine::ElectricSheepEngine() {
+ElectricSheepEngine::ElectricSheepEngine(float width, float height) {
+    reshape(width, height);
+    
+    initShaders(pathForFile("vertex", "glsl"), pathForFile("fragment", "glsl"));
+    initCamera();
+    initProjection();
 }
 
 ElectricSheepEngine::~ElectricSheepEngine() {
     freeResources();
+}
+
+void ElectricSheepEngine::initCamera() {
+    cameraPosition=glm::vec3(16,16,8);
+    cameraTarget=glm::vec3(0,0,0);
+    cameraUp=glm::vec3(0,0,1);
+    glm::vec3 cameraDirection=glm::normalize(cameraPosition-cameraTarget);
+    cameraRight=glm::cross(cameraDirection, cameraUp);
+    cameraRight.z=0;
+    updateCamera();
+}
+
+void ElectricSheepEngine::updateCamera() {
+    view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
+}
+
+void ElectricSheepEngine::initProjection() {
+    lensAngle=45.0f;
+    aspectRatio=1.0*(windowWidth/windowHeight);
+    nearClippingPlane=0.1f;
+    farClippingPlane=100.0f;
+    projection=glm::perspective(lensAngle, aspectRatio, nearClippingPlane, farClippingPlane);
 }
 
 bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *fragmentShaderPath) {
@@ -61,9 +89,9 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
     return true;
 }
 
-#define numberOfSheep   4
+#define numberOfSheep   10
 
-void ElectricSheepEngine::initSheep() {
+void ElectricSheepEngine::initWorld() {
     for (int s=0; s<numberOfSheep; s++) {
         herd.push_back(new Sheep());
     }
@@ -74,19 +102,6 @@ void ElectricSheepEngine::freeResources() {
     glDeleteProgram(shaderProgram);
     herd.clear();
 }
-
-//view matrix using look at
-glm::vec3 cameraPosition=glm::vec3(8,-8,6);
-glm::vec3 cameraTarget=glm::vec3(0,0,0);
-glm::vec3 cameraUp=glm::vec3(0,0,1);
-glm::mat4 view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
-
-//projection matrix
-GLfloat lensAngle=45.0f;
-GLfloat aspectRatio=1.0*(windowWidth/windowHeight);
-GLfloat nearClippingPlane=0.1f;
-GLfloat farClippingPlane=100.0f;
-glm::mat4 projection=glm::perspective(lensAngle, aspectRatio, nearClippingPlane, farClippingPlane);
 
 void ElectricSheepEngine::render() {
     //clear screen
@@ -146,6 +161,41 @@ void ElectricSheepEngine::renderObjectModel(ObjModel *model, glm::mat4 modelMatr
     int bufferSize;
     glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
     glDrawElements(GL_TRIANGLES, bufferSize/sizeof(GLushort), GL_UNSIGNED_SHORT, 0);
+}
+
+void ElectricSheepEngine::zoomCamera(GLfloat scale) {
+    cameraPosition.x*=scale;
+    cameraPosition.y*=scale;
+    cameraPosition.z*=scale;
+    updateCamera();
+}
+
+void ElectricSheepEngine::panCamera(GLfloat horizontal, GLfloat vertical) {
+    GLfloat yawAngle=horizontal*0.5;
+    GLfloat pitchAngle=vertical*-0.1;
+    
+    glm::mat4 yawRotation=glm::rotate(glm::mat4(1.0f), yawAngle, cameraUp);
+    glm::mat4 pitchRotation=glm::rotate(glm::mat4(1.0f), pitchAngle, cameraRight);
+    
+    glm::vec3 camToTarget=cameraPosition-cameraTarget;
+    glm::vec4 camToTarget4(camToTarget.x, camToTarget.y, camToTarget.z, 1.0);
+    
+    camToTarget4=yawRotation*pitchRotation*camToTarget4;
+    
+    camToTarget.x=camToTarget4.x;
+    camToTarget.y=camToTarget4.y;
+    camToTarget.z=camToTarget4.z;
+    
+    cameraPosition.x=camToTarget.x+cameraTarget.x;
+    cameraPosition.y=camToTarget.y+cameraTarget.y;
+    cameraPosition.z=camToTarget.z+cameraTarget.z;
+    
+    glm::vec3 cameraDirection=glm::normalize(cameraPosition-cameraTarget);
+    cameraRight=glm::cross(cameraDirection, cameraUp);
+    cameraRight.z=0;
+    cameraUp=glm::cross(cameraRight, cameraDirection);
+    
+    updateCamera();
 }
 
 void ElectricSheepEngine::reshape(int newWindowWidth, int newWindowHeight)

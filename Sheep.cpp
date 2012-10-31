@@ -24,8 +24,8 @@ int randomNumber(int min, int max) {
 Sheep::Sheep() {
     state=SHEEP_STATE_GRAZING;
     animationIndex=0;
-    position=glm::vec3(randomNumber(-5, 5),randomNumber(-5, 5),0);
-    heading=glm::vec2(randomNumber(-10, 10),randomNumber(-10, 10));
+    position=glm::vec3(randomNumber(-8, 8), randomNumber(-8, 8), 0);
+    heading=glm::vec2(randomNumber(-10, 10), randomNumber(-10, 10));
     heading=glm::normalize(heading);
     
     loadStateModels();
@@ -115,7 +115,8 @@ void Sheep::switchState() {
     }
     
     if (state==SHEEP_STATE_WALKING) {
-        heading=glm::vec2(randomNumber(-10, 10),randomNumber(-10, 10));
+        heading.x+=((float)randomNumber(-1, 1))/20.0;
+        heading.y+=((float)randomNumber(-1, 1))/20.0;
         heading=glm::normalize(heading);
     }
     
@@ -124,7 +125,7 @@ void Sheep::switchState() {
 }
 
 #define animationThreshold  20
-#define stateThreshold      100
+#define stateThreshold      400
 
 void Sheep::update(GLfloat elapsedTime) {
     GLfloat deltaTime=elapsedTime-lastUpdateTime;
@@ -138,13 +139,13 @@ void Sheep::update(GLfloat elapsedTime) {
     }
     
     stateTime[state]+=deltaTime;
-    if (stateTime[state]>stateThreshold) {
+    if ((state!=SHEEP_STATE_WALKING && stateTime[state]>stateThreshold) || stateTime[state]>stateThreshold/10) {
         switchState();
     }
     
     if (state==SHEEP_STATE_WALKING) {
-        position.x+=0.05*heading.x;
-        position.y+=0.05*heading.y;
+        position.x+=0.005*heading.x;
+        position.y+=0.005*heading.y;
     }
     
     lastUpdateTime=elapsedTime;
