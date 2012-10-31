@@ -79,7 +79,7 @@ ObjModel::ObjModel(const char *objFilePath) {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     
     //loadup textures
-    textureID=textureForName("Brick_4");
+    textureID=textureForName("sheep");
 }
 
 GLuint ObjModel::getTextureID() {

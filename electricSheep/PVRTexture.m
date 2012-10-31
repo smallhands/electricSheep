@@ -55,7 +55,7 @@ static char gPVRTexIdentifier[4] = "PVR!";
 
 enum
 {
-	kPVRTextureFlagTypePVRTC_2 = 24,
+	kPVRTextureFlagTypePVRTC_2 = 12,
 	kPVRTextureFlagTypePVRTC_4
 };
 

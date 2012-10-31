@@ -40,16 +40,52 @@ GLuint textureForName(const char *name) {
 - (GLuint)textureForName:(NSString *)textureName {
     GLuint textureID=0;
     id textureNameObject=[self.map objectForKey:textureName];
-    if (textureNameObject && [textureNameObject isKindOfClass:[PVRTexture class]]) {
-        textureID=((PVRTexture *)textureNameObject).name;
+    if (textureNameObject && [textureNameObject isKindOfClass:[NSNumber class]]) {
+        textureID=((NSNumber *)textureNameObject).unsignedIntValue;
     } else {
-        PVRTexture *texture=[PVRTexture pvrTextureWithContentsOfFile:[[NSBundle mainBundle] pathForResource:textureName ofType:@"pvr"]];
-        if (texture) {
-            textureID=texture.name;
-        }
-        [self.map setObject:texture forKey:textureName];
+        CGImageRef spriteImage = [UIImage imageNamed:textureName].CGImage;
+        
+        // 2
+        size_t width = CGImageGetWidth(spriteImage);
+        size_t height = CGImageGetHeight(spriteImage);
+        
+        GLubyte * spriteData = (GLubyte *) calloc(width*height*4, sizeof(GLubyte));
+        
+        CGContextRef spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width*4,
+                                                           CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
+        
+        // 3
+        CGContextDrawImage(spriteContext, CGRectMake(0, 0, width, height), spriteImage);
+        
+        CGContextRelease(spriteContext);
+        
+        // 4
+        glGenTextures(1, &textureID);
+        glBindTexture(GL_TEXTURE_2D, textureID);
+        
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+        
+        free(spriteData);
+        [self.map setObject:[NSNumber numberWithUnsignedInt:textureID] forKey:textureName];
     }
     return textureID;
 }
+
+//- (GLuint)textureForName:(NSString *)textureName {
+//    GLuint textureID=0;
+//    id textureNameObject=[self.map objectForKey:textureName];
+//    if (textureNameObject && [textureNameObject isKindOfClass:[PVRTexture class]]) {
+//        textureID=((PVRTexture *)textureNameObject).name;
+//    } else {
+//        PVRTexture *texture=[PVRTexture pvrTextureWithContentsOfFile:[[NSBundle mainBundle] pathForResource:textureName ofType:@"pvr"]];
+//        if (texture) {
+//            textureID=texture.name;
+//        }
+//        [self.map setObject:texture forKey:textureName];
+//    }
+//    return textureID;
+//}
 
 @end
