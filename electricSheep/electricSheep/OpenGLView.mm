@@ -10,6 +10,8 @@
 
 @interface OpenGLView ()
 
+@property (strong, nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
+
 - (void)setup;
 - (void)setupLayer;
 - (void)setupContext;
@@ -18,10 +20,33 @@
 - (void)setupFrameBuffer;
 - (void)setupDisplayLink;
 - (void)render:(CADisplayLink *)displayLink;
+- (void)viewPanned:(UIPanGestureRecognizer *)panGesture;
 
 @end
 
 @implementation OpenGLView
+
+@synthesize panGestureRecognizer=_panGestureRecognizer;
+
+- (UIPanGestureRecognizer *)panGestureRecognizer {
+    if (_panGestureRecognizer==nil) {
+        _panGestureRecognizer=[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(viewPanned:)];
+    }
+    return _panGestureRecognizer;
+}
+
+- (void)viewPanned:(UIPanGestureRecognizer *)panGesture {
+    static CGPoint previousTranslation=CGPointMake(0, 0);
+    if(panGesture.state==UIGestureRecognizerStateEnded) {
+        previousTranslation=CGPointMake(0, 0);
+    } else {
+        CGPoint newTranslation=[panGesture translationInView:self];
+        if (_electricSheepEngine) {
+            _electricSheepEngine->panCamera(newTranslation.x-previousTranslation.x, newTranslation.y-previousTranslation.y);
+        }
+        previousTranslation=newTranslation;
+    }
+}
 
 - (void)setupLayer {
     _eaglLayer=(CAEAGLLayer *)self.layer;
@@ -60,6 +85,7 @@
     [self setupDepthBuffer];
     [self setupRenderBuffer];
     [self setupFrameBuffer];
+    [self addGestureRecognizer:self.panGestureRecognizer];
     
     //init the engine
     _electricSheepEngine=new ElectricSheepEngine(self.frame.size.width, self.frame.size.height);
@@ -101,6 +127,7 @@
 - (void)dealloc {
     _eaglContext=nil;
     _eaglLayer=nil;
+    [self removeGestureRecognizer:self.panGestureRecognizer];
 }
 
 @end

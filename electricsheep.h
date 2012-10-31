@@ -27,6 +27,7 @@ public:
     void update(GLfloat elapsedTime);
     void render();
     void reshape(int newWindowWidth, int newWindowHeight);
+    void panCamera(GLfloat x, GLfloat y);
 
 private:
     GLuint shaderProgram;
@@ -54,6 +55,8 @@ private:
     
     bool initShaders(const char *vertexShaderSource, const char *fragmentShaderSource);
     void initCamera();
+    void updateCamera();
+    
     void initProjection();
     
     void freeResources();

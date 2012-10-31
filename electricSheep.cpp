@@ -18,9 +18,13 @@ ElectricSheepEngine::~ElectricSheepEngine() {
 }
 
 void ElectricSheepEngine::initCamera() {
-    cameraPosition=glm::vec3(8,-8,6);
+    cameraPosition=glm::vec3(20,20,8);
     cameraTarget=glm::vec3(0,0,0);
     cameraUp=glm::vec3(0,0,1);
+    updateCamera();
+}
+
+void ElectricSheepEngine::updateCamera() {
     view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
 }
 
@@ -82,7 +86,7 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
     return true;
 }
 
-#define numberOfSheep   4
+#define numberOfSheep   10
 
 void ElectricSheepEngine::initWorld() {
     for (int s=0; s<numberOfSheep; s++) {
@@ -154,6 +158,12 @@ void ElectricSheepEngine::renderObjectModel(ObjModel *model, glm::mat4 modelMatr
     int bufferSize;
     glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
     glDrawElements(GL_TRIANGLES, bufferSize/sizeof(GLushort), GL_UNSIGNED_SHORT, 0);
+}
+
+void ElectricSheepEngine::panCamera(GLfloat x, GLfloat y) {
+    cameraPosition.x+=0.05*x;
+    cameraPosition.y+=0.05*y;
+    updateCamera();
 }
 
 void ElectricSheepEngine::reshape(int newWindowWidth, int newWindowHeight)
