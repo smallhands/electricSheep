@@ -28,3 +28,6 @@ glm::mat4 Sheep::getPositionMatrix() {
 glm::mat4 Sheep::getModelMatrix() {
     return getPositionMatrix();
 }
+
+void Sheep::update(GLfloat elapsedTime) {
+}

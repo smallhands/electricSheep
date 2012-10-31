@@ -21,6 +21,7 @@ public:
     ~Sheep();
     ObjModel * getModel();
     glm::mat4 getModelMatrix();
+    void update(GLfloat elapsedTime);
 };
 
 #endif /* defined(__electricSheep__Sheep__) */

@@ -72,9 +72,9 @@ void ElectricSheepEngine::freeResources() {
 }
 
 //view matrix using look at
-glm::vec3 cameraPosition=glm::vec3(0,2,0);
+glm::vec3 cameraPosition=glm::vec3(3.1,-2.4,2.2);
 glm::vec3 cameraTarget=glm::vec3(0,0,-4); //same as model position to look at model
-glm::vec3 cameraUp=glm::vec3(1,1,0);
+glm::vec3 cameraUp=glm::vec3(0,0,1);
 glm::mat4 view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
 
 //projection matrix
@@ -145,7 +145,9 @@ void ElectricSheepEngine::reshape(int newWindowWidth, int newWindowHeight)
     glViewport(0, 0, windowWidth, windowHeight);
 }
 
-void ElectricSheepEngine::update(GLfloat elapsedTime)
-{
-#pragma message("TODO: update game state")
+void ElectricSheepEngine::update(GLfloat elapsedTime) {
+    for (std::vector<Sheep *>::size_type i=0; i!=herd.size(); i++) {
+        Sheep *sheep=herd[i];
+        sheep->update(elapsedTime);
+    }
 }
