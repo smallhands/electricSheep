@@ -67,8 +67,8 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
     return true;
 }
 
-void ElectricSheepEngine::initModels() {
-    ObjModel *model=new ObjModel("");
+void ElectricSheepEngine::initModels(const char *filePath) {
+    ObjModel *model=new ObjModel(filePath);
     models.push_back(model);
 }
 
@@ -142,7 +142,7 @@ void ElectricSheepEngine::update(GLfloat elapsedTime)
     //view matrix using look at
     glm::vec3 cameraPosition=glm::vec3(0,2,0);
     glm::vec3 cameraTarget=glm::vec3(0,0,-4); //same as model position to look at model
-    glm::vec3 cameraUp=glm::vec3(0,1,0);
+    glm::vec3 cameraUp=glm::vec3(1,1,0);
     glm::mat4 view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
     
     //projection matrix

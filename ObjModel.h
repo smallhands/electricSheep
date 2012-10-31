@@ -31,4 +31,6 @@ public:
     GLuint getTextureID();
 };
 
+
+
 #endif /* defined(__electricSheep__ObjModel__) */

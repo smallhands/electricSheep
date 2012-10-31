@@ -13,6 +13,8 @@
 		57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF2916400025008B0E7F /* ObjModel.cpp */; };
 		57E6BF3716400256008B0E7F /* sheep.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57E6BF3616400256008B0E7F /* sheep.obj */; };
 		57E6BF51164042F3008B0E7F /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF50164042F3008B0E7F /* PVRTexture.m */; };
+		57EB54141640968500571C1A /* torus.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57EB54131640968500571C1A /* torus.obj */; };
+		57EB541716409EE500571C1A /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57EB541616409EE500571C1A /* cube.obj */; };
 		57F5BC0D1636D41700DF1161 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0C1636D41700DF1161 /* UIKit.framework */; };
 		57F5BC0F1636D41700DF1161 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0E1636D41700DF1161 /* Foundation.framework */; };
 		57F5BC111636D41700DF1161 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC101636D41700DF1161 /* CoreGraphics.framework */; };
@@ -47,6 +49,8 @@
 		57E6BF3616400256008B0E7F /* sheep.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep.obj; path = ../resources/sheep.obj; sourceTree = "<group>"; };
 		57E6BF4F164042F3008B0E7F /* PVRTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTexture.h; sourceTree = "<group>"; };
 		57E6BF50164042F3008B0E7F /* PVRTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRTexture.m; sourceTree = "<group>"; };
+		57EB54131640968500571C1A /* torus.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = torus.obj; path = ../../../Downloads/ObjLoader/torus.obj; sourceTree = "<group>"; };
+		57EB541616409EE500571C1A /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cube.obj; path = ../resources/cube.obj; sourceTree = "<group>"; };
 		57F5BC081636D41700DF1161 /* electricSheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = electricSheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F5BC0C1636D41700DF1161 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		57F5BC0E1636D41700DF1161 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -107,6 +111,8 @@
 			children = (
 				57E6BF3616400256008B0E7F /* sheep.obj */,
 				57A23FCC16405DE100FB1238 /* Brick_4.pvr */,
+				57EB54131640968500571C1A /* torus.obj */,
+				57EB541616409EE500571C1A /* cube.obj */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -273,6 +279,8 @@
 				57F5BC431636D50E00DF1161 /* vertex.glsl in Resources */,
 				57E6BF3716400256008B0E7F /* sheep.obj in Resources */,
 				57A23FCD16405DE100FB1238 /* Brick_4.pvr in Resources */,
+				57EB54141640968500571C1A /* torus.obj in Resources */,
+				57EB541716409EE500571C1A /* cube.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
