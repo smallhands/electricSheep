@@ -30,7 +30,7 @@ vector<string> split(const string& str, const string& delimiter = " ") {
     return tokens;
 }
 
-ObjModel::ObjModel(const char *objFilePath) {
+ObjModel::ObjModel(const char *objFilePath, const char *textureName) {
     ifstream in(objFilePath, ios::in);
     
     vector<glm::vec3> vertices;
@@ -79,7 +79,7 @@ ObjModel::ObjModel(const char *objFilePath) {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     
     //loadup textures
-    textureID=textureForName("sheep");
+    textureID=textureForName(textureName);
 }
 
 GLuint ObjModel::getTextureID() {

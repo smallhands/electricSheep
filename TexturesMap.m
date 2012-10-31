@@ -37,6 +37,7 @@ GLuint textureForName(const char *name) {
     return _sharedInstance;
 }
 
+/*quick hack for loading textures from pngs*/
 - (GLuint)textureForName:(NSString *)textureName {
     GLuint textureID=0;
     id textureNameObject=[self.map objectForKey:textureName];

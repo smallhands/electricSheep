@@ -68,7 +68,7 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
 }
 
 void ElectricSheepEngine::initModels(const char *filePath) {
-    ObjModel *model=new ObjModel(filePath);
+    ObjModel *model=new ObjModel(filePath, "sheep");
     models.push_back(model);
 }
 
