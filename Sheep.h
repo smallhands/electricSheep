@@ -28,12 +28,17 @@ class Sheep {
     
     glm::mat4 getPositionMatrix();
     void loadStateModels();
+    
+    std::map<SheepState, GLfloat> stateTime;
+    GLfloat currentAnimationTime;
+    
 public:
     Sheep();
     ~Sheep();
     ObjModel * getModel();
     glm::mat4 getModelMatrix();
     void update(GLfloat elapsedTime);
+    void switchState();
 };
 
 #endif /* defined(__electricSheep__Sheep__) */

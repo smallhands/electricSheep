@@ -8,13 +8,30 @@
 
 #include "Sheep.h"
 #include <sstream>
+#include <time.h>
+#include <stdlib.h>
+
+int randomNumber(int min, int max) {
+    static bool randomSeeded=false;
+    if(!randomSeeded) {
+        srand(time(0));
+        randomSeeded=true;
+    }
+    return (rand()%(max-min))+min;
+}
 
 Sheep::Sheep() {
-    state=SHEEP_STATE_IDLE;
+    state=SHEEP_STATE_GRAZING;
     animationIndex=0;
     position=glm::vec3(0,0,0);
     
     loadStateModels();
+    
+    stateTime[SHEEP_STATE_IDLE]=0;
+    stateTime[SHEEP_STATE_GRAZING]=0;
+    stateTime[SHEEP_STATE_WALKING]=0;
+    
+    currentAnimationTime=0;
 }
 
 ObjModel * Sheep::getModel() {
@@ -57,13 +74,56 @@ glm::mat4 Sheep::getModelMatrix() {
     return getPositionMatrix();
 }
 
-#define animationThreshold 400
+void Sheep::switchState() {
+    int random=randomNumber(0, 100);
+    switch (state) {
+        case SHEEP_STATE_IDLE:
+            if (random>80) {
+                state=SHEEP_STATE_WALKING;
+            } else if(random>=45) {
+                state=SHEEP_STATE_GRAZING;
+            }
+            break;
+        case SHEEP_STATE_WALKING:
+            if (random>80) {
+                state=SHEEP_STATE_IDLE;
+            } else if(random>=65) {
+                state=SHEEP_STATE_GRAZING;
+            }
+            break;
+        case SHEEP_STATE_GRAZING:
+            if (random>80) {
+                state=SHEEP_STATE_WALKING;
+            } else if(random>=65) {
+                state=SHEEP_STATE_IDLE;
+            }
+            break;
+        default:
+            break;
+    }
+    animationIndex=0;
+    stateTime[state]=0;
+}
+
+#define animationThreshold  20
+#define stateThreshold      100
 
 void Sheep::update(GLfloat elapsedTime) {
-    if (elapsedTime>animationThreshold) {
+    static GLfloat lastUpdateTime=0;
+    GLfloat deltaTime=elapsedTime-lastUpdateTime;
+    currentAnimationTime+=deltaTime;
+    if (currentAnimationTime>animationThreshold) {
         animationIndex+=1;
+        currentAnimationTime=0;
         if (animationIndex>=stateModels[state].size()) {
             animationIndex=0;
         }
     }
+    
+    stateTime[state]+=deltaTime;
+    if (stateTime[state]>stateThreshold) {
+        switchState();
+    }
+    
+    lastUpdateTime=elapsedTime;
 }
