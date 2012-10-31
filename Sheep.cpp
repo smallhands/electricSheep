@@ -12,7 +12,7 @@
 Sheep::Sheep() {
     state=SHEEP_STATE_IDLE;
     animationIndex=0;
-    position=glm::vec3(0,0,-4);
+    position=glm::vec3(0,0,0);
     
     loadStateModels();
 }
