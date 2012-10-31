@@ -15,7 +15,6 @@
 
 struct modelData {
     GLfloat coord3D[3];
-    GLfloat colour3D[3];
     GLfloat texCoords[2];
 };
 
@@ -31,5 +30,7 @@ public:
     GLuint getFacesBufferObject();
     GLuint getTextureID();
 };
+
+
 
 #endif /* defined(__electricSheep__ObjModel__) */

@@ -73,7 +73,7 @@
     
     //init the engine
     _electricSheepEngine->reshape(self.frame.size.width, self.frame.size.height);
-    _electricSheepEngine->initModels();
+    _electricSheepEngine->initModels([[[NSBundle mainBundle] pathForResource:@"sheep" ofType:@"obj"] UTF8String]);
     
     //setup the main loop
     [self setupDisplayLink];
