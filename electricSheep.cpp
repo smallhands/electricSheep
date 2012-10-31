@@ -51,12 +51,6 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
         return false;
     }
     
-    const char *animationMatrixAttributeName="animation";
-    if(!bindShaderUniformAttribute(&shaderAttribute_uniform_animation, shaderProgram, animationMatrixAttributeName)){
-        fprintf(stderr, "Could not bind shader attribute %s\n", animationMatrixAttributeName);
-        return false;
-    }
-    
     const char *textureAttributeName="Texture";
     if(!bindShaderUniformAttribute(&shaderAttribute_uniform_Texture, shaderProgram, textureAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", textureAttributeName);
@@ -67,15 +61,28 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
     return true;
 }
 
-void ElectricSheepEngine::initModels(const char *filePath) {
-    ObjModel *model=new ObjModel(filePath, "sheep");
-    models.push_back(model);
+void ElectricSheepEngine::initSheep() {
+    Sheep *sheep=new Sheep();
+    herd.push_back(sheep);
 }
 
 void ElectricSheepEngine::freeResources() {
     glDeleteProgram(shaderProgram);
-    models.clear();
+    herd.clear();
 }
+
+//view matrix using look at
+glm::vec3 cameraPosition=glm::vec3(3.1,-2.4,2.2);
+glm::vec3 cameraTarget=glm::vec3(0,0,-4); //same as model position to look at model
+glm::vec3 cameraUp=glm::vec3(0,0,1);
+glm::mat4 view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
+
+//projection matrix
+GLfloat lensAngle=45.0f;
+GLfloat aspectRatio=1.0*(windowWidth/windowHeight);
+GLfloat nearClippingPlane=0.1f;
+GLfloat farClippingPlane=10.0f;
+glm::mat4 projection=glm::perspective(lensAngle, aspectRatio, nearClippingPlane, farClippingPlane);
 
 void ElectricSheepEngine::render() {
     //clear screen
@@ -90,8 +97,14 @@ void ElectricSheepEngine::render() {
     glEnableVertexAttribArray(shaderAttribute_coord3D);
     glEnableVertexAttribArray(shaderAttribute_TexCoordIn);
     
-    for (std::vector<ObjModel *>::size_type i=0; i!=models.size(); i++) {
-        ObjModel *model=models[i];
+    for (std::vector<Sheep *>::size_type i=0; i!=herd.size(); i++) {
+        Sheep *sheep=herd[i];
+        ObjModel *model=sheep->getModel();
+        
+        //model matrix using model position vector
+        glm::mat4 mvp=projection*view*sheep->getModelMatrix();
+        glUniformMatrix4fv(shaderAttribute_uniform_mvp, 1, GL_FALSE, glm::value_ptr(mvp));
+        
         glBindBuffer(GL_ARRAY_BUFFER, model->getVerticesBufferObject());
         glVertexAttribPointer(shaderAttribute_coord3D, // attribute
                               3, // number of elements per vertex, here (x,y)
@@ -132,33 +145,9 @@ void ElectricSheepEngine::reshape(int newWindowWidth, int newWindowHeight)
     glViewport(0, 0, windowWidth, windowHeight);
 }
 
-void ElectricSheepEngine::update(GLfloat elapsedTime)
-{
-#pragma message("TODO: update game state")
-    //model matrix using model position vector
-    glm::vec3 modelPosition=glm::vec3(0,0,-5);
-    glm::mat4 model=glm::translate(glm::mat4(1.0f), modelPosition);
-    
-    //view matrix using look at
-    glm::vec3 cameraPosition=glm::vec3(0,2,0);
-    glm::vec3 cameraTarget=glm::vec3(0,0,-4); //same as model position to look at model
-    glm::vec3 cameraUp=glm::vec3(1,1,0);
-    glm::mat4 view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
-    
-    //projection matrix
-    GLfloat lensAngle=45.0f;
-    GLfloat aspectRatio=1.0*(windowWidth/windowHeight);
-    GLfloat nearClippingPlane=0.1f;
-    GLfloat farClippingPlane=10.0f;
-    glm::mat4 projection=glm::perspective(lensAngle, aspectRatio, nearClippingPlane, farClippingPlane);
-    
-    glm::mat4 mvp=projection*view*model;
-    
-    glUniformMatrix4fv(shaderAttribute_uniform_mvp, 1, GL_FALSE, glm::value_ptr(mvp));
-    
-    //animation matrix
-    float angle = elapsedTime / 1000.0 * 45; // 45° per second
-    glm::vec3 axis(1.0, -1.0, 0.0);
-    glm::mat4 anim = glm::rotate(glm::mat4(1.0f), angle, axis);
-    glUniformMatrix4fv(shaderAttribute_uniform_animation, 1, GL_FALSE, glm::value_ptr(anim));
+void ElectricSheepEngine::update(GLfloat elapsedTime) {
+    for (std::vector<Sheep *>::size_type i=0; i!=herd.size(); i++) {
+        Sheep *sheep=herd[i];
+        sheep->update(elapsedTime);
+    }
 }

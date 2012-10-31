@@ -7,12 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57A23FB916404C6200FB1238 /* TexturesMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A23FB816404C6200FB1238 /* TexturesMap.m */; };
+		57A23FB916404C6200FB1238 /* TexturesMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57A23FB816404C6200FB1238 /* TexturesMap.mm */; };
 		57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF22163FFB28008B0E7F /* FileUtils.cpp */; };
 		57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF2916400025008B0E7F /* ObjModel.cpp */; };
 		57E6BF3716400256008B0E7F /* sheep.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57E6BF3616400256008B0E7F /* sheep.obj */; };
 		57E6BF51164042F3008B0E7F /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF50164042F3008B0E7F /* PVRTexture.m */; };
 		57EB54241640AC1000571C1A /* sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = 57EB54231640AC1000571C1A /* sheep.png */; };
+		57EB542F1640B19400571C1A /* PathUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57EB542E1640B19400571C1A /* PathUtils.mm */; };
+		57EB54391640BC6900571C1A /* Sheep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57EB54371640BC6900571C1A /* Sheep.cpp */; };
+		57EB54421640C93900571C1A /* sheep_anim_graze1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57EB543B1640C93900571C1A /* sheep_anim_graze1.obj */; };
+		57EB54431640C93900571C1A /* sheep_anim_graze2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57EB543C1640C93900571C1A /* sheep_anim_graze2.obj */; };
+		57EB54441640C93900571C1A /* sheep_anim_graze3.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57EB543D1640C93900571C1A /* sheep_anim_graze3.obj */; };
+		57EB54451640C93900571C1A /* sheep_anim_walk0.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57EB543E1640C93900571C1A /* sheep_anim_walk0.obj */; };
+		57EB54461640C93900571C1A /* sheep_anim_walk1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57EB543F1640C93900571C1A /* sheep_anim_walk1.obj */; };
+		57EB54471640C93900571C1A /* sheep_anim_walk2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57EB54401640C93900571C1A /* sheep_anim_walk2.obj */; };
+		57EB54481640C93900571C1A /* sheep_anim_walk3.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57EB54411640C93900571C1A /* sheep_anim_walk3.obj */; };
+		57EB544A1640CF0D00571C1A /* sheep_anim_graze0.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57EB54491640CF0D00571C1A /* sheep_anim_graze0.obj */; };
 		57F5BC0D1636D41700DF1161 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0C1636D41700DF1161 /* UIKit.framework */; };
 		57F5BC0F1636D41700DF1161 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0E1636D41700DF1161 /* Foundation.framework */; };
 		57F5BC111636D41700DF1161 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC101636D41700DF1161 /* CoreGraphics.framework */; };
@@ -36,7 +46,7 @@
 
 /* Begin PBXFileReference section */
 		57A23FB716404C6200FB1238 /* TexturesMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TexturesMap.h; path = ../TexturesMap.h; sourceTree = "<group>"; };
-		57A23FB816404C6200FB1238 /* TexturesMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TexturesMap.m; path = ../TexturesMap.m; sourceTree = "<group>"; };
+		57A23FB816404C6200FB1238 /* TexturesMap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TexturesMap.mm; path = ../TexturesMap.mm; sourceTree = "<group>"; };
 		57A23FBB16404FF600FB1238 /* TexturesMap_C_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TexturesMap_C_Interface.h; path = ../TexturesMap_C_Interface.h; sourceTree = "<group>"; };
 		57E6BF22163FFB28008B0E7F /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileUtils.cpp; path = ../FileUtils.cpp; sourceTree = "<group>"; };
 		57E6BF24163FFCBB008B0E7F /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = ../FileUtils.h; sourceTree = "<group>"; };
@@ -47,6 +57,18 @@
 		57E6BF4F164042F3008B0E7F /* PVRTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTexture.h; sourceTree = "<group>"; };
 		57E6BF50164042F3008B0E7F /* PVRTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRTexture.m; sourceTree = "<group>"; };
 		57EB54231640AC1000571C1A /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sheep.png; path = ../resources/sheep.png; sourceTree = "<group>"; };
+		57EB542C1640B13800571C1A /* Path_C_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Path_C_Interface.h; path = ../Path_C_Interface.h; sourceTree = "<group>"; };
+		57EB542E1640B19400571C1A /* PathUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PathUtils.mm; path = ../PathUtils.mm; sourceTree = "<group>"; };
+		57EB54371640BC6900571C1A /* Sheep.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sheep.cpp; path = ../Sheep.cpp; sourceTree = "<group>"; };
+		57EB54381640BC6900571C1A /* Sheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sheep.h; path = ../Sheep.h; sourceTree = "<group>"; };
+		57EB543B1640C93900571C1A /* sheep_anim_graze1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep_anim_graze1.obj; path = ../resources/sheep_anim_graze1.obj; sourceTree = "<group>"; };
+		57EB543C1640C93900571C1A /* sheep_anim_graze2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep_anim_graze2.obj; path = ../resources/sheep_anim_graze2.obj; sourceTree = "<group>"; };
+		57EB543D1640C93900571C1A /* sheep_anim_graze3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep_anim_graze3.obj; path = ../resources/sheep_anim_graze3.obj; sourceTree = "<group>"; };
+		57EB543E1640C93900571C1A /* sheep_anim_walk0.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep_anim_walk0.obj; path = ../resources/sheep_anim_walk0.obj; sourceTree = "<group>"; };
+		57EB543F1640C93900571C1A /* sheep_anim_walk1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep_anim_walk1.obj; path = ../resources/sheep_anim_walk1.obj; sourceTree = "<group>"; };
+		57EB54401640C93900571C1A /* sheep_anim_walk2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep_anim_walk2.obj; path = ../resources/sheep_anim_walk2.obj; sourceTree = "<group>"; };
+		57EB54411640C93900571C1A /* sheep_anim_walk3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep_anim_walk3.obj; path = ../resources/sheep_anim_walk3.obj; sourceTree = "<group>"; };
+		57EB54491640CF0D00571C1A /* sheep_anim_graze0.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep_anim_graze0.obj; path = ../resources/sheep_anim_graze0.obj; sourceTree = "<group>"; };
 		57F5BC081636D41700DF1161 /* electricSheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = electricSheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F5BC0C1636D41700DF1161 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		57F5BC0E1636D41700DF1161 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,6 +128,14 @@
 			isa = PBXGroup;
 			children = (
 				57E6BF3616400256008B0E7F /* sheep.obj */,
+				57EB54491640CF0D00571C1A /* sheep_anim_graze0.obj */,
+				57EB543B1640C93900571C1A /* sheep_anim_graze1.obj */,
+				57EB543C1640C93900571C1A /* sheep_anim_graze2.obj */,
+				57EB543D1640C93900571C1A /* sheep_anim_graze3.obj */,
+				57EB543E1640C93900571C1A /* sheep_anim_walk0.obj */,
+				57EB543F1640C93900571C1A /* sheep_anim_walk1.obj */,
+				57EB54401640C93900571C1A /* sheep_anim_walk2.obj */,
+				57EB54411640C93900571C1A /* sheep_anim_walk3.obj */,
 				57EB54231640AC1000571C1A /* sheep.png */,
 			);
 			name = Resources;
@@ -117,7 +147,7 @@
 				57E6BF4F164042F3008B0E7F /* PVRTexture.h */,
 				57E6BF50164042F3008B0E7F /* PVRTexture.m */,
 				57A23FB716404C6200FB1238 /* TexturesMap.h */,
-				57A23FB816404C6200FB1238 /* TexturesMap.m */,
+				57A23FB816404C6200FB1238 /* TexturesMap.mm */,
 				57A23FBB16404FF600FB1238 /* TexturesMap_C_Interface.h */,
 			);
 			name = pvr;
@@ -199,6 +229,10 @@
 				57E6BF24163FFCBB008B0E7F /* FileUtils.h */,
 				57E6BF22163FFB28008B0E7F /* FileUtils.cpp */,
 				57E6BF2C164000B3008B0E7F /* GLIncludes.h */,
+				57EB542C1640B13800571C1A /* Path_C_Interface.h */,
+				57EB542E1640B19400571C1A /* PathUtils.mm */,
+				57EB54371640BC6900571C1A /* Sheep.cpp */,
+				57EB54381640BC6900571C1A /* Sheep.h */,
 			);
 			name = engine;
 			sourceTree = "<group>";
@@ -273,6 +307,14 @@
 				57F5BC431636D50E00DF1161 /* vertex.glsl in Resources */,
 				57E6BF3716400256008B0E7F /* sheep.obj in Resources */,
 				57EB54241640AC1000571C1A /* sheep.png in Resources */,
+				57EB54421640C93900571C1A /* sheep_anim_graze1.obj in Resources */,
+				57EB54431640C93900571C1A /* sheep_anim_graze2.obj in Resources */,
+				57EB54441640C93900571C1A /* sheep_anim_graze3.obj in Resources */,
+				57EB54451640C93900571C1A /* sheep_anim_walk0.obj in Resources */,
+				57EB54461640C93900571C1A /* sheep_anim_walk1.obj in Resources */,
+				57EB54471640C93900571C1A /* sheep_anim_walk2.obj in Resources */,
+				57EB54481640C93900571C1A /* sheep_anim_walk3.obj in Resources */,
+				57EB544A1640CF0D00571C1A /* sheep_anim_graze0.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +334,9 @@
 				57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */,
 				57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */,
 				57E6BF51164042F3008B0E7F /* PVRTexture.m in Sources */,
-				57A23FB916404C6200FB1238 /* TexturesMap.m in Sources */,
+				57A23FB916404C6200FB1238 /* TexturesMap.mm in Sources */,
+				57EB542F1640B19400571C1A /* PathUtils.mm in Sources */,
+				57EB54391640BC6900571C1A /* Sheep.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

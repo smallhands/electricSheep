@@ -73,7 +73,7 @@
     
     //init the engine
     _electricSheepEngine->reshape(self.frame.size.width, self.frame.size.height);
-    _electricSheepEngine->initModels([[[NSBundle mainBundle] pathForResource:@"torus" ofType:@"obj"] UTF8String]);
+    _electricSheepEngine->initSheep();
     
     //setup the main loop
     [self setupDisplayLink];
@@ -86,7 +86,7 @@
 
 - (void)render:(CADisplayLink *)displayLink {
     static GLfloat timeElapsed=0;
-    timeElapsed+=(float)displayLink.duration *1000;
+    timeElapsed+=(float)displayLink.duration * 1000;
     _electricSheepEngine->update(timeElapsed);
     _electricSheepEngine->render();
     [_eaglContext presentRenderbuffer:GL_RENDERBUFFER];
