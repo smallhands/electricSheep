@@ -1,5 +1,6 @@
-varying vec3 fragmentColour;
+varying lowp vec2 TexCoordOut;
+uniform sampler2D Texture;
 
 void main(void) {
-    gl_FragColor = vec4(fragmentColour.x, fragmentColour.y, fragmentColour.z, 1.0);
+    gl_FragColor = texture2D(Texture,TexCoordOut);
 }
