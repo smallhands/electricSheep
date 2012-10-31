@@ -10,14 +10,17 @@
 #define __electricSheep__Sheep__
 
 #include "ObjModel.h"
+#include "GLIncludes.h"
 
 class Sheep {
     ObjModel *model;
-    
+    glm::vec3 position;
+    glm::mat4 getPositionMatrix();
 public:
     Sheep();
     ~Sheep();
     ObjModel * getModel();
+    glm::mat4 getModelMatrix();
 };
 
 #endif /* defined(__electricSheep__Sheep__) */

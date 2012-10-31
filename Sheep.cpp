@@ -10,6 +10,7 @@
 
 Sheep::Sheep() {
     model=new ObjModel("sheep", "sheep");
+    position=glm::vec3(0,0,-4);
 }
 
 ObjModel * Sheep::getModel() {
@@ -18,4 +19,12 @@ ObjModel * Sheep::getModel() {
 
 Sheep::~Sheep() {
     delete model;
+}
+
+glm::mat4 Sheep::getPositionMatrix() {
+    return glm::translate(glm::mat4(1.0f), position);
+}
+
+glm::mat4 Sheep::getModelMatrix() {
+    return getPositionMatrix();
 }
