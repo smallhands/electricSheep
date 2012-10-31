@@ -10,6 +10,7 @@
 #include <sstream>
 #include <time.h>
 #include <stdlib.h>
+#include <math.h>
 
 int randomNumber(int min, int max) {
     static bool randomSeeded=false;
@@ -23,7 +24,9 @@ int randomNumber(int min, int max) {
 Sheep::Sheep() {
     state=SHEEP_STATE_GRAZING;
     animationIndex=0;
-    position=glm::vec3(0,0,0);
+    position=glm::vec3(randomNumber(-5, 5),randomNumber(-5, 5),0);
+    heading=glm::vec2(randomNumber(-10, 10),randomNumber(-10, 10));
+    heading=glm::normalize(heading);
     
     loadStateModels();
     
@@ -32,6 +35,8 @@ Sheep::Sheep() {
     stateTime[SHEEP_STATE_WALKING]=0;
     
     currentAnimationTime=0;
+    
+    lastUpdateTime=0;
 }
 
 ObjModel * Sheep::getModel() {
@@ -70,8 +75,15 @@ glm::mat4 Sheep::getPositionMatrix() {
     return glm::translate(glm::mat4(1.0f), position);
 }
 
+glm::mat4 Sheep::getRotationMatrix() {
+    static glm::vec2 originalHeading=glm::vec2(1,0);
+    GLfloat dot=glm::dot(heading, originalHeading);
+    GLfloat angle=acos(dot) * 180 / M_2_PI;
+    return glm::rotate(glm::mat4(1.0f), angle, glm::vec3(0,0,1));
+}
+
 glm::mat4 Sheep::getModelMatrix() {
-    return getPositionMatrix();
+    return getPositionMatrix() * getRotationMatrix();
 }
 
 void Sheep::switchState() {
@@ -101,6 +113,12 @@ void Sheep::switchState() {
         default:
             break;
     }
+    
+    if (state==SHEEP_STATE_WALKING) {
+        heading=glm::vec2(randomNumber(-10, 10),randomNumber(-10, 10));
+        heading=glm::normalize(heading);
+    }
+    
     animationIndex=0;
     stateTime[state]=0;
 }
@@ -109,7 +127,6 @@ void Sheep::switchState() {
 #define stateThreshold      100
 
 void Sheep::update(GLfloat elapsedTime) {
-    static GLfloat lastUpdateTime=0;
     GLfloat deltaTime=elapsedTime-lastUpdateTime;
     currentAnimationTime+=deltaTime;
     if (currentAnimationTime>animationThreshold) {
@@ -123,6 +140,11 @@ void Sheep::update(GLfloat elapsedTime) {
     stateTime[state]+=deltaTime;
     if (stateTime[state]>stateThreshold) {
         switchState();
+    }
+    
+    if (state==SHEEP_STATE_WALKING) {
+        position.x+=0.05*heading.x;
+        position.y+=0.05*heading.y;
     }
     
     lastUpdateTime=elapsedTime;

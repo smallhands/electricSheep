@@ -61,9 +61,12 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
     return true;
 }
 
+#define numberOfSheep   4
+
 void ElectricSheepEngine::initSheep() {
-    Sheep *sheep=new Sheep();
-    herd.push_back(sheep);
+    for (int s=0; s<numberOfSheep; s++) {
+        herd.push_back(new Sheep());
+    }
     land=new Land();
 }
 
@@ -73,7 +76,7 @@ void ElectricSheepEngine::freeResources() {
 }
 
 //view matrix using look at
-glm::vec3 cameraPosition=glm::vec3(4,-4,3);
+glm::vec3 cameraPosition=glm::vec3(8,-8,6);
 glm::vec3 cameraTarget=glm::vec3(0,0,0);
 glm::vec3 cameraUp=glm::vec3(0,0,1);
 glm::mat4 view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
@@ -82,7 +85,7 @@ glm::mat4 view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
 GLfloat lensAngle=45.0f;
 GLfloat aspectRatio=1.0*(windowWidth/windowHeight);
 GLfloat nearClippingPlane=0.1f;
-GLfloat farClippingPlane=10.0f;
+GLfloat farClippingPlane=100.0f;
 glm::mat4 projection=glm::perspective(lensAngle, aspectRatio, nearClippingPlane, farClippingPlane);
 
 void ElectricSheepEngine::render() {
@@ -100,7 +103,7 @@ void ElectricSheepEngine::render() {
     
     renderObjectModel(land, glm::translate(glm::mat4(1.0f), glm::vec3(0,0,0)));
     
-    for (std::vector<Sheep *>::size_type i=0; i!=herd.size(); i++) {
+    for (int i=0; i!=numberOfSheep; i++) {
         Sheep *sheep=herd[i];
         ObjModel *model=sheep->getModel();
         
@@ -153,7 +156,7 @@ void ElectricSheepEngine::reshape(int newWindowWidth, int newWindowHeight)
 }
 
 void ElectricSheepEngine::update(GLfloat elapsedTime) {
-    for (std::vector<Sheep *>::size_type i=0; i!=herd.size(); i++) {
+    for (int i=0; i!=numberOfSheep; i++) {
         Sheep *sheep=herd[i];
         sheep->update(elapsedTime);
     }
