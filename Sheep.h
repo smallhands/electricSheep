@@ -23,17 +23,27 @@ typedef enum {
 class Sheep {
     glm::vec3 position;
     SheepState state;
+    
+    glm::vec2 heading;
+    
     GLubyte animationIndex;
     std::map<SheepState, std::vector<ObjModel *> > stateModels;
     
     glm::mat4 getPositionMatrix();
+    glm::mat4 getRotationMatrix();
     void loadStateModels();
+    
+    std::map<SheepState, GLfloat> stateTime;
+    GLfloat currentAnimationTime;
+    GLfloat lastUpdateTime;
+    
 public:
     Sheep();
     ~Sheep();
     ObjModel * getModel();
     glm::mat4 getModelMatrix();
     void update(GLfloat elapsedTime);
+    void switchState();
 };
 
 #endif /* defined(__electricSheep__Sheep__) */

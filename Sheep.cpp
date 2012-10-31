@@ -8,13 +8,35 @@
 
 #include "Sheep.h"
 #include <sstream>
+#include <time.h>
+#include <stdlib.h>
+#include <math.h>
+
+int randomNumber(int min, int max) {
+    static bool randomSeeded=false;
+    if(!randomSeeded) {
+        srand(time(0));
+        randomSeeded=true;
+    }
+    return (rand()%(max-min))+min;
+}
 
 Sheep::Sheep() {
-    state=SHEEP_STATE_IDLE;
+    state=SHEEP_STATE_GRAZING;
     animationIndex=0;
-    position=glm::vec3(0,0,0);
+    position=glm::vec3(randomNumber(-5, 5),randomNumber(-5, 5),0);
+    heading=glm::vec2(randomNumber(-10, 10),randomNumber(-10, 10));
+    heading=glm::normalize(heading);
     
     loadStateModels();
+    
+    stateTime[SHEEP_STATE_IDLE]=0;
+    stateTime[SHEEP_STATE_GRAZING]=0;
+    stateTime[SHEEP_STATE_WALKING]=0;
+    
+    currentAnimationTime=0;
+    
+    lastUpdateTime=0;
 }
 
 ObjModel * Sheep::getModel() {
@@ -53,17 +75,77 @@ glm::mat4 Sheep::getPositionMatrix() {
     return glm::translate(glm::mat4(1.0f), position);
 }
 
-glm::mat4 Sheep::getModelMatrix() {
-    return getPositionMatrix();
+glm::mat4 Sheep::getRotationMatrix() {
+    static glm::vec2 originalHeading=glm::vec2(1,0);
+    GLfloat dot=glm::dot(heading, originalHeading);
+    GLfloat angle=acos(dot) * 180 / M_2_PI;
+    return glm::rotate(glm::mat4(1.0f), angle, glm::vec3(0,0,1));
 }
 
-#define animationThreshold 400
+glm::mat4 Sheep::getModelMatrix() {
+    return getPositionMatrix() * getRotationMatrix();
+}
+
+void Sheep::switchState() {
+    int random=randomNumber(0, 100);
+    switch (state) {
+        case SHEEP_STATE_IDLE:
+            if (random>80) {
+                state=SHEEP_STATE_WALKING;
+            } else if(random>=45) {
+                state=SHEEP_STATE_GRAZING;
+            }
+            break;
+        case SHEEP_STATE_WALKING:
+            if (random>80) {
+                state=SHEEP_STATE_IDLE;
+            } else if(random>=65) {
+                state=SHEEP_STATE_GRAZING;
+            }
+            break;
+        case SHEEP_STATE_GRAZING:
+            if (random>80) {
+                state=SHEEP_STATE_WALKING;
+            } else if(random>=65) {
+                state=SHEEP_STATE_IDLE;
+            }
+            break;
+        default:
+            break;
+    }
+    
+    if (state==SHEEP_STATE_WALKING) {
+        heading=glm::vec2(randomNumber(-10, 10),randomNumber(-10, 10));
+        heading=glm::normalize(heading);
+    }
+    
+    animationIndex=0;
+    stateTime[state]=0;
+}
+
+#define animationThreshold  20
+#define stateThreshold      100
 
 void Sheep::update(GLfloat elapsedTime) {
-    if (elapsedTime>animationThreshold) {
+    GLfloat deltaTime=elapsedTime-lastUpdateTime;
+    currentAnimationTime+=deltaTime;
+    if (currentAnimationTime>animationThreshold) {
         animationIndex+=1;
+        currentAnimationTime=0;
         if (animationIndex>=stateModels[state].size()) {
             animationIndex=0;
         }
     }
+    
+    stateTime[state]+=deltaTime;
+    if (stateTime[state]>stateThreshold) {
+        switchState();
+    }
+    
+    if (state==SHEEP_STATE_WALKING) {
+        position.x+=0.05*heading.x;
+        position.y+=0.05*heading.y;
+    }
+    
+    lastUpdateTime=elapsedTime;
 }
