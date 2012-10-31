@@ -7,6 +7,7 @@
 //
 
 #include "ObjModel.h"
+#include "Path_C_Interface.h"
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -31,7 +32,7 @@ vector<string> split(const string& str, const string& delimiter = " ") {
 }
 
 ObjModel::ObjModel(const char *objFilePath, const char *textureName) {
-    ifstream in(objFilePath, ios::in);
+    ifstream in(pathForFile(objFilePath, "obj"), ios::in);
     
     vector<glm::vec3> vertices;
     vector<glm::vec2> texCoords;

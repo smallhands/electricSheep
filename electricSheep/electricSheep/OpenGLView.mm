@@ -73,7 +73,7 @@
     
     //init the engine
     _electricSheepEngine->reshape(self.frame.size.width, self.frame.size.height);
-    _electricSheepEngine->initModels([[[NSBundle mainBundle] pathForResource:@"torus" ofType:@"obj"] UTF8String]);
+    _electricSheepEngine->initModels();
     
     //setup the main loop
     [self setupDisplayLink];
