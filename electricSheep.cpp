@@ -51,12 +51,6 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
         return false;
     }
     
-    const char *animationMatrixAttributeName="animation";
-    if(!bindShaderUniformAttribute(&shaderAttribute_uniform_animation, shaderProgram, animationMatrixAttributeName)){
-        fprintf(stderr, "Could not bind shader attribute %s\n", animationMatrixAttributeName);
-        return false;
-    }
-    
     const char *textureAttributeName="Texture";
     if(!bindShaderUniformAttribute(&shaderAttribute_uniform_Texture, shaderProgram, textureAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", textureAttributeName);
@@ -154,9 +148,4 @@ void ElectricSheepEngine::reshape(int newWindowWidth, int newWindowHeight)
 void ElectricSheepEngine::update(GLfloat elapsedTime)
 {
 #pragma message("TODO: update game state")
-    //animation matrix
-    float angle = elapsedTime / 1000.0 * 45; // 45° per second
-    glm::vec3 axis(1.0, -1.0, 0.0);
-    glm::mat4 anim = glm::rotate(glm::mat4(1.0f), angle, axis);
-    glUniformMatrix4fv(shaderAttribute_uniform_animation, 1, GL_FALSE, glm::value_ptr(anim));
 }

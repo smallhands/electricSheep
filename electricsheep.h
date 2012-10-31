@@ -34,7 +34,6 @@ private:
     GLint shaderAttribute_vertexColour;
     GLint shaderAttribute_TexCoordIn;
     GLint shaderAttribute_uniform_mvp;
-    GLint shaderAttribute_uniform_animation;
     GLint shaderAttribute_uniform_Texture;
     
     std::vector<Sheep *> herd;
