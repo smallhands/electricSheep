@@ -11,6 +11,7 @@
 @interface OpenGLView ()
 
 @property (strong, nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
+@property (strong, nonatomic) UIPinchGestureRecognizer *pinchGestureRecognizer;
 
 - (void)setup;
 - (void)setupLayer;
@@ -21,18 +22,27 @@
 - (void)setupDisplayLink;
 - (void)render:(CADisplayLink *)displayLink;
 - (void)viewPanned:(UIPanGestureRecognizer *)panGesture;
+- (void)viewPinched:(UIPinchGestureRecognizer *)pinchGesture;
 
 @end
 
 @implementation OpenGLView
 
 @synthesize panGestureRecognizer=_panGestureRecognizer;
+@synthesize pinchGestureRecognizer=_pinchGestureRecognizer;
 
 - (UIPanGestureRecognizer *)panGestureRecognizer {
     if (_panGestureRecognizer==nil) {
         _panGestureRecognizer=[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(viewPanned:)];
     }
     return _panGestureRecognizer;
+}
+
+- (UIPinchGestureRecognizer *)pinchGestureRecognizer {
+    if (_pinchGestureRecognizer==nil) {
+        _pinchGestureRecognizer=[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(viewPinched:)];
+    }
+    return _pinchGestureRecognizer;
 }
 
 - (void)viewPanned:(UIPanGestureRecognizer *)panGesture {
@@ -45,6 +55,13 @@
             _electricSheepEngine->panCamera(newTranslation.x-previousTranslation.x, newTranslation.y-previousTranslation.y);
         }
         previousTranslation=newTranslation;
+    }
+}
+
+- (void)viewPinched:(UIPinchGestureRecognizer *)pinchGesture {
+    static CGFloat previousScale=1.0;
+    if (_electricSheepEngine) {
+        _electricSheepEngine->zoomCamera(pinchGesture.scale/previousScale);
     }
 }
 
@@ -86,6 +103,7 @@
     [self setupRenderBuffer];
     [self setupFrameBuffer];
     [self addGestureRecognizer:self.panGestureRecognizer];
+    [self addGestureRecognizer:self.pinchGestureRecognizer];
     
     //init the engine
     _electricSheepEngine=new ElectricSheepEngine(self.frame.size.width, self.frame.size.height);

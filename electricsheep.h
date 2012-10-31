@@ -28,6 +28,7 @@ public:
     void render();
     void reshape(int newWindowWidth, int newWindowHeight);
     void panCamera(GLfloat horizontal, GLfloat vertical);
+    void zoomCamera(GLfloat scale);
 
 private:
     GLuint shaderProgram;

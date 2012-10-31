@@ -163,6 +163,13 @@ void ElectricSheepEngine::renderObjectModel(ObjModel *model, glm::mat4 modelMatr
     glDrawElements(GL_TRIANGLES, bufferSize/sizeof(GLushort), GL_UNSIGNED_SHORT, 0);
 }
 
+void ElectricSheepEngine::zoomCamera(GLfloat scale) {
+    cameraPosition.x*=scale;
+    cameraPosition.y*=scale;
+    cameraPosition.z*=scale;
+    updateCamera();
+}
+
 void ElectricSheepEngine::panCamera(GLfloat horizontal, GLfloat vertical) {
     GLfloat yawAngle=horizontal*0.5;
     GLfloat pitchAngle=vertical*-0.1;
