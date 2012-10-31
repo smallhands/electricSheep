@@ -73,7 +73,7 @@ void ElectricSheepEngine::freeResources() {
 }
 
 //view matrix using look at
-glm::vec3 cameraPosition=glm::vec3(3.1,-2.4,2.2);
+glm::vec3 cameraPosition=glm::vec3(4,-4,3);
 glm::vec3 cameraTarget=glm::vec3(0,0,0);
 glm::vec3 cameraUp=glm::vec3(0,0,1);
 glm::mat4 view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
