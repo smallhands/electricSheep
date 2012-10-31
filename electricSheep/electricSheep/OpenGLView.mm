@@ -60,8 +60,13 @@
 
 - (void)viewPinched:(UIPinchGestureRecognizer *)pinchGesture {
     static CGFloat previousScale=1.0;
-    if (_electricSheepEngine) {
-        _electricSheepEngine->zoomCamera(pinchGesture.scale/previousScale);
+    if (pinchGesture.state==UIGestureRecognizerStateEnded) {
+        previousScale=1.0;
+    } else {
+        if (_electricSheepEngine) {
+            _electricSheepEngine->zoomCamera(previousScale/pinchGesture.scale);
+        }
+        previousScale=pinchGesture.scale;
     }
 }
 
