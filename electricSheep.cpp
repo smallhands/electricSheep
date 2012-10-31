@@ -67,14 +67,14 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
     return true;
 }
 
-void ElectricSheepEngine::initModels() {
-    ObjModel *model=new ObjModel("sheep", "sheep");
-    models.push_back(model);
+void ElectricSheepEngine::initSheep() {
+    Sheep *sheep=new Sheep();
+    herd.push_back(sheep);
 }
 
 void ElectricSheepEngine::freeResources() {
     glDeleteProgram(shaderProgram);
-    models.clear();
+    herd.clear();
 }
 
 void ElectricSheepEngine::render() {
@@ -90,8 +90,9 @@ void ElectricSheepEngine::render() {
     glEnableVertexAttribArray(shaderAttribute_coord3D);
     glEnableVertexAttribArray(shaderAttribute_TexCoordIn);
     
-    for (std::vector<ObjModel *>::size_type i=0; i!=models.size(); i++) {
-        ObjModel *model=models[i];
+    for (std::vector<Sheep *>::size_type i=0; i!=herd.size(); i++) {
+        Sheep *sheep=herd[i];
+        ObjModel *model=sheep->getModel();
         glBindBuffer(GL_ARRAY_BUFFER, model->getVerticesBufferObject());
         glVertexAttribPointer(shaderAttribute_coord3D, // attribute
                               3, // number of elements per vertex, here (x,y)

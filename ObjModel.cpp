@@ -31,6 +31,10 @@ vector<string> split(const string& str, const string& delimiter = " ") {
     return tokens;
 }
 
+ObjModel::ObjModel() {
+    
+}
+
 ObjModel::ObjModel(const char *objFilePath, const char *textureName) {
     ifstream in(pathForFile(objFilePath, "obj"), ios::in);
     

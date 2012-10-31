@@ -24,6 +24,7 @@ class ObjModel {
     GLuint textureID;
     
 public:
+    ObjModel();
     ObjModel(const char *objFilePath, const char *textureName);
     ~ObjModel();
     GLuint getVerticesBufferObject();

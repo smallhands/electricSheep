@@ -73,7 +73,7 @@
     
     //init the engine
     _electricSheepEngine->reshape(self.frame.size.width, self.frame.size.height);
-    _electricSheepEngine->initModels();
+    _electricSheepEngine->initSheep();
     
     //setup the main loop
     [self setupDisplayLink];
