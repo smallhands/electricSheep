@@ -15,6 +15,7 @@
 #include "GLIncludes.h"
 #include "shaderUtilities.h"
 #include "Sheep.h"
+#include "Land.h"
 #include <vector>
 
 class ElectricSheepEngine {
@@ -37,7 +38,11 @@ private:
     GLint shaderAttribute_uniform_Texture;
     
     std::vector<Sheep *> herd;
+    Land *land;
+    
     void freeResources();
+    
+    void renderObjectModel(ObjModel *model, glm::mat4 modelMatrix);
 };
 
 #endif
