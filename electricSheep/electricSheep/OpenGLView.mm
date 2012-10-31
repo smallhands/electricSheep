@@ -86,7 +86,7 @@
 
 - (void)render:(CADisplayLink *)displayLink {
     static GLfloat timeElapsed=0;
-    timeElapsed+=(float)displayLink.duration *1000;
+    timeElapsed+=(float)displayLink.duration * 1000;
     _electricSheepEngine->update(timeElapsed);
     _electricSheepEngine->render();
     [_eaglContext presentRenderbuffer:GL_RENDERBUFFER];

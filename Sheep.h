@@ -11,11 +11,23 @@
 
 #include "ObjModel.h"
 #include "GLIncludes.h"
+#include <vector>
+#include <map>
+
+typedef enum {
+    SHEEP_STATE_IDLE,
+    SHEEP_STATE_WALKING,
+    SHEEP_STATE_GRAZING
+}SheepState;
 
 class Sheep {
-    ObjModel *model;
     glm::vec3 position;
+    SheepState state;
+    GLubyte animationIndex;
+    std::map<SheepState, std::vector<ObjModel *> > stateModels;
+    
     glm::mat4 getPositionMatrix();
+    void loadStateModels();
 public:
     Sheep();
     ~Sheep();
