@@ -27,7 +27,7 @@ public:
     void update(GLfloat elapsedTime);
     void render();
     void reshape(int newWindowWidth, int newWindowHeight);
-    void panCamera(GLfloat x, GLfloat y);
+    void panCamera(GLfloat horizontal, GLfloat vertical);
 
 private:
     GLuint shaderProgram;
@@ -41,6 +41,7 @@ private:
     glm::vec3 cameraPosition;
     glm::vec3 cameraTarget;
     glm::vec3 cameraUp;
+    glm::vec3 cameraRight;
     glm::mat4 view;
     
     //projection matrix

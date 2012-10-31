@@ -18,9 +18,12 @@ ElectricSheepEngine::~ElectricSheepEngine() {
 }
 
 void ElectricSheepEngine::initCamera() {
-    cameraPosition=glm::vec3(20,20,8);
+    cameraPosition=glm::vec3(16,16,8);
     cameraTarget=glm::vec3(0,0,0);
     cameraUp=glm::vec3(0,0,1);
+    glm::vec3 cameraDirection=glm::normalize(cameraPosition-cameraTarget);
+    cameraRight=glm::cross(cameraDirection, cameraUp);
+    cameraRight.z=0;
     updateCamera();
 }
 
@@ -160,9 +163,31 @@ void ElectricSheepEngine::renderObjectModel(ObjModel *model, glm::mat4 modelMatr
     glDrawElements(GL_TRIANGLES, bufferSize/sizeof(GLushort), GL_UNSIGNED_SHORT, 0);
 }
 
-void ElectricSheepEngine::panCamera(GLfloat x, GLfloat y) {
-    cameraPosition.x+=0.05*x;
-    cameraPosition.y+=0.05*y;
+void ElectricSheepEngine::panCamera(GLfloat horizontal, GLfloat vertical) {
+    GLfloat yawAngle=horizontal*0.5;
+    GLfloat pitchAngle=vertical*-0.1;
+    
+    glm::mat4 yawRotation=glm::rotate(glm::mat4(1.0f), yawAngle, cameraUp);
+    glm::mat4 pitchRotation=glm::rotate(glm::mat4(1.0f), pitchAngle, cameraRight);
+    
+    glm::vec3 camToTarget=cameraPosition-cameraTarget;
+    glm::vec4 camToTarget4(camToTarget.x, camToTarget.y, camToTarget.z, 1.0);
+    
+    camToTarget4=yawRotation*pitchRotation*camToTarget4;
+    
+    camToTarget.x=camToTarget4.x;
+    camToTarget.y=camToTarget4.y;
+    camToTarget.z=camToTarget4.z;
+    
+    cameraPosition.x=camToTarget.x+cameraTarget.x;
+    cameraPosition.y=camToTarget.y+cameraTarget.y;
+    cameraPosition.z=camToTarget.z+cameraTarget.z;
+    
+    glm::vec3 cameraDirection=glm::normalize(cameraPosition-cameraTarget);
+    cameraRight=glm::cross(cameraDirection, cameraUp);
+    cameraRight.z=0;
+    cameraUp=glm::cross(cameraRight, cameraDirection);
+    
     updateCamera();
 }
 

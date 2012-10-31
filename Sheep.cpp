@@ -24,8 +24,8 @@ int randomNumber(int min, int max) {
 Sheep::Sheep() {
     state=SHEEP_STATE_GRAZING;
     animationIndex=0;
-    position=glm::vec3(randomNumber(-5, 5),randomNumber(-5, 5),0);
-    heading=glm::vec2(randomNumber(-10, 10),randomNumber(-10, 10));
+    position=glm::vec3(randomNumber(-8, 8), randomNumber(-8, 8), 0);
+    heading=glm::vec2(randomNumber(-10, 10), randomNumber(-10, 10));
     heading=glm::normalize(heading);
     
     loadStateModels();
