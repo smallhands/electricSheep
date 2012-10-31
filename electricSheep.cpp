@@ -64,6 +64,7 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
 void ElectricSheepEngine::initSheep() {
     Sheep *sheep=new Sheep();
     herd.push_back(sheep);
+    land=new Land();
 }
 
 void ElectricSheepEngine::freeResources() {
@@ -73,7 +74,7 @@ void ElectricSheepEngine::freeResources() {
 
 //view matrix using look at
 glm::vec3 cameraPosition=glm::vec3(3.1,-2.4,2.2);
-glm::vec3 cameraTarget=glm::vec3(0,0,-4); //same as model position to look at model
+glm::vec3 cameraTarget=glm::vec3(0,0,0);
 glm::vec3 cameraUp=glm::vec3(0,0,1);
 glm::mat4 view=glm::lookAt(cameraPosition, cameraTarget, cameraUp);
 
@@ -86,7 +87,7 @@ glm::mat4 projection=glm::perspective(lensAngle, aspectRatio, nearClippingPlane,
 
 void ElectricSheepEngine::render() {
     //clear screen
-    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glClearColor(0.52, 0.8, 0.97, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
     
@@ -97,45 +98,51 @@ void ElectricSheepEngine::render() {
     glEnableVertexAttribArray(shaderAttribute_coord3D);
     glEnableVertexAttribArray(shaderAttribute_TexCoordIn);
     
+    renderObjectModel(land, glm::translate(glm::mat4(1.0f), glm::vec3(0,0,0)));
+    
     for (std::vector<Sheep *>::size_type i=0; i!=herd.size(); i++) {
         Sheep *sheep=herd[i];
         ObjModel *model=sheep->getModel();
         
-        //model matrix using model position vector
-        glm::mat4 mvp=projection*view*sheep->getModelMatrix();
-        glUniformMatrix4fv(shaderAttribute_uniform_mvp, 1, GL_FALSE, glm::value_ptr(mvp));
-        
-        glBindBuffer(GL_ARRAY_BUFFER, model->getVerticesBufferObject());
-        glVertexAttribPointer(shaderAttribute_coord3D, // attribute
-                              3, // number of elements per vertex, here (x,y)
-                              GL_FLOAT, // the type of each element
-                              GL_FALSE, // take our values as-is
-                              sizeof(struct modelData), // coord every (sizeof) elements
-                              0 // offset of first element
-                              );
-        
-        glVertexAttribPointer(shaderAttribute_TexCoordIn, // attribute
-                              2, // number of elements per vertex, here (r,g,b)
-                              GL_FLOAT, // the type of each element
-                              GL_FALSE, // take our values as-is
-                              sizeof(struct modelData), // // coord every (sizeof) elements
-                              (GLvoid *)(offsetof(struct modelData, texCoords)) // skip coords & colour coords
-                              );
-        
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, model->getTextureID());
-        glUniform1i(shaderAttribute_uniform_Texture, 0);
-        
-        //draw the cube by going through its elements array
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->getFacesBufferObject());
-        int bufferSize;
-        glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
-        glDrawElements(GL_TRIANGLES, bufferSize/sizeof(GLushort), GL_UNSIGNED_SHORT, 0);
+        renderObjectModel(model, sheep->getModelMatrix());
     }
     
     //close up the attribute in program, no more need
     glDisableVertexAttribArray(shaderAttribute_coord3D);
     glDisableVertexAttribArray(shaderAttribute_TexCoordIn);
+}
+
+void ElectricSheepEngine::renderObjectModel(ObjModel *model, glm::mat4 modelMatrix) {
+    //model matrix using model position vector
+    glm::mat4 mvp=projection*view*modelMatrix;
+    glUniformMatrix4fv(shaderAttribute_uniform_mvp, 1, GL_FALSE, glm::value_ptr(mvp));
+    
+    glBindBuffer(GL_ARRAY_BUFFER, model->getVerticesBufferObject());
+    glVertexAttribPointer(shaderAttribute_coord3D, // attribute
+                          3, // number of elements per vertex, here (x,y)
+                          GL_FLOAT, // the type of each element
+                          GL_FALSE, // take our values as-is
+                          sizeof(struct modelData), // coord every (sizeof) elements
+                          0 // offset of first element
+                          );
+    
+    glVertexAttribPointer(shaderAttribute_TexCoordIn, // attribute
+                          2, // number of elements per vertex, here (r,g,b)
+                          GL_FLOAT, // the type of each element
+                          GL_FALSE, // take our values as-is
+                          sizeof(struct modelData), // // coord every (sizeof) elements
+                          (GLvoid *)(offsetof(struct modelData, texCoords)) // skip coords & colour coords
+                          );
+    
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, model->getTextureID());
+    glUniform1i(shaderAttribute_uniform_Texture, 0);
+    
+    //draw the model by going through its elements array
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->getFacesBufferObject());
+    int bufferSize;
+    glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
+    glDrawElements(GL_TRIANGLES, bufferSize/sizeof(GLushort), GL_UNSIGNED_SHORT, 0);
 }
 
 void ElectricSheepEngine::reshape(int newWindowWidth, int newWindowHeight)

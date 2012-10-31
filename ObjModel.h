@@ -19,6 +19,7 @@ struct modelData {
 };
 
 class ObjModel {
+protected:
     GLuint modelVerticesBufferObject;
     GLuint modelFacesBufferObject;
     GLuint textureID;
