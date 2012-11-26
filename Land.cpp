@@ -8,12 +8,14 @@
 
 #include "Land.h"
 
+#define MAX_TEX_COORD   40.0
+
 Land::Land() {
     struct modelData modelDataMap[] = {
         {{-40.0, -40.0, 0.0}, {0.0, 0.0}},
-        {{ 40.0, -40.0, 0.0}, {0.0, 1.0}},
-        {{ 40.0,  40.0, 0.0}, {1.0, 0.0}},
-        {{-40.0,  40.0, 0.0}, {1.0, 1.0}},
+        {{ 40.0, -40.0, 0.0}, {0.0, MAX_TEX_COORD}},
+        {{ 40.0,  40.0, 0.0}, {MAX_TEX_COORD, 0.0}},
+        {{-40.0,  40.0, 0.0}, {MAX_TEX_COORD, MAX_TEX_COORD}},
     };
     
     glGenBuffers(1, &modelVerticesBufferObject);
