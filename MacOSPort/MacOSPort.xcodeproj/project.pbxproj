@@ -57,10 +57,9 @@
 		5747F05416821BCC0021FA1D = {
 			isa = PBXGroup;
 			children = (
-				5747F07D16821DD70021FA1D /* resources */,
-				5747F07916821DBE0021FA1D /* shaders */,
 				5747F06216821BCC0021FA1D /* MacOSPort */,
 				5747F06016821BCC0021FA1D /* Products */,
+				5747F07D16821DD70021FA1D /* resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +93,7 @@
 		5747F07D16821DD70021FA1D /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				5747F07916821DBE0021FA1D /* shaders */,
 				5747F07E16821DD70021FA1D /* grass.png */,
 				5747F07F16821DD70021FA1D /* sheep.obj */,
 				5747F08016821DD70021FA1D /* sheep.png */,

@@ -131,6 +131,7 @@
 		57E6BF2D164001E6008B0E7F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				57F5BC3F1636D50300DF1161 /* shaders */,
 				57E6BF3616400256008B0E7F /* sheep.obj */,
 				57EB54491640CF0D00571C1A /* sheep_anim_graze0.obj */,
 				57EB543B1640C93900571C1A /* sheep_anim_graze1.obj */,
@@ -159,8 +160,6 @@
 		57F5BBFD1636D41700DF1161 = {
 			isa = PBXGroup;
 			children = (
-				57E6BF4E164042E5008B0E7F /* textures */,
-				57F5BC3F1636D50300DF1161 /* shaders */,
 				57F5BC381636D4DA00DF1161 /* engine */,
 				57F5BC121636D41700DF1161 /* electricSheep_iOS */,
 				57F5BC0B1636D41700DF1161 /* Frameworks */,
@@ -223,6 +222,7 @@
 		57F5BC381636D4DA00DF1161 /* engine */ = {
 			isa = PBXGroup;
 			children = (
+				57E6BF4E164042E5008B0E7F /* textures */,
 				57E6BF28163FFFFB008B0E7F /* models */,
 				57F5BC661636FE1A00DF1161 /* glm.hpp */,
 				57F5BC641636FD4E00DF1161 /* electricSheep.h */,
