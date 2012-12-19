@@ -16,6 +16,10 @@
 		5747F0DD168229720021FA1D /* shaderUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5747F0D5168229720021FA1D /* shaderUtilities.cpp */; };
 		5747F0DE168229720021FA1D /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5747F0D7168229720021FA1D /* FileUtils.cpp */; };
 		5747F0DF168229720021FA1D /* Sheep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5747F0DB168229720021FA1D /* Sheep.cpp */; };
+		5747F0E1168229B40021FA1D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5747F0E0168229B40021FA1D /* OpenGL.framework */; };
+		5747F0E3168229C20021FA1D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5747F0E2168229C20021FA1D /* QuartzCore.framework */; };
+		5747F0E5168229CD0021FA1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5747F0E4168229CD0021FA1D /* Foundation.framework */; };
+		5747F0E7168229DC0021FA1D /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5747F0E6168229DC0021FA1D /* GLUT.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,6 +70,10 @@
 		5747F0D9168229720021FA1D /* Path_C_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Path_C_Interface.h; path = ../Path_C_Interface.h; sourceTree = "<group>"; };
 		5747F0DA168229720021FA1D /* Sheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sheep.h; path = ../Sheep.h; sourceTree = "<group>"; };
 		5747F0DB168229720021FA1D /* Sheep.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sheep.cpp; path = ../Sheep.cpp; sourceTree = "<group>"; };
+		5747F0E0168229B40021FA1D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		5747F0E2168229C20021FA1D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5747F0E4168229CD0021FA1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5747F0E6168229DC0021FA1D /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5747F0E7168229DC0021FA1D /* GLUT.framework in Frameworks */,
+				5747F0E5168229CD0021FA1D /* Foundation.framework in Frameworks */,
+				5747F0E3168229C20021FA1D /* QuartzCore.framework in Frameworks */,
+				5747F0E1168229B40021FA1D /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +153,10 @@
 		5747F0C3168229250021FA1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5747F0E6168229DC0021FA1D /* GLUT.framework */,
+				5747F0E4168229CD0021FA1D /* Foundation.framework */,
+				5747F0E2168229C20021FA1D /* QuartzCore.framework */,
+				5747F0E0168229B40021FA1D /* OpenGL.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
