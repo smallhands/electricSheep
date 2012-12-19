@@ -80,7 +80,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\electricSheep.cpp" />
+    <ClCompile Include="..\FileUtils.cpp" />
+    <ClCompile Include="..\Land.cpp" />
+    <ClCompile Include="..\ObjModel.cpp" />
+    <ClCompile Include="..\shaderUtilities.cpp" />
+    <ClCompile Include="..\Sheep.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\electricsheep.h" />
+    <ClInclude Include="..\FileUtils.h" />
+    <ClInclude Include="..\GLIncludes.h" />
+    <ClInclude Include="..\Land.h" />
+    <ClInclude Include="..\ObjModel.h" />
+    <ClInclude Include="..\Path_C_Interface.h" />
+    <ClInclude Include="..\shaderUtilities.h" />
+    <ClInclude Include="..\Sheep.h" />
+    <ClInclude Include="..\TexturesMap_C_Interface.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\shaders\fragment.glsl" />
+    <None Include="..\shaders\vertex.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
