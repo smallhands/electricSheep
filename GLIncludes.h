@@ -17,12 +17,14 @@
 #ifdef __APPLE__
     #import <QuartzCore/QuartzCore.h>
 
-    #if TARGET_OS_IPHONE
+    #if (TARGET_OS_IPHONE==1)
         // iOS
         #import <OpenGLES/ES2/gl.h>
         #import <OpenGLES/ES2/glext.h>
     #else
         // MacOSX
+        #include <OpenGL/gl.h>
+        #include <Glut/glut.h>
     #endif
 
 #endif
