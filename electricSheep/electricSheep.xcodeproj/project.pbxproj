@@ -149,7 +149,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		57E6BF4E164042E5008B0E7F /* pvr */ = {
+		57E6BF4E164042E5008B0E7F /* textures */ = {
 			isa = PBXGroup;
 			children = (
 				57E6BF4F164042F3008B0E7F /* PVRTexture.h */,
@@ -158,13 +158,13 @@
 				57A23FB816404C6200FB1238 /* TexturesMap.mm */,
 				57A23FBB16404FF600FB1238 /* TexturesMap_C_Interface.h */,
 			);
-			name = pvr;
+			name = textures;
 			sourceTree = "<group>";
 		};
 		57F5BBFD1636D41700DF1161 = {
 			isa = PBXGroup;
 			children = (
-				57E6BF4E164042E5008B0E7F /* pvr */,
+				57E6BF4E164042E5008B0E7F /* textures */,
 				57F5BC3F1636D50300DF1161 /* shaders */,
 				57F5BC381636D4DA00DF1161 /* engine */,
 				57F5BC121636D41700DF1161 /* electricSheep_iOS */,
