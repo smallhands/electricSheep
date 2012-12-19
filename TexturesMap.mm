@@ -74,19 +74,4 @@ GLuint textureForName(const char *name) {
     return textureID;
 }
 
-//- (GLuint)textureForName:(NSString *)textureName {
-//    GLuint textureID=0;
-//    id textureNameObject=[self.map objectForKey:textureName];
-//    if (textureNameObject && [textureNameObject isKindOfClass:[PVRTexture class]]) {
-//        textureID=((PVRTexture *)textureNameObject).name;
-//    } else {
-//        PVRTexture *texture=[PVRTexture pvrTextureWithContentsOfFile:[[NSBundle mainBundle] pathForResource:textureName ofType:@"pvr"]];
-//        if (texture) {
-//            textureID=texture.name;
-//        }
-//        [self.map setObject:texture forKey:textureName];
-//    }
-//    return textureID;
-//}
-
 @end

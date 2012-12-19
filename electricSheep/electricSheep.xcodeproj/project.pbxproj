@@ -57,7 +57,7 @@
 		57E6BF3616400256008B0E7F /* sheep.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep.obj; path = ../resources/sheep.obj; sourceTree = "<group>"; };
 		57EB54231640AC1000571C1A /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sheep.png; path = ../resources/sheep.png; sourceTree = "<group>"; };
 		57EB542C1640B13800571C1A /* Path_C_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Path_C_Interface.h; path = ../Path_C_Interface.h; sourceTree = "<group>"; };
-		57EB542E1640B19400571C1A /* iOS-PathUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "iOS-PathUtils.mm"; path = "../iOS-PathUtils.mm"; sourceTree = "<group>"; };
+		57EB542E1640B19400571C1A /* iOS-PathUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "iOS-PathUtils.mm"; path = "../../iOS-PathUtils.mm"; sourceTree = "<group>"; };
 		57EB54371640BC6900571C1A /* Sheep.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sheep.cpp; path = ../Sheep.cpp; sourceTree = "<group>"; };
 		57EB54381640BC6900571C1A /* Sheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sheep.h; path = ../Sheep.h; sourceTree = "<group>"; };
 		57EB543B1640C93900571C1A /* sheep_anim_graze1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep_anim_graze1.obj; path = ../resources/sheep_anim_graze1.obj; sourceTree = "<group>"; };
@@ -191,6 +191,7 @@
 		57F5BC121636D41700DF1161 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				57EB542E1640B19400571C1A /* iOS-PathUtils.mm */,
 				57F5BC1B1636D41700DF1161 /* AppDelegate.h */,
 				57F5BC1C1636D41700DF1161 /* AppDelegate.m */,
 				57F5BC241636D41700DF1161 /* MainStoryboard_iPhone.storyboard */,
@@ -233,7 +234,6 @@
 				57E6BF22163FFB28008B0E7F /* FileUtils.cpp */,
 				57E6BF2C164000B3008B0E7F /* GLIncludes.h */,
 				57EB542C1640B13800571C1A /* Path_C_Interface.h */,
-				57EB542E1640B19400571C1A /* iOS-PathUtils.mm */,
 				57EB54381640BC6900571C1A /* Sheep.h */,
 				57EB54371640BC6900571C1A /* Sheep.cpp */,
 			);
