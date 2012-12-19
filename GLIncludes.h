@@ -10,17 +10,23 @@
 #define electricSheep_GLIncludes_h
 
 #ifdef _WIN32
-#include <Windows.h>
-#include <GL/glew.h>
+    #include <Windows.h>
+    #include <GL/glew.h>
 #endif
 
 #ifdef __APPLE__
-#import <QuartzCore/QuartzCore.h>
-#import <OpenGLES/ES2/gl.h>
-#import <OpenGLES/ES2/glext.h>
-#else
-#include <GL/gl.h>
-#include <GL/glut.h>
+    #import <QuartzCore/QuartzCore.h>
+
+    #if (TARGET_OS_IPHONE==1)
+        // iOS
+        #import <OpenGLES/ES2/gl.h>
+        #import <OpenGLES/ES2/glext.h>
+    #else
+        // MacOSX
+        #include <OpenGL/gl.h>
+        #include <Glut/glut.h>
+    #endif
+
 #endif
 
 #include "glm/glm.hpp"
