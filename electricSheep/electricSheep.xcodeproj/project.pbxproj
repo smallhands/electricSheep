@@ -11,7 +11,6 @@
 		57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF22163FFB28008B0E7F /* FileUtils.cpp */; };
 		57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF2916400025008B0E7F /* ObjModel.cpp */; };
 		57E6BF3716400256008B0E7F /* sheep.obj in Resources */ = {isa = PBXBuildFile; fileRef = 57E6BF3616400256008B0E7F /* sheep.obj */; };
-		57E6BF51164042F3008B0E7F /* PVRTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF50164042F3008B0E7F /* PVRTexture.m */; };
 		57EB54241640AC1000571C1A /* sheep.png in Resources */ = {isa = PBXBuildFile; fileRef = 57EB54231640AC1000571C1A /* sheep.png */; };
 		57EB542F1640B19400571C1A /* PathUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57EB542E1640B19400571C1A /* PathUtils.mm */; };
 		57EB54391640BC6900571C1A /* Sheep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57EB54371640BC6900571C1A /* Sheep.cpp */; };
@@ -56,8 +55,6 @@
 		57E6BF2A16400025008B0E7F /* ObjModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjModel.h; path = ../ObjModel.h; sourceTree = "<group>"; };
 		57E6BF2C164000B3008B0E7F /* GLIncludes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLIncludes.h; path = ../GLIncludes.h; sourceTree = "<group>"; };
 		57E6BF3616400256008B0E7F /* sheep.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sheep.obj; path = ../resources/sheep.obj; sourceTree = "<group>"; };
-		57E6BF4F164042F3008B0E7F /* PVRTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRTexture.h; sourceTree = "<group>"; };
-		57E6BF50164042F3008B0E7F /* PVRTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRTexture.m; sourceTree = "<group>"; };
 		57EB54231640AC1000571C1A /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sheep.png; path = ../resources/sheep.png; sourceTree = "<group>"; };
 		57EB542C1640B13800571C1A /* Path_C_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Path_C_Interface.h; path = ../Path_C_Interface.h; sourceTree = "<group>"; };
 		57EB542E1640B19400571C1A /* PathUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PathUtils.mm; path = ../PathUtils.mm; sourceTree = "<group>"; };
@@ -149,22 +146,20 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		57E6BF4E164042E5008B0E7F /* pvr */ = {
+		57E6BF4E164042E5008B0E7F /* textures */ = {
 			isa = PBXGroup;
 			children = (
-				57E6BF4F164042F3008B0E7F /* PVRTexture.h */,
-				57E6BF50164042F3008B0E7F /* PVRTexture.m */,
 				57A23FB716404C6200FB1238 /* TexturesMap.h */,
 				57A23FB816404C6200FB1238 /* TexturesMap.mm */,
 				57A23FBB16404FF600FB1238 /* TexturesMap_C_Interface.h */,
 			);
-			name = pvr;
+			name = textures;
 			sourceTree = "<group>";
 		};
 		57F5BBFD1636D41700DF1161 = {
 			isa = PBXGroup;
 			children = (
-				57E6BF4E164042E5008B0E7F /* pvr */,
+				57E6BF4E164042E5008B0E7F /* textures */,
 				57F5BC3F1636D50300DF1161 /* shaders */,
 				57F5BC381636D4DA00DF1161 /* engine */,
 				57F5BC121636D41700DF1161 /* electricSheep_iOS */,
@@ -342,7 +337,6 @@
 				57F5BC4A1636D60D00DF1161 /* OpenGLView.mm in Sources */,
 				57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */,
 				57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */,
-				57E6BF51164042F3008B0E7F /* PVRTexture.m in Sources */,
 				57A23FB916404C6200FB1238 /* TexturesMap.mm in Sources */,
 				57EB542F1640B19400571C1A /* PathUtils.mm in Sources */,
 				57EB54391640BC6900571C1A /* Sheep.cpp in Sources */,
