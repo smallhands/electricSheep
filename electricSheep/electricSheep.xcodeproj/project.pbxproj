@@ -161,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				57F5BC381636D4DA00DF1161 /* engine */,
-				57F5BC121636D41700DF1161 /* electricSheep_iOS */,
+				57F5BC121636D41700DF1161 /* iOS */,
 				57F5BC0B1636D41700DF1161 /* Frameworks */,
 				57F5BC091636D41700DF1161 /* Products */,
 				57E6BF2D164001E6008B0E7F /* Resources */,
@@ -188,7 +188,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		57F5BC121636D41700DF1161 /* electricSheep_iOS */ = {
+		57F5BC121636D41700DF1161 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				57F5BC1B1636D41700DF1161 /* AppDelegate.h */,
@@ -201,7 +201,7 @@
 				57F5BC491636D60D00DF1161 /* OpenGLView.mm */,
 				57F5BC131636D41700DF1161 /* Supporting Files */,
 			);
-			name = electricSheep_iOS;
+			name = iOS;
 			path = electricSheep;
 			sourceTree = "<group>";
 		};

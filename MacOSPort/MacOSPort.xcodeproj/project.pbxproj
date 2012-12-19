@@ -57,7 +57,7 @@
 		5747F05416821BCC0021FA1D = {
 			isa = PBXGroup;
 			children = (
-				5747F06216821BCC0021FA1D /* MacOSPort */,
+				5747F06216821BCC0021FA1D /* macOS */,
 				5747F06016821BCC0021FA1D /* Products */,
 				5747F07D16821DD70021FA1D /* resources */,
 			);
@@ -71,12 +71,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5747F06216821BCC0021FA1D /* MacOSPort */ = {
+		5747F06216821BCC0021FA1D /* macOS */ = {
 			isa = PBXGroup;
 			children = (
 				5747F06316821BCC0021FA1D /* main.cpp */,
 				5747F06516821BCC0021FA1D /* MacOSPort.1 */,
 			);
+			name = macOS;
 			path = MacOSPort;
 			sourceTree = "<group>";
 		};
