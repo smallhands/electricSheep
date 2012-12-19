@@ -1,0 +1,351 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5747F06416821BCC0021FA1D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5747F06316821BCC0021FA1D /* main.cpp */; };
+		5747F06616821BCC0021FA1D /* MacOSPort.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5747F06516821BCC0021FA1D /* MacOSPort.1 */; };
+		5747F0CF168229620021FA1D /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5747F0CB168229620021FA1D /* ObjModel.cpp */; };
+		5747F0D0168229620021FA1D /* Land.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5747F0CD168229620021FA1D /* Land.cpp */; };
+		5747F0DC168229720021FA1D /* electricSheep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5747F0D3168229720021FA1D /* electricSheep.cpp */; };
+		5747F0DD168229720021FA1D /* shaderUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5747F0D5168229720021FA1D /* shaderUtilities.cpp */; };
+		5747F0DE168229720021FA1D /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5747F0D7168229720021FA1D /* FileUtils.cpp */; };
+		5747F0DF168229720021FA1D /* Sheep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5747F0DB168229720021FA1D /* Sheep.cpp */; };
+		5747F0E1168229B40021FA1D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5747F0E0168229B40021FA1D /* OpenGL.framework */; };
+		5747F0E7168229DC0021FA1D /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5747F0E6168229DC0021FA1D /* GLUT.framework */; };
+		5747F0EE168231430021FA1D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5747F0EC16822C000021FA1D /* AppKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5747F05D16821BCC0021FA1D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				5747F06616821BCC0021FA1D /* MacOSPort.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5747F05F16821BCC0021FA1D /* MacOSPort */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacOSPort; sourceTree = BUILT_PRODUCTS_DIR; };
+		5747F06316821BCC0021FA1D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5747F06516821BCC0021FA1D /* MacOSPort.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MacOSPort.1; sourceTree = "<group>"; };
+		5747F07A16821DBE0021FA1D /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragment.glsl; sourceTree = "<group>"; };
+		5747F07B16821DBE0021FA1D /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
+		5747F07E16821DD70021FA1D /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass.png; sourceTree = "<group>"; };
+		5747F07F16821DD70021FA1D /* sheep.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep.obj; sourceTree = "<group>"; };
+		5747F08016821DD70021FA1D /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep.png; sourceTree = "<group>"; };
+		5747F08116821DD70021FA1D /* sheep_anim_graze0.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_graze0.obj; sourceTree = "<group>"; };
+		5747F08216821DD70021FA1D /* sheep_anim_graze1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_graze1.obj; sourceTree = "<group>"; };
+		5747F08316821DD70021FA1D /* sheep_anim_graze2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_graze2.obj; sourceTree = "<group>"; };
+		5747F08416821DD70021FA1D /* sheep_anim_graze3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_graze3.obj; sourceTree = "<group>"; };
+		5747F08516821DD70021FA1D /* sheep_anim_walk0.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_walk0.obj; sourceTree = "<group>"; };
+		5747F08616821DD70021FA1D /* sheep_anim_walk1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_walk1.obj; sourceTree = "<group>"; };
+		5747F08716821DD70021FA1D /* sheep_anim_walk2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_walk2.obj; sourceTree = "<group>"; };
+		5747F08816821DD70021FA1D /* sheep_anim_walk3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_walk3.obj; sourceTree = "<group>"; };
+		5747F0C9168229550021FA1D /* TexturesMap_C_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TexturesMap_C_Interface.h; path = ../TexturesMap_C_Interface.h; sourceTree = "<group>"; };
+		5747F0CB168229620021FA1D /* ObjModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjModel.cpp; path = ../ObjModel.cpp; sourceTree = "<group>"; };
+		5747F0CC168229620021FA1D /* ObjModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjModel.h; path = ../ObjModel.h; sourceTree = "<group>"; };
+		5747F0CD168229620021FA1D /* Land.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Land.cpp; path = ../Land.cpp; sourceTree = "<group>"; };
+		5747F0CE168229620021FA1D /* Land.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Land.h; path = ../Land.h; sourceTree = "<group>"; };
+		5747F0D1168229720021FA1D /* glm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = glm.hpp; path = ../glm/glm.hpp; sourceTree = "<group>"; };
+		5747F0D2168229720021FA1D /* electricSheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = electricSheep.h; path = ../electricSheep.h; sourceTree = "<group>"; };
+		5747F0D3168229720021FA1D /* electricSheep.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = electricSheep.cpp; path = ../electricSheep.cpp; sourceTree = "<group>"; };
+		5747F0D4168229720021FA1D /* shaderUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shaderUtilities.h; path = ../shaderUtilities.h; sourceTree = "<group>"; };
+		5747F0D5168229720021FA1D /* shaderUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shaderUtilities.cpp; path = ../shaderUtilities.cpp; sourceTree = "<group>"; };
+		5747F0D6168229720021FA1D /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = ../FileUtils.h; sourceTree = "<group>"; };
+		5747F0D7168229720021FA1D /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileUtils.cpp; path = ../FileUtils.cpp; sourceTree = "<group>"; };
+		5747F0D8168229720021FA1D /* GLIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLIncludes.h; path = ../GLIncludes.h; sourceTree = "<group>"; };
+		5747F0D9168229720021FA1D /* Path_C_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Path_C_Interface.h; path = ../Path_C_Interface.h; sourceTree = "<group>"; };
+		5747F0DA168229720021FA1D /* Sheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sheep.h; path = ../Sheep.h; sourceTree = "<group>"; };
+		5747F0DB168229720021FA1D /* Sheep.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sheep.cpp; path = ../Sheep.cpp; sourceTree = "<group>"; };
+		5747F0E0168229B40021FA1D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		5747F0E6168229DC0021FA1D /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		5747F0EC16822C000021FA1D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5747F05C16821BCC0021FA1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5747F0EE168231430021FA1D /* AppKit.framework in Frameworks */,
+				5747F0E7168229DC0021FA1D /* GLUT.framework in Frameworks */,
+				5747F0E1168229B40021FA1D /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5747F05416821BCC0021FA1D = {
+			isa = PBXGroup;
+			children = (
+				5747F0C4168229320021FA1D /* engine */,
+				5747F06216821BCC0021FA1D /* macOS */,
+				5747F0C3168229250021FA1D /* Frameworks */,
+				5747F06016821BCC0021FA1D /* Products */,
+				5747F07D16821DD70021FA1D /* resources */,
+			);
+			sourceTree = "<group>";
+		};
+		5747F06016821BCC0021FA1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5747F05F16821BCC0021FA1D /* MacOSPort */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5747F06216821BCC0021FA1D /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				5747F06316821BCC0021FA1D /* main.cpp */,
+				5747F06516821BCC0021FA1D /* MacOSPort.1 */,
+			);
+			name = macOS;
+			path = MacOSPort;
+			sourceTree = "<group>";
+		};
+		5747F07916821DBE0021FA1D /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				5747F07A16821DBE0021FA1D /* fragment.glsl */,
+				5747F07B16821DBE0021FA1D /* vertex.glsl */,
+			);
+			name = shaders;
+			path = ../shaders;
+			sourceTree = "<group>";
+		};
+		5747F07D16821DD70021FA1D /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				5747F07916821DBE0021FA1D /* shaders */,
+				5747F07E16821DD70021FA1D /* grass.png */,
+				5747F07F16821DD70021FA1D /* sheep.obj */,
+				5747F08016821DD70021FA1D /* sheep.png */,
+				5747F08116821DD70021FA1D /* sheep_anim_graze0.obj */,
+				5747F08216821DD70021FA1D /* sheep_anim_graze1.obj */,
+				5747F08316821DD70021FA1D /* sheep_anim_graze2.obj */,
+				5747F08416821DD70021FA1D /* sheep_anim_graze3.obj */,
+				5747F08516821DD70021FA1D /* sheep_anim_walk0.obj */,
+				5747F08616821DD70021FA1D /* sheep_anim_walk1.obj */,
+				5747F08716821DD70021FA1D /* sheep_anim_walk2.obj */,
+				5747F08816821DD70021FA1D /* sheep_anim_walk3.obj */,
+			);
+			name = resources;
+			path = ../resources;
+			sourceTree = "<group>";
+		};
+		5747F0C3168229250021FA1D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5747F0EC16822C000021FA1D /* AppKit.framework */,
+				5747F0E6168229DC0021FA1D /* GLUT.framework */,
+				5747F0E0168229B40021FA1D /* OpenGL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5747F0C4168229320021FA1D /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				5747F0C5168229360021FA1D /* textures */,
+				5747F0C61682293C0021FA1D /* models */,
+				5747F0D1168229720021FA1D /* glm.hpp */,
+				5747F0D2168229720021FA1D /* electricSheep.h */,
+				5747F0D3168229720021FA1D /* electricSheep.cpp */,
+				5747F0D4168229720021FA1D /* shaderUtilities.h */,
+				5747F0D5168229720021FA1D /* shaderUtilities.cpp */,
+				5747F0D6168229720021FA1D /* FileUtils.h */,
+				5747F0D7168229720021FA1D /* FileUtils.cpp */,
+				5747F0D8168229720021FA1D /* GLIncludes.h */,
+				5747F0D9168229720021FA1D /* Path_C_Interface.h */,
+				5747F0DA168229720021FA1D /* Sheep.h */,
+				5747F0DB168229720021FA1D /* Sheep.cpp */,
+			);
+			name = engine;
+			sourceTree = "<group>";
+		};
+		5747F0C5168229360021FA1D /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				5747F0C9168229550021FA1D /* TexturesMap_C_Interface.h */,
+			);
+			name = textures;
+			sourceTree = "<group>";
+		};
+		5747F0C61682293C0021FA1D /* models */ = {
+			isa = PBXGroup;
+			children = (
+				5747F0CB168229620021FA1D /* ObjModel.cpp */,
+				5747F0CC168229620021FA1D /* ObjModel.h */,
+				5747F0CD168229620021FA1D /* Land.cpp */,
+				5747F0CE168229620021FA1D /* Land.h */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5747F05E16821BCC0021FA1D /* MacOSPort */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5747F06916821BCC0021FA1D /* Build configuration list for PBXNativeTarget "MacOSPort" */;
+			buildPhases = (
+				5747F05B16821BCC0021FA1D /* Sources */,
+				5747F05C16821BCC0021FA1D /* Frameworks */,
+				5747F05D16821BCC0021FA1D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacOSPort;
+			productName = MacOSPort;
+			productReference = 5747F05F16821BCC0021FA1D /* MacOSPort */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5747F05616821BCC0021FA1D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = wackyCube;
+			};
+			buildConfigurationList = 5747F05916821BCC0021FA1D /* Build configuration list for PBXProject "MacOSPort" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5747F05416821BCC0021FA1D;
+			productRefGroup = 5747F06016821BCC0021FA1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5747F05E16821BCC0021FA1D /* MacOSPort */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5747F05B16821BCC0021FA1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5747F06416821BCC0021FA1D /* main.cpp in Sources */,
+				5747F0CF168229620021FA1D /* ObjModel.cpp in Sources */,
+				5747F0D0168229620021FA1D /* Land.cpp in Sources */,
+				5747F0DC168229720021FA1D /* electricSheep.cpp in Sources */,
+				5747F0DD168229720021FA1D /* shaderUtilities.cpp in Sources */,
+				5747F0DE168229720021FA1D /* FileUtils.cpp in Sources */,
+				5747F0DF168229720021FA1D /* Sheep.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5747F06716821BCC0021FA1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5747F06816821BCC0021FA1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5747F06A16821BCC0021FA1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5747F06B16821BCC0021FA1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5747F05916821BCC0021FA1D /* Build configuration list for PBXProject "MacOSPort" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5747F06716821BCC0021FA1D /* Debug */,
+				5747F06816821BCC0021FA1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5747F06916821BCC0021FA1D /* Build configuration list for PBXNativeTarget "MacOSPort" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5747F06A16821BCC0021FA1D /* Debug */,
+				5747F06B16821BCC0021FA1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5747F05616821BCC0021FA1D /* Project object */;
+}

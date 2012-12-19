@@ -43,7 +43,7 @@ ObjModel * Sheep::getModel() {
     return (stateModels[state])[animationIndex];
 }
 
-void Sheep::loadStateModels() {
+void Sheep::loadStateModels(){
     std::vector<ObjModel *> idleAnimationModels;
     std::vector<ObjModel *> grazeAnimationModels;
     std::vector<ObjModel *> walkAnimationModels;
@@ -67,7 +67,7 @@ void Sheep::loadStateModels() {
     stateModels[SHEEP_STATE_WALKING]=walkAnimationModels;
 }
 
-Sheep::~Sheep() {
+Sheep::~Sheep(){
     stateModels.clear();
 }
 

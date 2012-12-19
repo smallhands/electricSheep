@@ -9,6 +9,8 @@
 #ifndef electricSheep_TexturesMap_C_Interface_h
 #define electricSheep_TexturesMap_C_Interface_h
 
+#include "GLIncludes.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
