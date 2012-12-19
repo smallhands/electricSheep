@@ -28,6 +28,19 @@
 		5747F05F16821BCC0021FA1D /* MacOSPort */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacOSPort; sourceTree = BUILT_PRODUCTS_DIR; };
 		5747F06316821BCC0021FA1D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5747F06516821BCC0021FA1D /* MacOSPort.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MacOSPort.1; sourceTree = "<group>"; };
+		5747F07A16821DBE0021FA1D /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragment.glsl; sourceTree = "<group>"; };
+		5747F07B16821DBE0021FA1D /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
+		5747F07E16821DD70021FA1D /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass.png; sourceTree = "<group>"; };
+		5747F07F16821DD70021FA1D /* sheep.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep.obj; sourceTree = "<group>"; };
+		5747F08016821DD70021FA1D /* sheep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep.png; sourceTree = "<group>"; };
+		5747F08116821DD70021FA1D /* sheep_anim_graze0.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_graze0.obj; sourceTree = "<group>"; };
+		5747F08216821DD70021FA1D /* sheep_anim_graze1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_graze1.obj; sourceTree = "<group>"; };
+		5747F08316821DD70021FA1D /* sheep_anim_graze2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_graze2.obj; sourceTree = "<group>"; };
+		5747F08416821DD70021FA1D /* sheep_anim_graze3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_graze3.obj; sourceTree = "<group>"; };
+		5747F08516821DD70021FA1D /* sheep_anim_walk0.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_walk0.obj; sourceTree = "<group>"; };
+		5747F08616821DD70021FA1D /* sheep_anim_walk1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_walk1.obj; sourceTree = "<group>"; };
+		5747F08716821DD70021FA1D /* sheep_anim_walk2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_walk2.obj; sourceTree = "<group>"; };
+		5747F08816821DD70021FA1D /* sheep_anim_walk3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sheep_anim_walk3.obj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +57,8 @@
 		5747F05416821BCC0021FA1D = {
 			isa = PBXGroup;
 			children = (
+				5747F07D16821DD70021FA1D /* resources */,
+				5747F07916821DBE0021FA1D /* shaders */,
 				5747F06216821BCC0021FA1D /* MacOSPort */,
 				5747F06016821BCC0021FA1D /* Products */,
 			);
@@ -64,6 +79,35 @@
 				5747F06516821BCC0021FA1D /* MacOSPort.1 */,
 			);
 			path = MacOSPort;
+			sourceTree = "<group>";
+		};
+		5747F07916821DBE0021FA1D /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				5747F07A16821DBE0021FA1D /* fragment.glsl */,
+				5747F07B16821DBE0021FA1D /* vertex.glsl */,
+			);
+			name = shaders;
+			path = ../shaders;
+			sourceTree = "<group>";
+		};
+		5747F07D16821DD70021FA1D /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				5747F07E16821DD70021FA1D /* grass.png */,
+				5747F07F16821DD70021FA1D /* sheep.obj */,
+				5747F08016821DD70021FA1D /* sheep.png */,
+				5747F08116821DD70021FA1D /* sheep_anim_graze0.obj */,
+				5747F08216821DD70021FA1D /* sheep_anim_graze1.obj */,
+				5747F08316821DD70021FA1D /* sheep_anim_graze2.obj */,
+				5747F08416821DD70021FA1D /* sheep_anim_graze3.obj */,
+				5747F08516821DD70021FA1D /* sheep_anim_walk0.obj */,
+				5747F08616821DD70021FA1D /* sheep_anim_walk1.obj */,
+				5747F08716821DD70021FA1D /* sheep_anim_walk2.obj */,
+				5747F08816821DD70021FA1D /* sheep_anim_walk3.obj */,
+			);
+			name = resources;
+			path = ../resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +254,7 @@
 				5747F06B16821BCC0021FA1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
