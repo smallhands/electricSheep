@@ -43,7 +43,6 @@ public:
     ObjModel * getModel();
     glm::mat4 getModelMatrix();
     void update(GLfloat elapsedTime);
-    void switchState();
 };
 
 #endif /* defined(__electricSheep__Sheep__) */

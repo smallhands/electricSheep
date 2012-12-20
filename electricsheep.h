@@ -15,7 +15,6 @@
 #include "GLIncludes.h"
 #include "shaderUtilities.h"
 #include "Sheep.h"
-#include "Land.h"
 #include <vector>
 
 class ElectricSheepEngine {
@@ -53,7 +52,6 @@ private:
     glm::mat4 projection;
     
     std::vector<Sheep *> herd;
-    Land *land;
     
     bool initShaders(const char *vertexShaderSource, const char *fragmentShaderSource);
     void initCamera();
