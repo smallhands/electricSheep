@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5747F10616835A6C0021FA1D /* electricObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5747F10416835A6C0021FA1D /* electricObject.cpp */; };
 		57A23FB916404C6200FB1238 /* TexturesMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57A23FB816404C6200FB1238 /* TexturesMap.mm */; };
 		57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF22163FFB28008B0E7F /* FileUtils.cpp */; };
 		57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF2916400025008B0E7F /* ObjModel.cpp */; };
@@ -46,8 +45,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5747F10416835A6C0021FA1D /* electricObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = electricObject.cpp; path = ../electricObject.cpp; sourceTree = "<group>"; };
-		5747F10516835A6C0021FA1D /* electricObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = electricObject.h; path = ../electricObject.h; sourceTree = "<group>"; };
 		57A23FB716404C6200FB1238 /* TexturesMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TexturesMap.h; path = ../TexturesMap.h; sourceTree = "<group>"; };
 		57A23FB816404C6200FB1238 /* TexturesMap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TexturesMap.mm; path = ../TexturesMap.mm; sourceTree = "<group>"; };
 		57A23FBB16404FF600FB1238 /* TexturesMap_C_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TexturesMap_C_Interface.h; path = ../TexturesMap_C_Interface.h; sourceTree = "<group>"; };
@@ -234,8 +231,6 @@
 				57EB542C1640B13800571C1A /* Path_C_Interface.h */,
 				57EB54381640BC6900571C1A /* Sheep.h */,
 				57EB54371640BC6900571C1A /* Sheep.cpp */,
-				5747F10416835A6C0021FA1D /* electricObject.cpp */,
-				5747F10516835A6C0021FA1D /* electricObject.h */,
 			);
 			name = engine;
 			sourceTree = "<group>";
@@ -340,7 +335,6 @@
 				57A23FB916404C6200FB1238 /* TexturesMap.mm in Sources */,
 				57EB542F1640B19400571C1A /* iOS-PathUtils.mm in Sources */,
 				57EB54391640BC6900571C1A /* Sheep.cpp in Sources */,
-				5747F10616835A6C0021FA1D /* electricObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
