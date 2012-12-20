@@ -168,8 +168,8 @@ void ElectricSheepEngine::zoomCamera(GLfloat scale) {
 }
 
 void ElectricSheepEngine::panCamera(GLfloat horizontal, GLfloat vertical) {
-    GLfloat yawAngle=horizontal*0.5;
-    GLfloat pitchAngle=vertical*-0.1;
+    GLfloat yawAngle=horizontal*-0.5;
+    GLfloat pitchAngle=vertical*0.5;
     
     glm::mat4 yawRotation=glm::rotate(glm::mat4(1.0f), yawAngle, cameraUp);
     glm::mat4 pitchRotation=glm::rotate(glm::mat4(1.0f), pitchAngle, cameraRight);
