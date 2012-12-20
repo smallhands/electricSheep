@@ -95,7 +95,6 @@ void ElectricSheepEngine::initWorld() {
     for (int s=0; s<numberOfSheep; s++) {
         herd.push_back(new Sheep());
     }
-    land=new Land();
 }
 
 void ElectricSheepEngine::freeResources() {
@@ -115,8 +114,6 @@ void ElectricSheepEngine::render() {
     //enable attributes in program
     glEnableVertexAttribArray(shaderAttribute_coord3D);
     glEnableVertexAttribArray(shaderAttribute_TexCoordIn);
-    
-    renderObjectModel(land, glm::translate(glm::mat4(1.0f), glm::vec3(0,0,0)));
     
     for (int i=0; i!=numberOfSheep; i++) {
         Sheep *sheep=herd[i];
