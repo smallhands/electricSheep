@@ -18,7 +18,7 @@ ElectricSheepEngine::~ElectricSheepEngine() {
 }
 
 void ElectricSheepEngine::initCamera() {
-    cameraPosition=glm::vec3(16,16,8);
+    cameraPosition=glm::vec3(4,4,2);
     cameraTarget=glm::vec3(0,0,0);
     cameraUp=glm::vec3(0,0,1);
     glm::vec3 cameraDirection=glm::normalize(cameraPosition-cameraTarget);
@@ -89,7 +89,7 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
     return true;
 }
 
-#define numberOfSheep   10
+#define numberOfSheep   1
 
 void ElectricSheepEngine::initWorld() {
     for (int s=0; s<numberOfSheep; s++) {

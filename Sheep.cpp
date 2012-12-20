@@ -22,7 +22,7 @@ int randomNumber(int min, int max) {
 }
 
 Sheep::Sheep() {
-    position=glm::vec3(randomNumber(-8, 8), randomNumber(-8, 8), 0);
+    position=glm::vec3(0, 0, 0);
     heading=glm::vec2(randomNumber(-10, 10), randomNumber(-10, 10));
     heading=glm::normalize(heading);
     
