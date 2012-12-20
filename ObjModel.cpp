@@ -36,41 +36,81 @@ ObjModel::ObjModel() {
 }
 
 ObjModel::ObjModel(const char *objFilePath, const char *textureName) {
-    ifstream in(pathForFile(objFilePath, "obj"), ios::in);
     
-    vector<glm::vec3> vertices;
-    vector<glm::vec2> texCoords;
     vector<GLushort> faces;
     vector<modelData> modelDataMap;
     
-    string line;
-    while (getline(in, line)) {
-        if (line.substr(0,2)=="v ") {
-            istringstream s(line.substr(2));
-            glm::vec3 newVertex;
-            s >> newVertex.x >> newVertex.y >> newVertex.z;
-            vertices.push_back(newVertex);
-        } else if (line.substr(0,3)=="vt ") {
-            istringstream s(line.substr(3));
-            glm::vec2 newTexCoords;
-            s >> newTexCoords.x >> newTexCoords.y;
-            texCoords.push_back(newTexCoords);
-        } else if (line.substr(0,2)=="f ") {
-            istringstream s(line.substr(2));
-            for (int i=0; i<3; i++) {
-                string fv;
-                s >> fv;
-                vector<string> parts;
-                parts=split(fv,"/");
-                GLushort fvv=atoi(parts[0].c_str())-1;
-                GLushort fvt=atoi(parts[1].c_str())-1;
-                glm::vec3 vertex=vertices[fvv];
-                glm::vec2 tex=texCoords[fvt];
-                struct modelData data={{vertex.x, vertex.y, vertex.z}, {tex.x, tex.y}};
-                modelDataMap.push_back(data);
-                faces.push_back(faces.size());
-            }
-        }
+    GLfloat cubeVertices[] = {
+        // front
+        -1.0, -1.0,  1.0,
+        1.0, -1.0,  1.0,
+        1.0,  1.0,  1.0,
+        -1.0,  1.0,  1.0,
+        // top
+        -1.0,  1.0,  1.0,
+        1.0,  1.0,  1.0,
+        1.0,  1.0, -1.0,
+        -1.0,  1.0, -1.0,
+        // back
+        1.0, -1.0, -1.0,
+        -1.0, -1.0, -1.0,
+        -1.0,  1.0, -1.0,
+        1.0,  1.0, -1.0,
+        // bottom
+        -1.0, -1.0, -1.0,
+        1.0, -1.0, -1.0,
+        1.0, -1.0,  1.0,
+        -1.0, -1.0,  1.0,
+        // left
+        -1.0, -1.0, -1.0,
+        -1.0, -1.0,  1.0,
+        -1.0,  1.0,  1.0,
+        -1.0,  1.0, -1.0,
+        // right
+        1.0, -1.0,  1.0,
+        1.0, -1.0, -1.0,
+        1.0,  1.0, -1.0,
+        1.0,  1.0,  1.0
+    };
+    
+    GLfloat cubeTexCoords[] = {
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0,
+    };
+
+    
+    for (int vi=0; vi<6*12; vi+=3) {
+        glm::vec3 vertex = glm::vec3(cubeVertices[vi], cubeVertices[vi+1], cubeVertices[vi+2]);
+        glm::vec2 tex = glm::vec2(cubeTexCoords[(vi%4)*2], cubeTexCoords[((vi%4)*2)+1]);
+        struct modelData data = {{vertex.x, vertex.y, vertex.z}, {tex.x, tex.y}};
+        modelDataMap.push_back(data);
+    }
+    
+    GLushort cubeFaces[] = {
+        // front
+        0,  1,  2,
+        2,  3,  0,
+        // top
+        4,  5,  6,
+        6,  7,  4,
+        // back
+        8,  9, 10,
+        10, 11,  8,
+        // bottom
+        12, 13, 14,
+        14, 15, 12,
+        // left
+        16, 17, 18,
+        18, 19, 16,
+        // right
+        20, 21, 22,
+        22, 23, 20,
+    };
+    
+    for (int fi=0; fi<6*6; fi++) {
+        faces.push_back(cubeFaces[fi]);
     }
     
     glGenBuffers(1, &modelVerticesBufferObject);
@@ -84,7 +124,7 @@ ObjModel::ObjModel(const char *objFilePath, const char *textureName) {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     
     //loadup textures
-    textureID=textureForName(textureName);
+    textureID=textureForName("grass");
 }
 
 GLuint ObjModel::getTextureID() {
