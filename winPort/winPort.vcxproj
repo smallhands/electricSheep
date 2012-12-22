@@ -83,6 +83,7 @@
     <ClCompile Include="..\electricSheep.cpp" />
     <ClCompile Include="..\FileUtils.cpp" />
     <ClCompile Include="..\ObjModel.cpp" />
+    <ClCompile Include="..\pc-PathUtils.cpp" />
     <ClCompile Include="..\shaderUtilities.cpp" />
     <ClCompile Include="..\Sheep.cpp" />
     <ClCompile Include="main.cpp" />
@@ -98,8 +99,8 @@
     <ClInclude Include="..\TexturesMap_C_Interface.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\shaders\fragment.glsl" />
-    <None Include="..\shaders\vertex.glsl" />
+    <None Include="..\resources\shaders\fragment.glsl" />
+    <None Include="..\resources\shaders\vertex.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

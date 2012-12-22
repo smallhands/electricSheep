@@ -8,7 +8,7 @@ int windowHeight=640;
 ElectricSheepEngine::ElectricSheepEngine(float width, float height) {
     reshape(width, height);
     
-    initShaders(pathForFile("vertex", "glsl"), pathForFile("fragment", "glsl"));
+    initShaders(pathForFile("vertex", "glsl", "shaders"), pathForFile("fragment", "glsl", "shaders"));
     initCamera();
     initProjection();
 }

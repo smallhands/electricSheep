@@ -35,6 +35,9 @@
     <ClCompile Include="..\ObjModel.cpp">
       <Filter>Source Files\engine</Filter>
     </ClCompile>
+    <ClCompile Include="..\pc-PathUtils.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\electricsheep.h">
@@ -63,10 +66,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\shaders\fragment.glsl">
+    <None Include="..\resources\shaders\vertex.glsl">
       <Filter>Resource Files\shaders</Filter>
     </None>
-    <None Include="..\shaders\vertex.glsl">
+    <None Include="..\resources\shaders\fragment.glsl">
       <Filter>Resource Files\shaders</Filter>
     </None>
   </ItemGroup>

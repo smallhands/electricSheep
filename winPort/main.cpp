@@ -15,8 +15,7 @@ void resizeFunction(int, int);
 void renderFunction(void);
 void updateFunction(void);
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
 	initialize(argc, argv);
 
 	glutMainLoop();
@@ -24,8 +23,7 @@ int main(int argc, char* argv[])
 	exit(EXIT_SUCCESS);
 }
 
-void initialize(int argc, char* argv[])
-{
+void initialize(int argc, char* argv[]) {
 	glutInit(&argc, argv);
 
 	createWindow(argc, argv);
@@ -41,8 +39,7 @@ void initialize(int argc, char* argv[])
 	);
 }
 
-void createWindow(int argc, char* argv[])
-{	
+void createWindow(int argc, char* argv[]) {	
 	glutInitWindowSize(CurrentWidth, CurrentHeight);
 
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
@@ -58,15 +55,17 @@ void createWindow(int argc, char* argv[])
 	}
 }
 
-void resizeFunction(int Width, int Height)
-{
+void updateFunction(void) {
+
+}
+
+void resizeFunction(int Width, int Height) {
 	CurrentWidth = Width;
 	CurrentHeight = Height;
 	glViewport(0, 0, CurrentWidth, CurrentHeight);
 }
 
-void renderFunction(void)
-{
+void renderFunction(void) {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
