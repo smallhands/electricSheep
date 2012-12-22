@@ -11,7 +11,7 @@
 
 #ifdef _WIN32
     #include <GL/glew.h>
-	#include <GL/freeglut.h>
+	#include <GL/glut.h>
 	#define _USE_MATH_DEFINES
 #endif
 

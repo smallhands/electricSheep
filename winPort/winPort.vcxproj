@@ -82,7 +82,6 @@
   <ItemGroup>
     <ClCompile Include="..\electricSheep.cpp" />
     <ClCompile Include="..\FileUtils.cpp" />
-    <ClCompile Include="..\Land.cpp" />
     <ClCompile Include="..\ObjModel.cpp" />
     <ClCompile Include="..\shaderUtilities.cpp" />
     <ClCompile Include="..\Sheep.cpp" />
@@ -92,7 +91,6 @@
     <ClInclude Include="..\electricsheep.h" />
     <ClInclude Include="..\FileUtils.h" />
     <ClInclude Include="..\GLIncludes.h" />
-    <ClInclude Include="..\Land.h" />
     <ClInclude Include="..\ObjModel.h" />
     <ClInclude Include="..\Path_C_Interface.h" />
     <ClInclude Include="..\shaderUtilities.h" />

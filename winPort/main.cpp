@@ -1,59 +1,53 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <GL/glew.h>
-#include <GL/freeglut.h>
-#define WINDOW_TITLE_PREFIX "Chapter 1"
+#include "../GLIncludes.h"
+
+#define WINDOW_TITLE	"Electric Sheep"
 
 int CurrentWidth = 800,
 	CurrentHeight = 600,
 	WindowHandle = 0;
 
-void Initialize(int, char*[]);
-void InitWindow(int, char*[]);
-void ResizeFunction(int, int);
-void RenderFunction(void);
+void initialize(int, char*[]);
+void createWindow(int, char*[]);
+void resizeFunction(int, int);
+void renderFunction(void);
+void updateFunction(void);
 
 int main(int argc, char* argv[])
 {
-	Initialize(argc, argv);
+	initialize(argc, argv);
 
 	glutMainLoop();
 	
 	exit(EXIT_SUCCESS);
 }
 
-void Initialize(int argc, char* argv[])
+void initialize(int argc, char* argv[])
 {
-	InitWindow(argc, argv);
+	glutInit(&argc, argv);
+
+	createWindow(argc, argv);
 	
+	glutReshapeFunc(resizeFunction);
+	glutDisplayFunc(renderFunction);
+	glutIdleFunc(updateFunction);
+
 	fprintf(
 		stdout,
 		"INFO: OpenGL Version: %s\n",
 		glGetString(GL_VERSION)
 	);
-
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 }
 
-void InitWindow(int argc, char* argv[])
-{
-	glutInit(&argc, argv);
-	
-	glutInitContextVersion(4, 0);
-	glutInitContextFlags(GLUT_FORWARD_COMPATIBLE);
-	glutInitContextProfile(GLUT_CORE_PROFILE);
-
-	glutSetOption(
-		GLUT_ACTION_ON_WINDOW_CLOSE,
-		GLUT_ACTION_GLUTMAINLOOP_RETURNS
-	);
-	
+void createWindow(int argc, char* argv[])
+{	
 	glutInitWindowSize(CurrentWidth, CurrentHeight);
 
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 
-	WindowHandle = glutCreateWindow(WINDOW_TITLE_PREFIX);
+	WindowHandle = glutCreateWindow(WINDOW_TITLE);
 
 	if(WindowHandle < 1) {
 		fprintf(
@@ -62,20 +56,18 @@ void InitWindow(int argc, char* argv[])
 		);
 		exit(EXIT_FAILURE);
 	}
-
-	glutReshapeFunc(ResizeFunction);
-	glutDisplayFunc(RenderFunction);
 }
 
-void ResizeFunction(int Width, int Height)
+void resizeFunction(int Width, int Height)
 {
 	CurrentWidth = Width;
 	CurrentHeight = Height;
 	glViewport(0, 0, CurrentWidth, CurrentHeight);
 }
 
-void RenderFunction(void)
+void renderFunction(void)
 {
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glutSwapBuffers();
