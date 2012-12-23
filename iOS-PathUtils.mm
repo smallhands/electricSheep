@@ -9,5 +9,6 @@
 #include "Path_C_Interface.h"
 
 const char * pathForFile(const char *name, const char *extension) {
-    return [[[NSBundle mainBundle] pathForResource:[NSString stringWithUTF8String:name] ofType:[NSString stringWithUTF8String:extension]] UTF8String];
+    const char *path = [[[NSBundle mainBundle] pathForResource:[NSString stringWithUTF8String:name] ofType:[NSString stringWithUTF8String:extension]] UTF8String];
+    return path;
 }

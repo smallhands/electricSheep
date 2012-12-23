@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5755E457168752B900AFA4B3 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E456168752B900AFA4B3 /* Model.cpp */; };
 		5755E45F168758E400AFA4B3 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E45D168758E400AFA4B3 /* GameObject.cpp */; };
+		5755E46F168767D500AFA4B3 /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5755E46D168767D500AFA4B3 /* fragment.glsl */; };
+		5755E470168767D500AFA4B3 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5755E46E168767D500AFA4B3 /* vertex.glsl */; };
 		57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF22163FFB28008B0E7F /* FileUtils.cpp */; };
 		57E6BF2B16400025008B0E7F /* CubeModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF2916400025008B0E7F /* CubeModel.cpp */; };
 		57EB542F1640B19400571C1A /* iOS-PathUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57EB542E1640B19400571C1A /* iOS-PathUtils.mm */; };
@@ -25,8 +27,6 @@
 		57F5BC261636D41700DF1161 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC241636D41700DF1161 /* MainStoryboard_iPhone.storyboard */; };
 		57F5BC291636D41700DF1161 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC271636D41700DF1161 /* MainStoryboard_iPad.storyboard */; };
 		57F5BC2C1636D41700DF1161 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC2B1636D41700DF1161 /* ViewController.mm */; };
-		57F5BC421636D50E00DF1161 /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC401636D50E00DF1161 /* fragment.glsl */; };
-		57F5BC431636D50E00DF1161 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57F5BC411636D50E00DF1161 /* vertex.glsl */; };
 		57F5BC451636D5C100DF1161 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC441636D5C100DF1161 /* OpenGLES.framework */; };
 		57F5BC471636D5C600DF1161 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC461636D5C600DF1161 /* QuartzCore.framework */; };
 		57F5BC4A1636D60D00DF1161 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57F5BC491636D60D00DF1161 /* OpenGLView.mm */; };
@@ -39,6 +39,8 @@
 		5755E456168752B900AFA4B3 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = ../Model.cpp; sourceTree = "<group>"; };
 		5755E45D168758E400AFA4B3 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = ../GameObject.cpp; sourceTree = "<group>"; };
 		5755E45E168758E400AFA4B3 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = ../GameObject.h; sourceTree = "<group>"; };
+		5755E46D168767D500AFA4B3 /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fragment.glsl; path = ../resources/shaders/fragment.glsl; sourceTree = "<group>"; };
+		5755E46E168767D500AFA4B3 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vertex.glsl; path = ../resources/shaders/vertex.glsl; sourceTree = "<group>"; };
 		57E6BF22163FFB28008B0E7F /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileUtils.cpp; path = ../FileUtils.cpp; sourceTree = "<group>"; };
 		57E6BF24163FFCBB008B0E7F /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = ../FileUtils.h; sourceTree = "<group>"; };
 		57E6BF2916400025008B0E7F /* CubeModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CubeModel.cpp; path = ../CubeModel.cpp; sourceTree = "<group>"; };
@@ -68,8 +70,6 @@
 		57F5BC391636D4EF00DF1161 /* electricSheep.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = electricSheep.cpp; path = ../electricSheep.cpp; sourceTree = "<group>"; };
 		57F5BC3A1636D4EF00DF1161 /* shaderUtilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shaderUtilities.cpp; path = ../shaderUtilities.cpp; sourceTree = "<group>"; };
 		57F5BC3B1636D4EF00DF1161 /* shaderUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shaderUtilities.h; path = ../shaderUtilities.h; sourceTree = "<group>"; };
-		57F5BC401636D50E00DF1161 /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fragment.glsl; path = ../shaders/fragment.glsl; sourceTree = "<group>"; };
-		57F5BC411636D50E00DF1161 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vertex.glsl; path = ../shaders/vertex.glsl; sourceTree = "<group>"; };
 		57F5BC441636D5C100DF1161 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		57F5BC461636D5C600DF1161 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		57F5BC481636D60D00DF1161 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
@@ -208,8 +208,8 @@
 		57F5BC3F1636D50300DF1161 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
-				57F5BC401636D50E00DF1161 /* fragment.glsl */,
-				57F5BC411636D50E00DF1161 /* vertex.glsl */,
+				5755E46D168767D500AFA4B3 /* fragment.glsl */,
+				5755E46E168767D500AFA4B3 /* vertex.glsl */,
 			);
 			name = shaders;
 			sourceTree = "<group>";
@@ -271,8 +271,8 @@
 				57F5BC231636D41700DF1161 /* Default-568h@2x.png in Resources */,
 				57F5BC261636D41700DF1161 /* MainStoryboard_iPhone.storyboard in Resources */,
 				57F5BC291636D41700DF1161 /* MainStoryboard_iPad.storyboard in Resources */,
-				57F5BC421636D50E00DF1161 /* fragment.glsl in Resources */,
-				57F5BC431636D50E00DF1161 /* vertex.glsl in Resources */,
+				5755E46F168767D500AFA4B3 /* fragment.glsl in Resources */,
+				5755E470168767D500AFA4B3 /* vertex.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
