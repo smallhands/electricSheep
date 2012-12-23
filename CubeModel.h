@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 wackyCube. All rights reserved.
 //
 
-#ifndef __electricSheep__ObjModel__
-#define __electricSheep__ObjModel__
+#ifndef __electricSheep__CubeModel__
+#define __electricSheep__CubeModel__
 
 #include <iostream>
 #include "GLIncludes.h"
@@ -18,16 +18,15 @@ struct modelData {
     GLfloat texCoords[2];
 };
 
-class ObjModel {
+class CubeModel {
 protected:
     GLuint modelVerticesBufferObject;
     GLuint modelFacesBufferObject;
     GLuint textureID;
     
 public:
-    ObjModel();
-    ObjModel(const char *objFilePath, const char *textureName);
-    ~ObjModel();
+    CubeModel();
+    ~CubeModel();
     GLuint getVerticesBufferObject();
     GLuint getFacesBufferObject();
     GLuint getTextureID();
@@ -35,4 +34,4 @@ public:
 
 
 
-#endif /* defined(__electricSheep__ObjModel__) */
+#endif /* defined(__electricSheep__CubeModel__) */

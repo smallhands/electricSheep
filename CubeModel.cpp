@@ -1,12 +1,12 @@
 //
-//  ObjModel.cpp
+//  CubeModel.cpp
 //  electricSheep
 //
 //  Created by Ali Helmy on 30/10/2012.
 //  Copyright (c) 2012 wackyCube. All rights reserved.
 //
 
-#include "ObjModel.h"
+#include "CubeModel.h"
 #include "Path_C_Interface.h"
 #include <fstream>
 #include <sstream>
@@ -31,12 +31,7 @@ vector<string> split(const string& str, const string& delimiter = " ") {
     return tokens;
 }
 
-ObjModel::ObjModel() {
-    
-}
-
-ObjModel::ObjModel(const char *objFilePath, const char *textureName) {
-    
+CubeModel::CubeModel() {
     vector<GLushort> faces;
     vector<modelData> modelDataMap;
     
@@ -79,7 +74,7 @@ ObjModel::ObjModel(const char *objFilePath, const char *textureName) {
         1.0, 1.0,
         0.0, 1.0,
     };
-
+    
     
     for (int vi=0; vi<6*12; vi+=3) {
         glm::vec3 vertex = glm::vec3(cubeVertices[vi], cubeVertices[vi+1], cubeVertices[vi+2]);
@@ -127,19 +122,19 @@ ObjModel::ObjModel(const char *objFilePath, const char *textureName) {
     textureID=textureForName("grass");
 }
 
-GLuint ObjModel::getTextureID() {
+GLuint CubeModel::getTextureID() {
     return textureID;
 }
 
-GLuint ObjModel::getVerticesBufferObject() {
+GLuint CubeModel::getVerticesBufferObject() {
     return modelVerticesBufferObject;
 }
 
-GLuint ObjModel::getFacesBufferObject() {
+GLuint CubeModel::getFacesBufferObject() {
     return modelFacesBufferObject;
 }
 
-ObjModel::~ObjModel() {
+CubeModel::~CubeModel() {
     glDeleteBuffers(1, &modelVerticesBufferObject);
     glDeleteBuffers(1, &modelFacesBufferObject);
 }

@@ -29,16 +29,16 @@ Sheep::Sheep() {
     loadStateModels();
 }
 
-ObjModel * Sheep::getModel() {
+CubeModel * Sheep::getModel() {
     return (stateModels[SHEEP_STATE_IDLE])[0];
 }
 
 void Sheep::loadStateModels(){
-    std::vector<ObjModel *> idleAnimationModels;
-    std::vector<ObjModel *> grazeAnimationModels;
-    std::vector<ObjModel *> walkAnimationModels;
+    std::vector<CubeModel *> idleAnimationModels;
+    std::vector<CubeModel *> grazeAnimationModels;
+    std::vector<CubeModel *> walkAnimationModels;
     
-    idleAnimationModels.push_back(new ObjModel("sheep", "sheep"));
+    idleAnimationModels.push_back(new CubeModel());
     
     stateModels[SHEEP_STATE_IDLE]=idleAnimationModels;
 }

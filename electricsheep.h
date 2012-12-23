@@ -61,7 +61,7 @@ private:
     
     void freeResources();
     
-    void renderObjectModel(ObjModel *model, glm::mat4 modelMatrix);
+    void renderObjectModel(CubeModel *model, glm::mat4 modelMatrix);
 };
 
 #endif

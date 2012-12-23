@@ -117,7 +117,7 @@ void ElectricSheepEngine::render() {
     
     for (int i=0; i!=numberOfSheep; i++) {
         Sheep *sheep=herd[i];
-        ObjModel *model=sheep->getModel();
+        CubeModel *model=sheep->getModel();
         
         renderObjectModel(model, sheep->getModelMatrix());
     }
@@ -127,7 +127,7 @@ void ElectricSheepEngine::render() {
     glDisableVertexAttribArray(shaderAttribute_TexCoordIn);
 }
 
-void ElectricSheepEngine::renderObjectModel(ObjModel *model, glm::mat4 modelMatrix) {
+void ElectricSheepEngine::renderObjectModel(CubeModel *model, glm::mat4 modelMatrix) {
     //model matrix using model position vector
     glm::mat4 mvp=projection*view*modelMatrix;
     glUniformMatrix4fv(shaderAttribute_uniform_mvp, 1, GL_FALSE, glm::value_ptr(mvp));

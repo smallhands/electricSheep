@@ -9,7 +9,7 @@
 #ifndef __electricSheep__Sheep__
 #define __electricSheep__Sheep__
 
-#include "ObjModel.h"
+#include "CubeModel.h"
 #include "GLIncludes.h"
 #include <vector>
 #include <map>
@@ -27,7 +27,7 @@ class Sheep {
     glm::vec2 heading;
     
     GLubyte animationIndex;
-    std::map<SheepState, std::vector<ObjModel *> > stateModels;
+    std::map<SheepState, std::vector<CubeModel *> > stateModels;
     
     glm::mat4 getPositionMatrix();
     glm::mat4 getRotationMatrix();
@@ -40,7 +40,7 @@ class Sheep {
 public:
     Sheep();
     ~Sheep();
-    ObjModel * getModel();
+    CubeModel * getModel();
     glm::mat4 getModelMatrix();
     void update(GLfloat elapsedTime);
 };
