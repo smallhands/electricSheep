@@ -93,7 +93,7 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
 
 void ElectricSheepEngine::initWorld() {
     for (int s=0; s<numberOfSheep; s++) {
-        herd.push_back(new Sheep());
+        herd.push_back(new Voxel());
     }
 }
 
@@ -116,10 +116,10 @@ void ElectricSheepEngine::render() {
     glEnableVertexAttribArray(shaderAttribute_TexCoordIn);
     
     for (int i=0; i!=numberOfSheep; i++) {
-        Sheep *sheep=herd[i];
-        Model *model=sheep->getModel();
+        Voxel *voxel=herd[i];
+        Model *model=voxel->getModel();
         
-        renderObjectModel(model, sheep->getModelMatrix());
+        renderObjectModel(model, voxel->getModelMatrix());
     }
     
     //close up the attribute in program, no more need
@@ -204,7 +204,7 @@ void ElectricSheepEngine::reshape(int newWindowWidth, int newWindowHeight)
 
 void ElectricSheepEngine::update(GLfloat elapsedTime) {
     for (int i=0; i!=numberOfSheep; i++) {
-        Sheep *sheep=herd[i];
-        sheep->update(elapsedTime);
+        Voxel *voxel=herd[i];
+        voxel->update(elapsedTime);
     }
 }

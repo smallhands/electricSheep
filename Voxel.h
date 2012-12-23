@@ -1,13 +1,13 @@
 //
-//  Sheep.h
+//  Voxel.h
 //  electricSheep
 //
 //  Created by Ali Helmy on 31/10/2012.
 //  Copyright (c) 2012 wackyCube. All rights reserved.
 //
 
-#ifndef __electricSheep__Sheep__
-#define __electricSheep__Sheep__
+#ifndef __electricSheep__Voxel__
+#define __electricSheep__Voxel__
 
 #include "CubeModel.h"
 #include "GLIncludes.h"
@@ -20,7 +20,7 @@ typedef enum {
     SHEEP_STATE_GRAZING
 }SheepState;
 
-class Sheep {
+class Voxel {
     glm::vec3 position;
     SheepState state;
     
@@ -38,11 +38,11 @@ class Sheep {
     GLfloat lastUpdateTime;
     
 public:
-    Sheep();
-    ~Sheep();
+    Voxel();
+    ~Voxel();
     Model * getModel();
     glm::mat4 getModelMatrix();
     void update(GLfloat elapsedTime);
 };
 
-#endif /* defined(__electricSheep__Sheep__) */
+#endif /* defined(__electricSheep__Voxel__) */
