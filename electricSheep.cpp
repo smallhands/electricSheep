@@ -99,7 +99,7 @@ void ElectricSheepEngine::freeResources() {
 
 void ElectricSheepEngine::render() {
     //clear screen
-    glClearColor(0.52, 0.8, 0.97, 1.0);
+    glClearColor(0.0, 0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
     
