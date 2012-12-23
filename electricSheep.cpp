@@ -8,7 +8,7 @@ int windowHeight=640;
 ElectricSheepEngine::ElectricSheepEngine(float width, float height) {
     reshape(width, height);
     
-    initShaders(pathForFile("vertex", "glsl"), pathForFile("fragment", "glsl"));
+    initShaders(pathForFile("vertex", "glsl", "shaders"), pathForFile("fragment", "glsl", "shaders"));
     initCamera();
     initProjection();
 }
@@ -18,7 +18,7 @@ ElectricSheepEngine::~ElectricSheepEngine() {
 }
 
 void ElectricSheepEngine::initCamera() {
-    cameraPosition=glm::vec3(16,16,8);
+    cameraPosition=glm::vec3(4,4,2);
     cameraTarget=glm::vec3(0,0,0);
     cameraUp=glm::vec3(0,0,1);
     glm::vec3 cameraDirection=glm::normalize(cameraPosition-cameraTarget);
@@ -89,13 +89,12 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
     return true;
 }
 
-#define numberOfSheep   10
+#define numberOfSheep   1
 
 void ElectricSheepEngine::initWorld() {
     for (int s=0; s<numberOfSheep; s++) {
         herd.push_back(new Sheep());
     }
-    land=new Land();
 }
 
 void ElectricSheepEngine::freeResources() {
@@ -115,8 +114,6 @@ void ElectricSheepEngine::render() {
     //enable attributes in program
     glEnableVertexAttribArray(shaderAttribute_coord3D);
     glEnableVertexAttribArray(shaderAttribute_TexCoordIn);
-    
-    renderObjectModel(land, glm::translate(glm::mat4(1.0f), glm::vec3(0,0,0)));
     
     for (int i=0; i!=numberOfSheep; i++) {
         Sheep *sheep=herd[i];
@@ -171,8 +168,8 @@ void ElectricSheepEngine::zoomCamera(GLfloat scale) {
 }
 
 void ElectricSheepEngine::panCamera(GLfloat horizontal, GLfloat vertical) {
-    GLfloat yawAngle=horizontal*0.5;
-    GLfloat pitchAngle=vertical*-0.1;
+    GLfloat yawAngle=horizontal*-0.5;
+    GLfloat pitchAngle=vertical*0.5;
     
     glm::mat4 yawRotation=glm::rotate(glm::mat4(1.0f), yawAngle, cameraUp);
     glm::mat4 pitchRotation=glm::rotate(glm::mat4(1.0f), pitchAngle, cameraRight);

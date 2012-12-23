@@ -13,8 +13,8 @@
 extern "C" {
 #endif
     
-#pragma message("To keep it truly cross platform, some sort of switching should be done here to swap in implementations")
-    const char * pathForFile(const char *name, const char *extension);
+#pragma message("cross platform, switching is done by swapping implementations in the build")
+    const char * pathForFile(const char *name, const char *extension, const char *inDir);
     
 #ifdef __cplusplus
 }
