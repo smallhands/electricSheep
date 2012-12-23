@@ -116,8 +116,8 @@ void ElectricSheepEngine::render() {
     glEnableVertexAttribArray(shaderAttribute_coord3D);
     glEnableVertexAttribArray(shaderAttribute_TexCoordIn);
     
-    for (int i=0; i<numberOfSheep; i++) {
-        GameObject *object=herd.at(i);
+    for (size_t i=0; i<herd.size(); i++) {
+        GameObject *object=herd[i];
         Model *model=object->getModel();
         
         renderObjectModel(model, object->getModelMatrix());
@@ -204,7 +204,7 @@ void ElectricSheepEngine::reshape(int newWindowWidth, int newWindowHeight)
 }
 
 void ElectricSheepEngine::update(GLfloat elapsedTime) {
-    for (int i=0; i!=numberOfSheep; i++) {
+    for (size_t i=0; i<herd.size(); i++) {
         GameObject *object=herd[i];
         object->update(elapsedTime);
     }
