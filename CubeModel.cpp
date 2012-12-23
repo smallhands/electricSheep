@@ -15,23 +15,7 @@
 
 using namespace std;
 
-vector<string> split(const string& str, const string& delimiter = " ") {
-    vector<string> tokens;
-    
-    string::size_type lastPos = 0;
-    string::size_type pos = str.find(delimiter, lastPos);
-    
-    while (string::npos != pos) {
-        tokens.push_back(str.substr(lastPos, pos - lastPos));
-        lastPos = pos + delimiter.size();
-        pos = str.find(delimiter, lastPos);
-    }
-    
-    tokens.push_back(str.substr(lastPos, str.size() - lastPos));
-    return tokens;
-}
-
-CubeModel::CubeModel() {
+CubeModel::CubeModel() : Model() {
     vector<GLushort> faces;
     vector<modelData> modelDataMap;
     
@@ -122,19 +106,6 @@ CubeModel::CubeModel() {
     textureID=textureForName("grass");
 }
 
-GLuint CubeModel::getTextureID() {
-    return textureID;
-}
-
-GLuint CubeModel::getVerticesBufferObject() {
-    return modelVerticesBufferObject;
-}
-
-GLuint CubeModel::getFacesBufferObject() {
-    return modelFacesBufferObject;
-}
-
 CubeModel::~CubeModel() {
-    glDeleteBuffers(1, &modelVerticesBufferObject);
-    glDeleteBuffers(1, &modelFacesBufferObject);
+    
 }

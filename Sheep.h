@@ -40,7 +40,7 @@ class Sheep {
 public:
     Sheep();
     ~Sheep();
-    CubeModel * getModel();
+    Model * getModel();
     glm::mat4 getModelMatrix();
     void update(GLfloat elapsedTime);
 };

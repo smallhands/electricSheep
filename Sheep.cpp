@@ -29,7 +29,7 @@ Sheep::Sheep() {
     loadStateModels();
 }
 
-CubeModel * Sheep::getModel() {
+Model * Sheep::getModel() {
     return (stateModels[SHEEP_STATE_IDLE])[0];
 }
 

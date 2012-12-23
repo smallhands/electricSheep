@@ -10,26 +10,12 @@
 #define __electricSheep__CubeModel__
 
 #include <iostream>
-#include "GLIncludes.h"
-#include "TexturesMap_C_Interface.h"
+#include "Model.h"
 
-struct modelData {
-    GLfloat coord3D[3];
-    GLfloat texCoords[2];
-};
-
-class CubeModel {
-protected:
-    GLuint modelVerticesBufferObject;
-    GLuint modelFacesBufferObject;
-    GLuint textureID;
-    
+class CubeModel : public Model {
 public:
     CubeModel();
     ~CubeModel();
-    GLuint getVerticesBufferObject();
-    GLuint getFacesBufferObject();
-    GLuint getTextureID();
 };
 
 
