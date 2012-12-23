@@ -14,7 +14,7 @@
 #include <math.h>
 #include "GLIncludes.h"
 #include "shaderUtilities.h"
-#include "Sheep.h"
+#include "GameObject.h"
 #include <vector>
 
 class ElectricSheepEngine {
@@ -33,9 +33,7 @@ private:
     GLuint shaderProgram;
     GLint shaderAttribute_coord3D;
     GLint shaderAttribute_vertexColour;
-    GLint shaderAttribute_TexCoordIn;
     GLint shaderAttribute_uniform_mvp;
-    GLint shaderAttribute_uniform_Texture;
     
     //view matrix using look at
     glm::vec3 cameraPosition;
@@ -51,7 +49,7 @@ private:
     GLfloat farClippingPlane;
     glm::mat4 projection;
     
-    std::vector<Sheep *> herd;
+    std::vector<GameObject *> herd;
     
     bool initShaders(const char *vertexShaderSource, const char *fragmentShaderSource);
     void initCamera();
@@ -61,7 +59,7 @@ private:
     
     void freeResources();
     
-    void renderObjectModel(ObjModel *model, glm::mat4 modelMatrix);
+    void renderObjectModel(Model *model, glm::mat4 modelMatrix);
 };
 
 #endif
