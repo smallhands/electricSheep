@@ -1,74 +1,72 @@
+//
+//  launcher.cpp
+//  cubezOSX
+//
+//  Created by Ali Helmy on 06/11/2012.
+//
+//
+
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
-#include "../GLIncludes.h"
+#include <math.h>
+#include "GLIncludes.h"
+#include "electricsheep.h"
 
-#define WINDOW_TITLE	"Electric Sheep"
+ElectricSheepEngine *_electricSheepEngine;
 
-int CurrentWidth = 800,
-	CurrentHeight = 600,
-	WindowHandle = 0;
+//windowSize
+#define DEFAULT_WINDOW_WIDTH    1024
+#define DEFAULT_WINDOW_HEIGHT   768
 
-void initialize(int, char*[]);
-void createWindow(int, char*[]);
-void resizeFunction(int, int);
-void renderFunction(void);
-void updateFunction(void);
+void freeResources() {
+    delete _electricSheepEngine;
+}
+
+void render() {
+    _electricSheepEngine->render();
+    
+    //blit drawn screen
+    glutSwapBuffers();
+}
+
+void reshape(int newWindowWidth, int newWindowHeight)
+{
+    _electricSheepEngine->reshape(newWindowWidth, newWindowHeight);
+}
+
+void idle()
+{
+    GLfloat timeElapsed = glutGet(GLUT_ELAPSED_TIME);
+    
+    _electricSheepEngine->update(timeElapsed);
+    
+    glutPostRedisplay();
+}
 
 int main(int argc, char* argv[]) {
-	initialize(argc, argv);
-
-	glutMainLoop();
-	
-	exit(EXIT_SUCCESS);
-}
-
-void initialize(int argc, char* argv[]) {
-	glutInit(&argc, argv);
-
-	createWindow(argc, argv);
-	
-	glutReshapeFunc(resizeFunction);
-	glutDisplayFunc(renderFunction);
-	glutIdleFunc(updateFunction);
-
-	fprintf(
-		stdout,
-		"INFO: OpenGL Version: %s\n",
-		glGetString(GL_VERSION)
-	);
-}
-
-void createWindow(int argc, char* argv[]) {	
-	glutInitWindowSize(CurrentWidth, CurrentHeight);
-
-	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
-
-	WindowHandle = glutCreateWindow(WINDOW_TITLE);
-
-	if(WindowHandle < 1) {
-		fprintf(
-			stderr,
-			"ERROR: Could not create a new rendering window.\n"
-		);
-		exit(EXIT_FAILURE);
-	}
-}
-
-void updateFunction(void) {
-
-}
-
-void resizeFunction(int Width, int Height) {
-	CurrentWidth = Width;
-	CurrentHeight = Height;
-	glViewport(0, 0, CurrentWidth, CurrentHeight);
-}
-
-void renderFunction(void) {
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glutSwapBuffers();
-	glutPostRedisplay();
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_RGBA|GLUT_ALPHA|GLUT_DOUBLE|GLUT_DEPTH);
+    glutInitWindowSize(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
+    glutCreateWindow("Electric Sheep");
+    
+#ifdef _WIN32
+    /* Extension wrangler initialising */
+    GLenum glew_status = glewInit();
+    if (glew_status != GLEW_OK){
+        fprintf(stderr, "Error: %s\n", glewGetErrorString(glew_status));
+        return EXIT_FAILURE;
+    }
+#endif
+    
+    glutReshapeFunc(reshape);
+    glutDisplayFunc(render);
+    glutIdleFunc(idle);
+    
+    _electricSheepEngine=new ElectricSheepEngine(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
+    _electricSheepEngine->initWorld();
+    
+    glutMainLoop();
+    
+    freeResources();
+    return 0;
 }

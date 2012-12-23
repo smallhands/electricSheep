@@ -6,7 +6,7 @@ using namespace std;
 const char * pathForFile(const char *name, const char *extension) {
 	string nameStr = string(name);
 	string extStr = string(extension);
-	string path = nameStr + "." + extStr;
+	string *path = new string(nameStr + "." + extStr);
 
-	return path.c_str();
+	return path->c_str();
 }
