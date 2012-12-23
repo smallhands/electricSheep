@@ -8,9 +8,6 @@
 
 #include "CubeModel.h"
 #include "Path_C_Interface.h"
-#include <fstream>
-#include <sstream>
-#include <string>
 #include <vector>
 
 using namespace std;
@@ -52,18 +49,18 @@ CubeModel::CubeModel() : Model() {
         1.0,  1.0,  1.0
     };
     
-    GLfloat cubeTexCoords[] = {
-        0.0, 0.0,
-        1.0, 0.0,
-        1.0, 1.0,
-        0.0, 1.0,
+    GLfloat cubeColors[] = {
+        0.0, 0.0, 1.0,
+        0.0, 0.0, 1.0,
+        0.0, 0.0, 1.0,
+        0.0, 0.0, 1.0,
     };
     
     
     for (int vi=0; vi<6*12; vi+=3) {
         glm::vec3 vertex = glm::vec3(cubeVertices[vi], cubeVertices[vi+1], cubeVertices[vi+2]);
-        glm::vec2 tex = glm::vec2(cubeTexCoords[(vi%4)*2], cubeTexCoords[((vi%4)*2)+1]);
-        struct modelData data = {{vertex.x, vertex.y, vertex.z}, {tex.x, tex.y}};
+        glm::vec3 color = glm::vec3(cubeColors[(vi%4)*2], cubeColors[((vi%4)*2)+1], cubeColors[((vi%4)*2)+2]);
+        struct modelData data = {{vertex.x, vertex.y, vertex.z}, {color.x, color.y, color.z}};
         modelDataMap.push_back(data);
     }
     
@@ -101,9 +98,6 @@ CubeModel::CubeModel() : Model() {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, modelFacesBufferObject);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, faces.size()*sizeof(GLushort), &(faces[0]), GL_STATIC_DRAW);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-    
-    //loadup textures
-    textureID=textureForName("grass");
 }
 
 CubeModel::~CubeModel() {

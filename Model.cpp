@@ -17,10 +17,6 @@ Model::~Model() {
     glDeleteBuffers(1, &modelFacesBufferObject);
 }
 
-GLuint Model::getTextureID() {
-    return textureID;
-}
-
 GLuint Model::getVerticesBufferObject() {
     return modelVerticesBufferObject;
 }

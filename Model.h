@@ -10,25 +10,22 @@
 #define electricSheep_Model_h
 
 #include "GLIncludes.h"
-#include "TexturesMap_C_Interface.h"
 
 struct modelData {
     GLfloat coord3D[3];
-    GLfloat texCoords[2];
+    GLfloat color[3];
 };
 
 class Model {
 protected:
     GLuint modelVerticesBufferObject;
     GLuint modelFacesBufferObject;
-    GLuint textureID;
 
 public:
     Model();
     virtual ~Model();
     GLuint getVerticesBufferObject();
     GLuint getFacesBufferObject();
-    GLuint getTextureID();
 };
 
 #endif

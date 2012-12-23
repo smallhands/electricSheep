@@ -68,21 +68,15 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
         return false;
     }
     
-    const char *texCoordInAttributeName="TexCoordIn";
-    if(!bindShaderAttribute(&shaderAttribute_TexCoordIn, shaderProgram, texCoordInAttributeName)){
-        fprintf(stderr, "Could not bind shader attribute %s\n", texCoordInAttributeName);
+    const char *vertexColourAttributeName="vertexColour";
+    if(!bindShaderAttribute(&shaderAttribute_vertexColour, shaderProgram, vertexColourAttributeName)){
+        fprintf(stderr, "Could not bind shader attribute %s\n", vertexColourAttributeName);
         return false;
     }
     
     const char *mvpMatrixAttributeName="mvp";
     if(!bindShaderUniformAttribute(&shaderAttribute_uniform_mvp, shaderProgram, mvpMatrixAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", mvpMatrixAttributeName);
-        return false;
-    }
-    
-    const char *textureAttributeName="Texture";
-    if(!bindShaderUniformAttribute(&shaderAttribute_uniform_Texture, shaderProgram, textureAttributeName)){
-        fprintf(stderr, "Could not bind shader attribute %s\n", textureAttributeName);
         return false;
     }
     
@@ -114,7 +108,7 @@ void ElectricSheepEngine::render() {
     
     //enable attributes in program
     glEnableVertexAttribArray(shaderAttribute_coord3D);
-    glEnableVertexAttribArray(shaderAttribute_TexCoordIn);
+    glEnableVertexAttribArray(shaderAttribute_vertexColour);
     
     for (size_t i=0; i<herd.size(); i++) {
         GameObject *object=herd[i];
@@ -125,7 +119,7 @@ void ElectricSheepEngine::render() {
     
     //close up the attribute in program, no more need
     glDisableVertexAttribArray(shaderAttribute_coord3D);
-    glDisableVertexAttribArray(shaderAttribute_TexCoordIn);
+    glDisableVertexAttribArray(shaderAttribute_vertexColour);
 }
 
 void ElectricSheepEngine::renderObjectModel(Model *model, glm::mat4 modelMatrix) {
@@ -142,17 +136,13 @@ void ElectricSheepEngine::renderObjectModel(Model *model, glm::mat4 modelMatrix)
                           0 // offset of first element
                           );
     
-    glVertexAttribPointer(shaderAttribute_TexCoordIn, // attribute
-                          2, // number of elements per vertex, here (r,g,b)
+    glVertexAttribPointer(shaderAttribute_vertexColour, // attribute
+                          3, // number of elements per vertex, here (r,g,b)
                           GL_FLOAT, // the type of each element
                           GL_FALSE, // take our values as-is
                           sizeof(struct modelData), // // coord every (sizeof) elements
-                          (GLvoid *)(offsetof(struct modelData, texCoords)) // skip coords & colour coords
+                          (GLvoid *)(offsetof(struct modelData, color)) // skip coords
                           );
-    
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, model->getTextureID());
-    glUniform1i(shaderAttribute_uniform_Texture, 0);
     
     //draw the model by going through its elements array
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->getFacesBufferObject());
