@@ -14,7 +14,7 @@
 #include <math.h>
 #include "GLIncludes.h"
 #include "shaderUtilities.h"
-#include "Voxel.h"
+#include "GameObject.h"
 #include <vector>
 
 class ElectricSheepEngine {
@@ -51,7 +51,7 @@ private:
     GLfloat farClippingPlane;
     glm::mat4 projection;
     
-    std::vector<Voxel *> herd;
+    std::vector<GameObject *> herd;
     
     bool initShaders(const char *vertexShaderSource, const char *fragmentShaderSource);
     void initCamera();

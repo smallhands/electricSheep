@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5755E457168752B900AFA4B3 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E456168752B900AFA4B3 /* Model.cpp */; };
+		5755E45F168758E400AFA4B3 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E45D168758E400AFA4B3 /* GameObject.cpp */; };
 		57A23FB916404C6200FB1238 /* TexturesMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57A23FB816404C6200FB1238 /* TexturesMap.mm */; };
 		57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF22163FFB28008B0E7F /* FileUtils.cpp */; };
 		57E6BF2B16400025008B0E7F /* CubeModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF2916400025008B0E7F /* CubeModel.cpp */; };
@@ -38,6 +39,8 @@
 /* Begin PBXFileReference section */
 		5755E4551687520800AFA4B3 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../Model.h; sourceTree = "<group>"; };
 		5755E456168752B900AFA4B3 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = ../Model.cpp; sourceTree = "<group>"; };
+		5755E45D168758E400AFA4B3 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = ../GameObject.cpp; sourceTree = "<group>"; };
+		5755E45E168758E400AFA4B3 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = ../GameObject.h; sourceTree = "<group>"; };
 		57A23FB716404C6200FB1238 /* TexturesMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TexturesMap.h; path = ../TexturesMap.h; sourceTree = "<group>"; };
 		57A23FB816404C6200FB1238 /* TexturesMap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TexturesMap.mm; path = ../TexturesMap.mm; sourceTree = "<group>"; };
 		57A23FBB16404FF600FB1238 /* TexturesMap_C_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TexturesMap_C_Interface.h; path = ../TexturesMap_C_Interface.h; sourceTree = "<group>"; };
@@ -102,6 +105,8 @@
 			children = (
 				57EB54381640BC6900571C1A /* Voxel.h */,
 				57EB54371640BC6900571C1A /* Voxel.cpp */,
+				5755E45D168758E400AFA4B3 /* GameObject.cpp */,
+				5755E45E168758E400AFA4B3 /* GameObject.h */,
 			);
 			name = gameObjects;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				57EB542F1640B19400571C1A /* iOS-PathUtils.mm in Sources */,
 				57EB54391640BC6900571C1A /* Voxel.cpp in Sources */,
 				5755E457168752B900AFA4B3 /* Model.cpp in Sources */,
+				5755E45F168758E400AFA4B3 /* GameObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,6 @@
 #include "electricSheep.h"
 #include "Path_C_Interface.h"
+#include "Voxel.h"
 
 //windowSize
 int windowWidth=1136;
@@ -115,11 +116,11 @@ void ElectricSheepEngine::render() {
     glEnableVertexAttribArray(shaderAttribute_coord3D);
     glEnableVertexAttribArray(shaderAttribute_TexCoordIn);
     
-    for (int i=0; i!=numberOfSheep; i++) {
-        Voxel *voxel=herd[i];
-        Model *model=voxel->getModel();
+    for (int i=0; i<numberOfSheep; i++) {
+        GameObject *object=herd.at(i);
+        Model *model=object->getModel();
         
-        renderObjectModel(model, voxel->getModelMatrix());
+        renderObjectModel(model, object->getModelMatrix());
     }
     
     //close up the attribute in program, no more need
@@ -204,7 +205,7 @@ void ElectricSheepEngine::reshape(int newWindowWidth, int newWindowHeight)
 
 void ElectricSheepEngine::update(GLfloat elapsedTime) {
     for (int i=0; i!=numberOfSheep; i++) {
-        Voxel *voxel=herd[i];
-        voxel->update(elapsedTime);
+        GameObject *object=herd[i];
+        object->update(elapsedTime);
     }
 }

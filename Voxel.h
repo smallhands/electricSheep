@@ -10,39 +10,16 @@
 #define __electricSheep__Voxel__
 
 #include "CubeModel.h"
-#include "GLIncludes.h"
+#include "GameObject.h"
 #include <vector>
 #include <map>
 
-typedef enum {
-    SHEEP_STATE_IDLE,
-    SHEEP_STATE_WALKING,
-    SHEEP_STATE_GRAZING
-}SheepState;
-
-class Voxel {
-    glm::vec3 position;
-    SheepState state;
-    
-    glm::vec2 heading;
-    
-    GLubyte animationIndex;
-    std::map<SheepState, std::vector<CubeModel *> > stateModels;
-    
-    glm::mat4 getPositionMatrix();
-    glm::mat4 getRotationMatrix();
-    void loadStateModels();
-    
-    std::map<SheepState, GLfloat> stateTime;
-    GLfloat currentAnimationTime;
-    GLfloat lastUpdateTime;
+class Voxel : public GameObject {
     
 public:
     Voxel();
     ~Voxel();
-    Model * getModel();
-    glm::mat4 getModelMatrix();
-    void update(GLfloat elapsedTime);
+    virtual void update(GLfloat elapsedTime);
 };
 
 #endif /* defined(__electricSheep__Voxel__) */
