@@ -3,18 +3,10 @@
 
 using namespace std;
 
-const char * pathForFile(const char *name, const char *extension, const char *inDir) {
+const char * pathForFile(const char *name, const char *extension) {
 	string nameStr = string(name);
 	string extStr = string(extension);
-	string dirStr = string(inDir);
-	string path = "";
-	if (inDir != nullptr) {
-		path += inDir;
-	}
-	path += "/";
-	path += name;
-	path += ".";
-	path += extension;
+	string path = nameStr + "." + extStr;
 
 	return path.c_str();
 }

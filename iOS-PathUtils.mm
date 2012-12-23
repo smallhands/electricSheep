@@ -8,7 +8,7 @@
 
 #include "Path_C_Interface.h"
 
-const char * pathForFile(const char *name, const char *extension, const char *inDir) {
+const char * pathForFile(const char *name, const char *extension) {
     const char *path = [[[NSBundle mainBundle] pathForResource:[NSString stringWithUTF8String:name] ofType:[NSString stringWithUTF8String:extension]] UTF8String];
     return path;
 }
