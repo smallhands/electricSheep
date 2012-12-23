@@ -1,6 +1,5 @@
-varying lowp vec2 TexCoordOut;
-uniform sampler2D Texture;
+varying lowp vec3 fragColor;
 
 void main(void) {
-    gl_FragColor = texture2D(Texture,TexCoordOut);
+    gl_FragColor = vec4(fragColor,1.0);
 }

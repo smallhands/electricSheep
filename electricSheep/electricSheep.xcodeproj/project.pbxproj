@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5755E3C016873F2A00AFA4B3 /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5755E3BE16873F2A00AFA4B3 /* fragment.glsl */; };
-		5755E3C116873F2A00AFA4B3 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5755E3BF16873F2A00AFA4B3 /* vertex.glsl */; };
-		57A23FB916404C6200FB1238 /* TexturesMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57A23FB816404C6200FB1238 /* TexturesMap.mm */; };
+		5755E457168752B900AFA4B3 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E456168752B900AFA4B3 /* Model.cpp */; };
+		5755E45F168758E400AFA4B3 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E45D168758E400AFA4B3 /* GameObject.cpp */; };
+		5755E46F168767D500AFA4B3 /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5755E46D168767D500AFA4B3 /* fragment.glsl */; };
+		5755E470168767D500AFA4B3 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5755E46E168767D500AFA4B3 /* vertex.glsl */; };
 		57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF22163FFB28008B0E7F /* FileUtils.cpp */; };
-		57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF2916400025008B0E7F /* ObjModel.cpp */; };
+		57E6BF2B16400025008B0E7F /* CubeModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57E6BF2916400025008B0E7F /* CubeModel.cpp */; };
 		57EB542F1640B19400571C1A /* iOS-PathUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57EB542E1640B19400571C1A /* iOS-PathUtils.mm */; };
-		57EB54391640BC6900571C1A /* Sheep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57EB54371640BC6900571C1A /* Sheep.cpp */; };
-		57EB545A1640D7FE00571C1A /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = 57EB54591640D7FE00571C1A /* grass.png */; };
+		57EB54391640BC6900571C1A /* Voxel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57EB54371640BC6900571C1A /* Voxel.cpp */; };
 		57F5BC0D1636D41700DF1161 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0C1636D41700DF1161 /* UIKit.framework */; };
 		57F5BC0F1636D41700DF1161 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC0E1636D41700DF1161 /* Foundation.framework */; };
 		57F5BC111636D41700DF1161 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F5BC101636D41700DF1161 /* CoreGraphics.framework */; };
@@ -35,21 +35,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5755E3BE16873F2A00AFA4B3 /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fragment.glsl; path = ../resources/shaders/fragment.glsl; sourceTree = "<group>"; };
-		5755E3BF16873F2A00AFA4B3 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vertex.glsl; path = ../resources/shaders/vertex.glsl; sourceTree = "<group>"; };
-		57A23FB716404C6200FB1238 /* TexturesMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TexturesMap.h; path = ../TexturesMap.h; sourceTree = "<group>"; };
-		57A23FB816404C6200FB1238 /* TexturesMap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TexturesMap.mm; path = ../TexturesMap.mm; sourceTree = "<group>"; };
-		57A23FBB16404FF600FB1238 /* TexturesMap_C_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TexturesMap_C_Interface.h; path = ../TexturesMap_C_Interface.h; sourceTree = "<group>"; };
+		5755E4551687520800AFA4B3 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../Model.h; sourceTree = "<group>"; };
+		5755E456168752B900AFA4B3 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = ../Model.cpp; sourceTree = "<group>"; };
+		5755E45D168758E400AFA4B3 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = ../GameObject.cpp; sourceTree = "<group>"; };
+		5755E45E168758E400AFA4B3 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = ../GameObject.h; sourceTree = "<group>"; };
+		5755E46D168767D500AFA4B3 /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fragment.glsl; path = ../resources/shaders/fragment.glsl; sourceTree = "<group>"; };
+		5755E46E168767D500AFA4B3 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vertex.glsl; path = ../resources/shaders/vertex.glsl; sourceTree = "<group>"; };
 		57E6BF22163FFB28008B0E7F /* FileUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileUtils.cpp; path = ../FileUtils.cpp; sourceTree = "<group>"; };
 		57E6BF24163FFCBB008B0E7F /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = ../FileUtils.h; sourceTree = "<group>"; };
-		57E6BF2916400025008B0E7F /* ObjModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjModel.cpp; path = ../ObjModel.cpp; sourceTree = "<group>"; };
-		57E6BF2A16400025008B0E7F /* ObjModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjModel.h; path = ../ObjModel.h; sourceTree = "<group>"; };
+		57E6BF2916400025008B0E7F /* CubeModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CubeModel.cpp; path = ../CubeModel.cpp; sourceTree = "<group>"; };
+		57E6BF2A16400025008B0E7F /* CubeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CubeModel.h; path = ../CubeModel.h; sourceTree = "<group>"; };
 		57E6BF2C164000B3008B0E7F /* GLIncludes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLIncludes.h; path = ../GLIncludes.h; sourceTree = "<group>"; };
 		57EB542C1640B13800571C1A /* Path_C_Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Path_C_Interface.h; path = ../Path_C_Interface.h; sourceTree = "<group>"; };
 		57EB542E1640B19400571C1A /* iOS-PathUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "iOS-PathUtils.mm"; path = "../../iOS-PathUtils.mm"; sourceTree = "<group>"; };
-		57EB54371640BC6900571C1A /* Sheep.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sheep.cpp; path = ../Sheep.cpp; sourceTree = "<group>"; };
-		57EB54381640BC6900571C1A /* Sheep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sheep.h; path = ../Sheep.h; sourceTree = "<group>"; };
-		57EB54591640D7FE00571C1A /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grass.png; path = ../resources/grass.png; sourceTree = "<group>"; };
+		57EB54371640BC6900571C1A /* Voxel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Voxel.cpp; path = ../Voxel.cpp; sourceTree = "<group>"; };
+		57EB54381640BC6900571C1A /* Voxel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Voxel.h; path = ../Voxel.h; sourceTree = "<group>"; };
 		57F5BC081636D41700DF1161 /* electricSheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = electricSheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F5BC0C1636D41700DF1161 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		57F5BC0E1636D41700DF1161 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -94,11 +94,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5755E454168751B800AFA4B3 /* gameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				57EB54381640BC6900571C1A /* Voxel.h */,
+				57EB54371640BC6900571C1A /* Voxel.cpp */,
+				5755E45D168758E400AFA4B3 /* GameObject.cpp */,
+				5755E45E168758E400AFA4B3 /* GameObject.h */,
+			);
+			name = gameObjects;
+			sourceTree = "<group>";
+		};
 		57E6BF28163FFFFB008B0E7F /* models */ = {
 			isa = PBXGroup;
 			children = (
-				57E6BF2916400025008B0E7F /* ObjModel.cpp */,
-				57E6BF2A16400025008B0E7F /* ObjModel.h */,
+				57E6BF2916400025008B0E7F /* CubeModel.cpp */,
+				57E6BF2A16400025008B0E7F /* CubeModel.h */,
+				5755E4551687520800AFA4B3 /* Model.h */,
+				5755E456168752B900AFA4B3 /* Model.cpp */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -107,19 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				57F5BC3F1636D50300DF1161 /* shaders */,
-				57EB54591640D7FE00571C1A /* grass.png */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		57E6BF4E164042E5008B0E7F /* textures */ = {
-			isa = PBXGroup;
-			children = (
-				57A23FB716404C6200FB1238 /* TexturesMap.h */,
-				57A23FB816404C6200FB1238 /* TexturesMap.mm */,
-				57A23FBB16404FF600FB1238 /* TexturesMap_C_Interface.h */,
-			);
-			name = textures;
 			sourceTree = "<group>";
 		};
 		57F5BBFD1636D41700DF1161 = {
@@ -188,7 +190,7 @@
 		57F5BC381636D4DA00DF1161 /* engine */ = {
 			isa = PBXGroup;
 			children = (
-				57E6BF4E164042E5008B0E7F /* textures */,
+				5755E454168751B800AFA4B3 /* gameObjects */,
 				57E6BF28163FFFFB008B0E7F /* models */,
 				57F5BC661636FE1A00DF1161 /* glm.hpp */,
 				57F5BC641636FD4E00DF1161 /* electricSheep.h */,
@@ -199,8 +201,6 @@
 				57E6BF22163FFB28008B0E7F /* FileUtils.cpp */,
 				57E6BF2C164000B3008B0E7F /* GLIncludes.h */,
 				57EB542C1640B13800571C1A /* Path_C_Interface.h */,
-				57EB54381640BC6900571C1A /* Sheep.h */,
-				57EB54371640BC6900571C1A /* Sheep.cpp */,
 			);
 			name = engine;
 			sourceTree = "<group>";
@@ -208,8 +208,8 @@
 		57F5BC3F1636D50300DF1161 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
-				5755E3BE16873F2A00AFA4B3 /* fragment.glsl */,
-				5755E3BF16873F2A00AFA4B3 /* vertex.glsl */,
+				5755E46D168767D500AFA4B3 /* fragment.glsl */,
+				5755E46E168767D500AFA4B3 /* vertex.glsl */,
 			);
 			name = shaders;
 			sourceTree = "<group>";
@@ -271,9 +271,8 @@
 				57F5BC231636D41700DF1161 /* Default-568h@2x.png in Resources */,
 				57F5BC261636D41700DF1161 /* MainStoryboard_iPhone.storyboard in Resources */,
 				57F5BC291636D41700DF1161 /* MainStoryboard_iPad.storyboard in Resources */,
-				57EB545A1640D7FE00571C1A /* grass.png in Resources */,
-				5755E3C016873F2A00AFA4B3 /* fragment.glsl in Resources */,
-				5755E3C116873F2A00AFA4B3 /* vertex.glsl in Resources */,
+				5755E46F168767D500AFA4B3 /* fragment.glsl in Resources */,
+				5755E470168767D500AFA4B3 /* vertex.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,10 +290,11 @@
 				57F5BC2C1636D41700DF1161 /* ViewController.mm in Sources */,
 				57F5BC4A1636D60D00DF1161 /* OpenGLView.mm in Sources */,
 				57E6BF23163FFB28008B0E7F /* FileUtils.cpp in Sources */,
-				57E6BF2B16400025008B0E7F /* ObjModel.cpp in Sources */,
-				57A23FB916404C6200FB1238 /* TexturesMap.mm in Sources */,
+				57E6BF2B16400025008B0E7F /* CubeModel.cpp in Sources */,
 				57EB542F1640B19400571C1A /* iOS-PathUtils.mm in Sources */,
-				57EB54391640BC6900571C1A /* Sheep.cpp in Sources */,
+				57EB54391640BC6900571C1A /* Voxel.cpp in Sources */,
+				5755E457168752B900AFA4B3 /* Model.cpp in Sources */,
+				5755E45F168758E400AFA4B3 /* GameObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
