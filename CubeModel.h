@@ -1,5 +1,5 @@
 //
-//  ObjModel.h
+//  CubeModel.h
 //  electricSheep
 //
 //  Created by Ali Helmy on 30/10/2012.

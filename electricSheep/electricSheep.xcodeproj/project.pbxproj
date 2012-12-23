@@ -94,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5755E454168751B800AFA4B3 /* gameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				57EB54381640BC6900571C1A /* Sheep.h */,
+				57EB54371640BC6900571C1A /* Sheep.cpp */,
+			);
+			name = gameObjects;
+			sourceTree = "<group>";
+		};
 		57E6BF28163FFFFB008B0E7F /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +197,7 @@
 		57F5BC381636D4DA00DF1161 /* engine */ = {
 			isa = PBXGroup;
 			children = (
+				5755E454168751B800AFA4B3 /* gameObjects */,
 				57E6BF4E164042E5008B0E7F /* textures */,
 				57E6BF28163FFFFB008B0E7F /* models */,
 				57F5BC661636FE1A00DF1161 /* glm.hpp */,
@@ -199,8 +209,6 @@
 				57E6BF22163FFB28008B0E7F /* FileUtils.cpp */,
 				57E6BF2C164000B3008B0E7F /* GLIncludes.h */,
 				57EB542C1640B13800571C1A /* Path_C_Interface.h */,
-				57EB54381640BC6900571C1A /* Sheep.h */,
-				57EB54371640BC6900571C1A /* Sheep.cpp */,
 			);
 			name = engine;
 			sourceTree = "<group>";
