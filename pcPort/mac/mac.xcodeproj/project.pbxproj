@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5755E4321687420000AFA4B3 /* mac.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5755E4311687420000AFA4B3 /* mac.1 */; };
-		5755E4391687421600AFA4B3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E4381687421600AFA4B3 /* main.cpp */; };
 		5755E43C1687423100AFA4B3 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5755E43B1687423100AFA4B3 /* OpenGL.framework */; };
 		5755E43E1687423700AFA4B3 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5755E43D1687423700AFA4B3 /* GLUT.framework */; };
 		5755E44B1687426B00AFA4B3 /* electricSheep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E4421687426B00AFA4B3 /* electricSheep.cpp */; };
@@ -21,6 +20,7 @@
 		5755E49F1687763800AFA4B3 /* CubeModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E49B1687763800AFA4B3 /* CubeModel.cpp */; };
 		5755E4A01687763800AFA4B3 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E49E1687763800AFA4B3 /* Model.cpp */; };
 		5755E4A21687765200AFA4B3 /* pc-PathUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E4A11687765200AFA4B3 /* pc-PathUtils.cpp */; };
+		5755E4B91688872100AFA4B3 /* desktopLauncher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E4B81688872100AFA4B3 /* desktopLauncher.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,7 +41,6 @@
 /* Begin PBXFileReference section */
 		5755E42B1687420000AFA4B3 /* mac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mac; sourceTree = BUILT_PRODUCTS_DIR; };
 		5755E4311687420000AFA4B3 /* mac.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = mac.1; sourceTree = "<group>"; };
-		5755E4381687421600AFA4B3 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../main.cpp; sourceTree = "<group>"; };
 		5755E43B1687423100AFA4B3 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		5755E43D1687423700AFA4B3 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		5755E4401687426B00AFA4B3 /* glm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = glm.hpp; path = ../../glm/glm.hpp; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		5755E49D1687763800AFA4B3 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../../Model.h; sourceTree = "<group>"; };
 		5755E49E1687763800AFA4B3 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = ../../Model.cpp; sourceTree = "<group>"; };
 		5755E4A11687765200AFA4B3 /* pc-PathUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "pc-PathUtils.cpp"; path = "../../../pc-PathUtils.cpp"; sourceTree = "<group>"; };
+		5755E4B81688872100AFA4B3 /* desktopLauncher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = desktopLauncher.cpp; path = ../../../desktopLauncher.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +101,8 @@
 		5755E42E1687420000AFA4B3 /* mac */ = {
 			isa = PBXGroup;
 			children = (
+				5755E4B81688872100AFA4B3 /* desktopLauncher.cpp */,
 				5755E4A11687765200AFA4B3 /* pc-PathUtils.cpp */,
-				5755E4381687421600AFA4B3 /* main.cpp */,
 				5755E4311687420000AFA4B3 /* mac.1 */,
 			);
 			path = mac;
@@ -225,7 +225,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5755E4391687421600AFA4B3 /* main.cpp in Sources */,
 				5755E44B1687426B00AFA4B3 /* electricSheep.cpp in Sources */,
 				5755E44C1687426B00AFA4B3 /* shaderUtilities.cpp in Sources */,
 				5755E44D1687426B00AFA4B3 /* FileUtils.cpp in Sources */,
@@ -234,6 +233,7 @@
 				5755E49F1687763800AFA4B3 /* CubeModel.cpp in Sources */,
 				5755E4A01687763800AFA4B3 /* Model.cpp in Sources */,
 				5755E4A21687765200AFA4B3 /* pc-PathUtils.cpp in Sources */,
+				5755E4B91688872100AFA4B3 /* desktopLauncher.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
