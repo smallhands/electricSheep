@@ -1,14 +1,15 @@
-WEB_TARGET		=	electricSheep.html
-DATA_FILE		=	electricSheep.data
-WEBC			=	emcc
-SHADERS			=	resources/shaders/
+WEB_TARGET = electricSheep.html
+DATA_FILE =	electricSheep.data
+WEBC = emcc
+CC_LIBS = -framework OpenGL -framework GLUT 
 CPP_FILES := $(wildcard *.cpp)
+HPP_FILES := $(wildcard *.h)
 
 all: $(WEB_TARGET)
 
 $(WEB_TARGET): $(CPP_FILES)
 	@echo building for the web
-	$(WEBC) $(CPP_FILES) -o $(WEB_TARGET) --preload-file $(SHADERS)
+	$(WEBC) $(CPP_FILES) $(HPP_FILES) $(CC_LIBS) -o $(WEB_TARGET)
 
 clean:
 	rm -rf *.o $(WEB_TARGET) $(DATA_FILE)
