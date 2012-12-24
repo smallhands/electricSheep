@@ -1,0 +1,14 @@
+WEB_TARGET		=	electricSheep.html
+DATA_FILE		=	electricSheep.data
+WEBC			=	emcc
+SHADERS			=	resources/shaders/
+CPP_FILES := $(wildcard *.cpp)
+
+all: $(WEB_TARGET)
+
+$(WEB_TARGET): $(CPP_FILES)
+	@echo building for the web
+	$(WEBC) $(CPP_FILES) -o $(WEB_TARGET) --preload-file $(SHADERS)
+
+clean:
+	rm -rf *.o $(WEB_TARGET) $(DATA_FILE)
