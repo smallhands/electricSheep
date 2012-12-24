@@ -9,15 +9,6 @@
 #include "GameObject.h"
 #include <math.h>
 
-int randomNumber(int min, int max) {
-    static bool randomSeeded=false;
-    if(!randomSeeded) {
-        srand(time(0));
-        randomSeeded=true;
-    }
-    return (rand()%(max-min))+min;
-}
-
 GameObject::GameObject() {
     position = glm::vec3(0, 0, 0);
     heading = glm::vec3(1, 0, 0);
