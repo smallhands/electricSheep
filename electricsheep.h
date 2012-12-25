@@ -33,6 +33,7 @@ private:
     GLuint shaderProgram;
     GLint shaderAttribute_coord3D;
     GLint shaderAttribute_vertexColour;
+    GLint shaderAttribute_normal;
     GLint shaderAttribute_uniform_mvp;
     
     //view matrix using look at
