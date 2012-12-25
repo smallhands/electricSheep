@@ -76,6 +76,12 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
         return false;
     }
     
+    const char *normalAttributeName="normal";
+    if(!bindShaderAttribute(&shaderAttribute_normal, shaderProgram, normalAttributeName)){
+        fprintf(stderr, "Could not bind shader attribute %s\n", normalAttributeName);
+        return false;
+    }
+    
     const char *mvpMatrixAttributeName="mvp";
     if(!bindShaderUniformAttribute(&shaderAttribute_uniform_mvp, shaderProgram, mvpMatrixAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", mvpMatrixAttributeName);
@@ -111,6 +117,7 @@ void ElectricSheepEngine::render() {
     //enable attributes in program
     glEnableVertexAttribArray(shaderAttribute_coord3D);
     glEnableVertexAttribArray(shaderAttribute_vertexColour);
+    glEnableVertexAttribArray(shaderAttribute_normal);
     
     for (size_t i=0; i<herd.size(); i++) {
         GameObject *object=herd[i];
@@ -122,6 +129,7 @@ void ElectricSheepEngine::render() {
     //close up the attribute in program, no more need
     glDisableVertexAttribArray(shaderAttribute_coord3D);
     glDisableVertexAttribArray(shaderAttribute_vertexColour);
+    glDisableVertexAttribArray(shaderAttribute_normal);
 }
 
 void ElectricSheepEngine::renderObjectModel(Model *model, glm::mat4 modelMatrix) {
@@ -144,6 +152,14 @@ void ElectricSheepEngine::renderObjectModel(Model *model, glm::mat4 modelMatrix)
                           GL_FALSE, // take our values as-is
                           sizeof(struct modelData), // // coord every (sizeof) elements
                           (GLvoid *)(offsetof(struct modelData, color)) // skip coords
+                          );
+    
+    glVertexAttribPointer(shaderAttribute_normal, // attribute
+                          3, // number of elements per vertex, here (x,y,z)
+                          GL_FLOAT, // the type of each element
+                          GL_FALSE, // take our values as-is
+                          sizeof(struct modelData), // // coord every (sizeof) elements
+                          (GLvoid *)(offsetof(struct modelData, normal)) // skip coords
                           );
     
     //draw the model by going through its elements array
