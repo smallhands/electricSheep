@@ -14,6 +14,7 @@
 struct modelData {
     GLfloat coord3D[3];
     GLfloat color[3];
+    GLfloat normal[3];
 };
 
 class Model {
