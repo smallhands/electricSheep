@@ -65,37 +65,43 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
     
     //shader attributes
     const char *coord2DAttributeName="coord3D";
-    if(!bindShaderAttribute(&shaderAttribute_coord3D, shaderProgram, coord2DAttributeName)){
+    if(!bindShaderAttribute(shaderAttribute_coord3D, shaderProgram, coord2DAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", coord2DAttributeName);
         return false;
     }
     
     const char *vertexColourAttributeName="vertexColour";
-    if(!bindShaderAttribute(&shaderAttribute_vertexColour, shaderProgram, vertexColourAttributeName)){
+    if(!bindShaderAttribute(shaderAttribute_vertexColour, shaderProgram, vertexColourAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", vertexColourAttributeName);
         return false;
     }
     
     const char *normalAttributeName="normal";
-    if(!bindShaderAttribute(&shaderAttribute_normal, shaderProgram, normalAttributeName)){
+    if(!bindShaderAttribute(shaderAttribute_normal, shaderProgram, normalAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", normalAttributeName);
         return false;
     }
     
     const char *modelMatrixAttributeName="model";
-    if(!bindShaderUniformAttribute(&shaderAttribute_uniform_model, shaderProgram, modelMatrixAttributeName)){
+    if(!bindShaderUniformAttribute(shaderAttribute_uniform_model, shaderProgram, modelMatrixAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", modelMatrixAttributeName);
         return false;
     }
     
+    const char *invtranspModelAttributeName="inverseTransposeModel";
+    if(!bindShaderUniformAttribute(shaderAttribute_uniform_inverseTransposeModel, shaderProgram, invtranspModelAttributeName)){
+        fprintf(stderr, "Could not bind shader attribute %s\n", invtranspModelAttributeName);
+        return false;
+    }
+    
     const char *viewMatrixAttributeName="view";
-    if(!bindShaderUniformAttribute(&shaderAttribute_uniform_view, shaderProgram, viewMatrixAttributeName)){
+    if(!bindShaderUniformAttribute(shaderAttribute_uniform_view, shaderProgram, viewMatrixAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", viewMatrixAttributeName);
         return false;
     }
     
     const char *projectionMatrixAttributeName="projection";
-    if(!bindShaderUniformAttribute(&shaderAttribute_uniform_projection, shaderProgram, projectionMatrixAttributeName)){
+    if(!bindShaderUniformAttribute(shaderAttribute_uniform_projection, shaderProgram, projectionMatrixAttributeName)){
         fprintf(stderr, "Could not bind shader attribute %s\n", projectionMatrixAttributeName);
         return false;
     }
@@ -148,8 +154,9 @@ void ElectricSheepEngine::render() {
 }
 
 void ElectricSheepEngine::renderObjectModel(Model *model, glm::mat4 modelMatrix) {
-    //model matrix using model position vector
+    glm::mat4 inverseTransposeModelMatrix = glm::transpose(glm::inverse(modelMatrix));
     glUniformMatrix4fv(shaderAttribute_uniform_model, 1, GL_FALSE, glm::value_ptr(modelMatrix));
+    glUniformMatrix4fv(shaderAttribute_uniform_inverseTransposeModel, 1, GL_FALSE, glm::value_ptr(inverseTransposeModelMatrix));
     
     glBindBuffer(GL_ARRAY_BUFFER, model->getVerticesBufferObject());
     glVertexAttribPointer(shaderAttribute_coord3D, // attribute
