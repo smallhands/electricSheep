@@ -11,14 +11,14 @@ void printCompilationLog(GLuint objectID) {
     delete compilerLog;
 }
 
-bool bindShaderAttribute(GLint *shaderAttribute, GLuint shaderProgram, const char *shaderAttributeName) {
-    *shaderAttribute=glGetAttribLocation(shaderProgram, shaderAttributeName);
-    return *shaderAttribute!=-1;
+bool bindShaderAttribute(GLint &shaderAttribute, GLuint shaderProgram, const char *shaderAttributeName) {
+    shaderAttribute=glGetAttribLocation(shaderProgram, shaderAttributeName);
+    return shaderAttribute!=-1;
 }
 
-bool bindShaderUniformAttribute(GLint *shaderAttribute, GLuint shaderProgram, const char *shaderAttributeName){
-    *shaderAttribute=glGetUniformLocation(shaderProgram, shaderAttributeName);
-    return *shaderAttribute!=-1;
+bool bindShaderUniformAttribute(GLint &shaderAttribute, GLuint shaderProgram, const char *shaderAttributeName){
+    shaderAttribute=glGetUniformLocation(shaderProgram, shaderAttributeName);
+    return shaderAttribute!=-1;
 }
 
 GLuint createShader(const char *shaderSourcePath, GLenum shaderType) {

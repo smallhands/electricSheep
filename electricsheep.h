@@ -34,7 +34,10 @@ private:
     GLint shaderAttribute_coord3D;
     GLint shaderAttribute_vertexColour;
     GLint shaderAttribute_normal;
-    GLint shaderAttribute_uniform_mvp;
+    GLint shaderAttribute_uniform_model;
+    GLint shaderAttribute_uniform_inverseTransposeModel;
+    GLint shaderAttribute_uniform_view;
+    GLint shaderAttribute_uniform_projection;
     
     //view matrix using look at
     glm::vec3 cameraPosition;
