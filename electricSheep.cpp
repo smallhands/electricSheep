@@ -82,9 +82,21 @@ bool ElectricSheepEngine::initShaders(const char *vertexShaderPath, const char *
         return false;
     }
     
-    const char *mvpMatrixAttributeName="mvp";
-    if(!bindShaderUniformAttribute(&shaderAttribute_uniform_mvp, shaderProgram, mvpMatrixAttributeName)){
-        fprintf(stderr, "Could not bind shader attribute %s\n", mvpMatrixAttributeName);
+    const char *modelMatrixAttributeName="model";
+    if(!bindShaderUniformAttribute(&shaderAttribute_uniform_model, shaderProgram, modelMatrixAttributeName)){
+        fprintf(stderr, "Could not bind shader attribute %s\n", modelMatrixAttributeName);
+        return false;
+    }
+    
+    const char *viewMatrixAttributeName="view";
+    if(!bindShaderUniformAttribute(&shaderAttribute_uniform_view, shaderProgram, viewMatrixAttributeName)){
+        fprintf(stderr, "Could not bind shader attribute %s\n", viewMatrixAttributeName);
+        return false;
+    }
+    
+    const char *projectionMatrixAttributeName="projection";
+    if(!bindShaderUniformAttribute(&shaderAttribute_uniform_projection, shaderProgram, projectionMatrixAttributeName)){
+        fprintf(stderr, "Could not bind shader attribute %s\n", projectionMatrixAttributeName);
         return false;
     }
     
@@ -119,6 +131,9 @@ void ElectricSheepEngine::render() {
     glEnableVertexAttribArray(shaderAttribute_vertexColour);
     glEnableVertexAttribArray(shaderAttribute_normal);
     
+    glUniformMatrix4fv(shaderAttribute_uniform_view, 1, GL_FALSE, glm::value_ptr(view));
+    glUniformMatrix4fv(shaderAttribute_uniform_projection, 1, GL_FALSE, glm::value_ptr(projection));
+    
     for (size_t i=0; i<herd.size(); i++) {
         GameObject *object=herd[i];
         Model *model=object->getModel();
@@ -134,8 +149,7 @@ void ElectricSheepEngine::render() {
 
 void ElectricSheepEngine::renderObjectModel(Model *model, glm::mat4 modelMatrix) {
     //model matrix using model position vector
-    glm::mat4 mvp=projection*view*modelMatrix;
-    glUniformMatrix4fv(shaderAttribute_uniform_mvp, 1, GL_FALSE, glm::value_ptr(mvp));
+    glUniformMatrix4fv(shaderAttribute_uniform_model, 1, GL_FALSE, glm::value_ptr(modelMatrix));
     
     glBindBuffer(GL_ARRAY_BUFFER, model->getVerticesBufferObject());
     glVertexAttribPointer(shaderAttribute_coord3D, // attribute
