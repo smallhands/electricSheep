@@ -34,7 +34,7 @@ void reshape(int newWindowWidth, int newWindowHeight)
     _electricSheepEngine->reshape(newWindowWidth, newWindowHeight);
 }
 
-void idle()
+void update()
 {
     GLfloat timeElapsed = glutGet(GLUT_ELAPSED_TIME);
     

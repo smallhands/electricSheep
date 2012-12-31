@@ -1,4 +1,4 @@
-//
+//	
 //  GLIncludes.h
 //  electricSheep
 //
@@ -10,8 +10,9 @@
 #define electricSheep_GLIncludes_h
 
 #ifdef _WIN32
+	#include <Windows.h>
     #include <GL/glew.h>
-	#include <GL/glut.h>
+	#include <GL/glfw.h>
 	#define _USE_MATH_DEFINES
 #endif
 

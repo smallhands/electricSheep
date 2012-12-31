@@ -8,29 +8,63 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="source\fragment-shader.txt">
+    <ClCompile Include="..\..\electricSheep.cpp">
       <Filter>source</Filter>
-    </None>
-    <None Include="source\vertex-shader.txt">
+    </ClCompile>
+    <ClCompile Include="..\..\FileUtils.cpp">
       <Filter>source</Filter>
-    </None>
+    </ClCompile>
+    <ClCompile Include="..\..\GameObject.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Model.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pc-PathUtils.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\shaderUtilities.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Voxel.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CubeModel.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\desktopLauncher-glfw.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\main.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Program.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Shader.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="source\Program.h">
+    <ClInclude Include="..\..\electricsheep.h">
       <Filter>source</Filter>
     </ClInclude>
-    <ClInclude Include="source\Shader.h">
+    <ClInclude Include="..\..\FileUtils.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameObject.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GLIncludes.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Model.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Path_C_Interface.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\PathUtils.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shaderUtilities.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Voxel.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CubeModel.h">
       <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>

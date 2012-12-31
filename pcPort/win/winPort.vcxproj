@@ -12,7 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\CubeModel.cpp" />
-    <ClCompile Include="..\..\desktopLauncher.cpp" />
+    <ClCompile Include="..\..\desktopLauncher-glfw.cpp" />
     <ClCompile Include="..\..\electricSheep.cpp" />
     <ClCompile Include="..\..\FileUtils.cpp" />
     <ClCompile Include="..\..\GameObject.cpp" />
@@ -27,7 +27,6 @@
     <ClInclude Include="..\..\FileUtils.h" />
     <ClInclude Include="..\..\GameObject.h" />
     <ClInclude Include="..\..\GLIncludes.h" />
-    <ClInclude Include="..\..\glm\glm.hpp" />
     <ClInclude Include="..\..\Model.h" />
     <ClInclude Include="..\..\PathUtils.h" />
     <ClInclude Include="..\..\Path_C_Interface.h" />
@@ -37,7 +36,6 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{39E0D9AD-3960-4FB6-8BFE-C520DB242ED0}</ProjectGuid>
     <RootNamespace>My01_project_skeleton</RootNamespace>
-    <ProjectName>electricSheep</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -64,7 +62,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)thirdparty\glew-1.9.0\include;$(ProjectDir)thirdparty\glfw-2.7.7\include;$(ProjectDir)thirdparty\glm-0.9.4.0;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\..\;$(ProjectDir)thirdparty\glew-1.9.0\include;$(ProjectDir)thirdparty\glfw-2.7.7\include;$(ProjectDir)thirdparty\glm-0.9.4.0;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)thirdparty\glew-1.9.0\lib;$(ProjectDir)thirdparty\glfw-2.7.7\lib-msvc100;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -79,13 +77,13 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>GLFW.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y ..\..\resources\shaders\*.glsl $(OutDir)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>copy shaders to output dir</Message>
+      <Message>Copy shaders into same directory as executable</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
