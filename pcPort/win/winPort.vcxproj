@@ -28,10 +28,13 @@
     <ClInclude Include="..\..\GameObject.h" />
     <ClInclude Include="..\..\GLIncludes.h" />
     <ClInclude Include="..\..\Model.h" />
-    <ClInclude Include="..\..\PathUtils.h" />
     <ClInclude Include="..\..\Path_C_Interface.h" />
     <ClInclude Include="..\..\shaderUtilities.h" />
     <ClInclude Include="..\..\Voxel.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\resources\shaders\fragment.glsl" />
+    <None Include="..\..\resources\shaders\vertex.glsl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{39E0D9AD-3960-4FB6-8BFE-C520DB242ED0}</ProjectGuid>

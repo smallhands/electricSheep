@@ -1,3 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\electricSheep.cpp">
+      <Filter>source\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\FileUtils.cpp">
+      <Filter>source\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameObject.cpp">
+      <Filter>source\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Model.cpp">
+      <Filter>source\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pc-PathUtils.cpp">
+      <Filter>source\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\shaderUtilities.cpp">
+      <Filter>source\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CubeModel.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Voxel.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\desktopLauncher-glfw.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\electricsheep.h">
+      <Filter>source\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\FileUtils.h">
+      <Filter>source\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameObject.h">
+      <Filter>source\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GLIncludes.h">
+      <Filter>source\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Model.h">
+      <Filter>source\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Path_C_Interface.h">
+      <Filter>source\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shaderUtilities.h">
+      <Filter>source\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CubeModel.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Voxel.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{05df91a2-f0c7-465c-9dd6-e8fd80bff59a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\engine">
+      <UniqueIdentifier>{1a02ee92-1ca4-4b9d-a3ff-213c9468523d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{0c0399d2-0c72-4833-9663-7f21d39faea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources\shaders">
+      <UniqueIdentifier>{7069dae3-f4b1-4f45-a242-85b95a52ccc6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\resources\shaders\fragment.glsl">
+      <Filter>resources\shaders</Filter>
+    </None>
+    <None Include="..\..\resources\shaders\vertex.glsl">
+      <Filter>resources\shaders</Filter>
+    </None>
+  </ItemGroup>
 </Project>
