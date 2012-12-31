@@ -33,13 +33,16 @@ void reshape(int newWindowWidth, int newWindowHeight)
     _electricSheepEngine->reshape(newWindowWidth, newWindowHeight);
 }
 
+double lastTime = 0;
+
 void update()
 {
-	GLfloat timeElapsed = 0;
-#pragma message ("TODO: [GLFW] Find way to get elapsed time in GLFW")
-    //timeElapsed = glutGet(GLUT_ELAPSED_TIME);
+	double now = glfwGetTime();
+	double timeElapsed = now - lastTime;
     
     _electricSheepEngine->update(timeElapsed);
+
+	lastTime = glfwGetTime();
 }
 
 // the program starts here
