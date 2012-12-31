@@ -25,7 +25,7 @@
     <ClCompile Include="..\..\Voxel.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\desktopLauncher-glfw.cpp" />
+    <ClCompile Include="..\..\desktopLauncher.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\electricsheep.h">

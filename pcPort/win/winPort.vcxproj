@@ -12,7 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\CubeModel.cpp" />
-    <ClCompile Include="..\..\desktopLauncher-glfw.cpp" />
+    <ClCompile Include="..\..\desktopLauncher.cpp" />
     <ClCompile Include="..\..\electricSheep.cpp" />
     <ClCompile Include="..\..\FileUtils.cpp" />
     <ClCompile Include="..\..\GameObject.cpp" />
