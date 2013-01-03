@@ -21,6 +21,10 @@
 		5755E4A01687763800AFA4B3 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E49E1687763800AFA4B3 /* Model.cpp */; };
 		5755E4A21687765200AFA4B3 /* pc-PathUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E4A11687765200AFA4B3 /* pc-PathUtils.cpp */; };
 		5755E4B91688872100AFA4B3 /* desktopLauncher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5755E4B81688872100AFA4B3 /* desktopLauncher.cpp */; };
+		577F20AC1695C9C10086125B /* libglfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 577F20AB1695C9C10086125B /* libglfw.a */; };
+		577F20B21695CC8D0086125B /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 577F20B11695CC8D0086125B /* libGLEW.a */; };
+		577F20B81695CCB90086125B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577F20B71695CCB90086125B /* Cocoa.framework */; };
+		577F20BA1695CCC90086125B /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577F20B91695CCC90086125B /* IOKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,6 +68,12 @@
 		5755E49E1687763800AFA4B3 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = ../../Model.cpp; sourceTree = "<group>"; };
 		5755E4A11687765200AFA4B3 /* pc-PathUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "pc-PathUtils.cpp"; path = "../../../pc-PathUtils.cpp"; sourceTree = "<group>"; };
 		5755E4B81688872100AFA4B3 /* desktopLauncher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = desktopLauncher.cpp; path = ../../../desktopLauncher.cpp; sourceTree = "<group>"; };
+		577F20A91695C9800086125B /* glew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glew.h; path = "../thirdparty/glew-1.9.0/include/GL/glew.h"; sourceTree = "<group>"; };
+		577F20AA1695C98F0086125B /* glfw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glfw.h; path = "../thirdparty/glfw-2.7.7/include/GL/glfw.h"; sourceTree = "<group>"; };
+		577F20AB1695C9C10086125B /* libglfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw.a; path = "../thirdparty/glfw-2.7.7/libglfw.a"; sourceTree = "<group>"; };
+		577F20B11695CC8D0086125B /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = "../thirdparty/glew-1.9.0/libGLEW.a"; sourceTree = "<group>"; };
+		577F20B71695CCB90086125B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		577F20B91695CCC90086125B /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +81,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577F20BA1695CCC90086125B /* IOKit.framework in Frameworks */,
+				577F20B81695CCB90086125B /* Cocoa.framework in Frameworks */,
 				5755E43E1687423700AFA4B3 /* GLUT.framework in Frameworks */,
 				5755E43C1687423100AFA4B3 /* OpenGL.framework in Frameworks */,
+				577F20AC1695C9C10086125B /* libglfw.a in Frameworks */,
+				577F20B21695CC8D0086125B /* libGLEW.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +125,10 @@
 		5755E43A1687422000AFA4B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				577F20B11695CC8D0086125B /* libGLEW.a */,
+				577F20AB1695C9C10086125B /* libglfw.a */,
+				577F20B91695CCC90086125B /* IOKit.framework */,
+				577F20B71695CCB90086125B /* Cocoa.framework */,
 				5755E43D1687423700AFA4B3 /* GLUT.framework */,
 				5755E43B1687423100AFA4B3 /* OpenGL.framework */,
 			);
@@ -120,9 +138,9 @@
 		5755E43F1687425A00AFA4B3 /* engine */ = {
 			isa = PBXGroup;
 			children = (
+				577F20A81695C9570086125B /* thirdParty */,
 				5755E4941687761E00AFA4B3 /* gameObjects */,
 				5755E4931687761A00AFA4B3 /* models */,
-				5755E4401687426B00AFA4B3 /* glm.hpp */,
 				5755E4411687426B00AFA4B3 /* electricSheep.h */,
 				5755E4421687426B00AFA4B3 /* electricSheep.cpp */,
 				5755E4431687426B00AFA4B3 /* shaderUtilities.h */,
@@ -172,6 +190,16 @@
 				5755E4981687762E00AFA4B3 /* GameObject.h */,
 			);
 			name = gameObjects;
+			sourceTree = "<group>";
+		};
+		577F20A81695C9570086125B /* thirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				577F20A91695C9800086125B /* glew.h */,
+				5755E4401687426B00AFA4B3 /* glm.hpp */,
+				577F20AA1695C98F0086125B /* glfw.h */,
+			);
+			name = thirdParty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +324,12 @@
 		5755E4361687420000AFA4B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Downloads/opengl-series-master/osx/01_project_skeleton/thirdparty/glfw\"",
+					"\"$(SRCROOT)/../thirdparty/glfw-2.7.7\"",
+					"\"$(SRCROOT)/../thirdparty/glew-1.9.0\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -303,6 +337,12 @@
 		5755E4371687420000AFA4B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Downloads/opengl-series-master/osx/01_project_skeleton/thirdparty/glfw\"",
+					"\"$(SRCROOT)/../thirdparty/glfw-2.7.7\"",
+					"\"$(SRCROOT)/../thirdparty/glew-1.9.0\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -55,7 +55,7 @@ void AppMain() {
 	glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, OPENGL_VERSION_MAJOR);
 	glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, OPENGL_VERSION_MINOR);
     glfwOpenWindowHint(GLFW_WINDOW_NO_RESIZE, GL_TRUE);
-	if(!glfwOpenWindow((int)DEFAULT_WINDOW_WIDTH, (int)DEFAULT_WINDOW_HEIGHT, 8, 8, 8, 8, 0, 0, GLFW_WINDOW)) {
+	if(!glfwOpenWindow((int)DEFAULT_WINDOW_WIDTH, (int)DEFAULT_WINDOW_HEIGHT, 8, 8, 8, 8, 8, 8, GLFW_WINDOW)) {
 		auto errorString = std::string("glfwOpenWindow failed. Can your hardware handle OpenGL ");
 		errorString += OPENGL_VERSION_MAJOR + "." + OPENGL_VERSION_MINOR;
 		throw std::runtime_error(errorString);
